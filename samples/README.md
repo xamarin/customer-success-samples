@@ -1,13 +1,13 @@
 Products
 =======
 
-Additional samples for
+Additional samples for:
 
-*Xamarin.iOS
+* Xamarin.iOS
 
-*Xamarin.Android
+* Xamarin.Android
 
-*Xamarin.Forms
+* Xamarin.Forms
 
 Sample Requirements
 ====
