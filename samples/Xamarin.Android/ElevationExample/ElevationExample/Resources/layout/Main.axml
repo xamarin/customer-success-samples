@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:padding="20dp">
+<!--Mike, notice that I set "android:background" to a drawable. Namely "@drawable/orange_rect"
+    which I defined in my Resource > Drawable folder. p.s. You look great on an orange backdrop. -->
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/watson_head_circle"
+        android:elevation="8dp"
+        android:background="@drawable/orange_rect"
+        android:layout_gravity="center"
+        android:padding="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_gravity="center" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/watson_head_circle"
+        android:elevation="12dp"
+        android:background="@drawable/orange_rect"
+        android:layout_gravity="center"
+        android:padding="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12dp"
+        android:padding="12dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_gravity="center" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/watson_head_circle"
+        android:elevation="16dp"
+        android:background="@drawable/orange_rect"
+        android:layout_gravity="center"
+        android:padding="16dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16dp"
+        android:padding="8dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_gravity="center" />
+</LinearLayout>
