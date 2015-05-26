@@ -9,7 +9,7 @@ An iOS Binding and Sample Project for [Socket Mobile's Scan API](http://www.sock
 - arm64
 
 ## Screenshots
-![screenshot](https://github.com/xamarin/customersuccess/tree/master/samples/Xamarin.iOS/ScanAPI-Binding/Screenshots/1.png "Xamarin.iOS, Swipe Left")
+![screenshot](https://github.com/xamarin/customersuccess/blob/master/samples/Xamarin.iOS/ScanAPI-Binding/Screenshots/1.png)
 
 Xamarin.iOS Version
 ---------------------
