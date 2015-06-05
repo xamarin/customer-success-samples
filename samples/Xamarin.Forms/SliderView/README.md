@@ -69,7 +69,7 @@ Test Script Scenarios:
 I chose to run them on various Android devices with varying screen sizes and pixel densities. Below are the devices used for this test:
 
 |Devices			   |Android Version	|Resolution (pixels)|PPI
-|---------------------------------------------||HTC Desire C		   |4.0.3	|320 x 480	|165||Nokia X Dual Sim	   |4.1.2	|480 x 800	|233||HTC One S			   |4.1.1	|540 x 960	|256||Samsung Galxy Note II|4.3		|720 x 1280	|267||Amazon Fire Phone	   |4.2.2	|720 x 1280	|312||LG Nexus 4			   |4.4.2	|768 x 1280	|318||Samsung Galaxy S4    |4.3		|1080 x 1920|441||LG Nexus 5			   |4.4		|1080 x 1920|445|
+|---------------------|--------|-----------|--||HTC Desire C		   |4.0.3	|320 x 480	|165||Nokia X Dual Sim	   |4.1.2	|480 x 800	|233||HTC One S			   |4.1.1	|540 x 960	|256||Samsung Galxy Note II|4.3		|720 x 1280	|267||Amazon Fire Phone	   |4.2.2	|720 x 1280	|312||LG Nexus 4			   |4.4.2	|768 x 1280	|318||Samsung Galaxy S4    |4.3		|1080 x 1920|441||LG Nexus 5			   |4.4		|1080 x 1920|445|
 
 
 Below are the results:
