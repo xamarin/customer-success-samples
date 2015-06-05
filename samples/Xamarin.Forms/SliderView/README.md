@@ -74,7 +74,7 @@ I chose to run them on various Android devices with varying screen sizes and pix
 
 Below are the results:
 
-![SliderView Xamarin Test Cloud Results](chart.png)
+![SliderView Xamarin Test Cloud Results](Chart.png)
 From the results of the tests, we can see there were **HUGE** performance differences just from doing a litle bit of work with the image sizes. 7 of the 8 devices crashed while swiping through the SliderView from OutOfMemoryExceptions. After I resized the images to the 1080 pixel width, only the Samsung Galaxy Note II crashed. All of the other devices had problems with their memory. 
 
 Two main take aways from SliderView
