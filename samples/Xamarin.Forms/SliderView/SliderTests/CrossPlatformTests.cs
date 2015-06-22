@@ -49,16 +49,7 @@ namespace SliderTests
 			app.SwipeRight (leftX, rightX, swipeY, "Swipe to first view");
 
 			app.Back ();
-			app.Screenshot ("Back to landing page, memory should be released");
-			app.WaitForThenTap (x => x.Text ("Click"),"Navigate to SliderView Page");
-
-			app.Back ();
-			app.Screenshot ("Back to landing page, memory should be released");
-			app.WaitForThenTap (x => x.Text ("Click"),"Navigate to SliderView Page");
-
-			app.Back ();
-			app.Screenshot ("Back to landing page, memory should be released");
-			app.WaitForThenTap (x => x.Text ("Click"),"Navigate to SliderView Page");
+			app.Screenshot ("Back to landing page");
 		}
 	}
 }

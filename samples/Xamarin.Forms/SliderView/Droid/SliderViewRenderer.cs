@@ -14,26 +14,21 @@ using AndroidView = Android.Views.View;
 
 namespace Slider.Droid
 {
-	public class SliderViewRenderer : ViewRenderer <SliderView,AndroidView>
+	public class SliderViewRenderer : ViewRenderer <SliderView,AndroidView>, GestureDetector.IOnGestureListener
 	{
 		//Create a listener and detector for the gestures
-		private readonly GesutreListener _listener;
 		private readonly GestureDetector _detector;
 
 		//Create two x points to find out if the swipe was to the left or to the right
-		private float x1,x2;
+		private float _lastOnDownX;
 
 		//Create a holder for the SliderView to be used in the Renderer
 		SliderView _sliderView;
 
-		//Start off at the index of 0 in views
-		int currentViewIndex = 0;
-
 		public SliderViewRenderer ()
 		{
 			//Contruct the listener and detector
-			_listener = new GesutreListener();
-			_detector = new GestureDetector (_listener);
+			_detector = new GestureDetector (Forms.Context, this);
 		}
 
 		protected override void OnElementChanged (ElementChangedEventArgs<SliderView> e)
@@ -42,101 +37,101 @@ namespace Slider.Droid
 
 			//Assign the Touch event of the SliderView
 			if (e.OldElement == null) {
-				Touch += HandleGenericMotion;
-				//set instance of the current SliderView
 				_sliderView = (PCL.SliderView)e.NewElement;
+				_sliderView.AddDotLayoutToViewScreen ();
+				_sliderView.IsInitialized = true;
+
 			}
+		}
+
+		public override bool OnInterceptTouchEvent (MotionEvent ev)
+		{
+			ViewConfiguration vc = ViewConfiguration.Get(Forms.Context);
+			int mSlop = vc.ScaledTouchSlop;           
+			switch (ev.ActionMasked)
+			{               
+
+			case MotionEventActions.Move:                   
+				float deltaX = ev.RawX - _lastOnDownX;
+				if (Math.Abs (deltaX) > mSlop) {
+					return true;
+				} else {
+					return false;
+				}
+			case MotionEventActions.Down:
+				_lastOnDownX = ev.GetX();
+				return false;
+			}
+			return false;
+		}
+
+		public override bool OnTouchEvent(MotionEvent e)
+		{
+			return _detector.OnTouchEvent(e);
+		}
+
+		public bool OnFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
+		{
+			Console.WriteLine("Renderer: Fling");
+
+			if (_lastOnDownX - e2.GetX() > _sliderView.MinimumSwipeDistance)
+			{
+				// right to left swipe                
+				Console.WriteLine("right to left swipe");
+				HandleRightToLeftSwipeAsync();
+				return true;
+
+			}
+			if (e2.GetX() - _lastOnDownX > _sliderView.MinimumSwipeDistance)
+			{
+				// left to right swipe
+				Console.WriteLine(" left to right swipe");
+				HandleLeftToRightSwipeAsync ();
+				return true;
+
+			}
+			return false;
 		}
 
 		protected override void Dispose (bool disposing)
 		{
 			base.Dispose (disposing);
-			//If CurrentView is a Layout, then we need to remove the Touch event
-			if (_sliderView.CurrentView is Layout) {
-				//This viewgroup contains the ViewScreen that we need to get at child 0
-				ViewGroup view = (ViewGroup)this.ViewGroup.GetChildAt (0);
-				//view contains the Layout that is in the ViewScreen at child 0
-				Android.Views.View currentLayout = (ViewGroup)view.GetChildAt (0);
-				//Remove touch event
-				currentLayout.Touch -= HandleGenericMotion;
-			}
-			//When disposing, remove the gesture detector
-			Touch -= HandleGenericMotion;
 			//Call the garbage collection to make sure the BitMaps are cleaned up
 			GC.Collect ();
 		}
 
-		async void HandleGenericMotion (object sender, TouchEventArgs e)
+		async Task HandleLeftToRightSwipeAsync()
 		{
-			//This assignes the detectors touch event
-			_detector.OnTouchEvent (e.Event);
+			if (_sliderView.CurrentViewInt != 0) {
+				//Drop the index one
+				_sliderView.CurrentViewInt--;
+				//Set the new CurrentView
+				_sliderView.CurrentView = _sliderView.Children [_sliderView.CurrentViewInt];
+				//Now add and wait for the view to translate in. Important to use await so the view is translated prior to removing the old view
+				bool loading = await TranslateToCurrentViewAsync ("Right");
 
-			//We want to test the down and up actions from the TouchEventArgs
-			switch (e.Event.Action) {
+				_sliderView.ViewScreen.Children.Remove (_sliderView.Children [_sliderView.CurrentViewInt + 1]);
+			}
+		}
 
-			//If action is Down, then we set the x1 value and break
-			case MotionEventActions.Down:
-				x1 = e.Event.GetX ();
-				break;
-			//If action is Up, then we set the x2 and caluclate whether it was a swipe left or right AND swipe was greater then MinimumSwipeDistance
-			case MotionEventActions.Up:
-				x2 = e.Event.GetX ();
-				float delta = x2 - x1;
-				if (Math.Abs (delta) > _sliderView.MinimumSwipeDistance) {
-					if (delta > 0) {
-						Console.WriteLine ("Swipe to the Right");
-						//Check to make sure we aren't at the first view
-						if (currentViewIndex != 0) {
-							//Drop the index one
-							currentViewIndex--;
-							//Set the new CurrentView
-							_sliderView.CurrentView = _sliderView.Children [currentViewIndex];
-							//Now add and wait for the view to translate in. Important to use await so the view is translated prior to removing the old view
-							bool loading = await TranslateToCurrentViewAsync ("Right");
+		async Task HandleRightToLeftSwipeAsync()
+		{
+			if (_sliderView.Children.Count > _sliderView.CurrentViewInt + 1) {
+				//Add one to the index
+				_sliderView.CurrentViewInt++;
+				//Set the new CurrentView
+				_sliderView.CurrentView = _sliderView.Children [_sliderView.CurrentViewInt];
+				//Now add and wait for the view to translate in. Important to use await so the view is translated prior to removing the old view
+				bool loading = await TranslateToCurrentViewAsync("Left");
 
-							//If the view is a layout, we need to remove the touch even
-							if (_sliderView.Children [currentViewIndex + 1] is Layout) {
-								//This viewgroup contains the ViewScreen that we need to get at child 0
-								ViewGroup view = (ViewGroup)this.ViewGroup.GetChildAt (0);
-								//view contains the Layout that is in the ViewScreen at child 0
-								Android.Views.View currentLayout = (ViewGroup)view.GetChildAt (0);
-								//Remove touch event
-								currentLayout.Touch -= HandleGenericMotion;
-							}
-							//Remove the old view from the back of the ViewScreen
-							_sliderView.ViewScreen.Children.Remove (_sliderView.Children [currentViewIndex + 1]);
-						}
-					} else if (delta < 0) {
-						Console.WriteLine ("Swipe to the Left");
-						//Check to make sure we aren't on the current view
-						if (_sliderView.Children.Count > currentViewIndex + 1) {
-							//Add one to the index
-							currentViewIndex++;
-							//Set the new CurrentView
-							_sliderView.CurrentView = _sliderView.Children [currentViewIndex];
-							//Now add and wait for the view to translate in. Important to use await so the view is translated prior to removing the old view
-							bool loading = await TranslateToCurrentViewAsync("Left");
+				_sliderView.ViewScreen.Children.Remove (_sliderView.Children [_sliderView.CurrentViewInt - 1]);
 
-							//If the view is a layout, we need to remove the touch even so there are no memory leaks
-							if (_sliderView.Children [currentViewIndex - 1] is Layout) {
-								//This viewgroup contains the ViewScreen that we need to get at child 0
-								ViewGroup view = (ViewGroup)this.ViewGroup.GetChildAt (0);
-								//view contains the Layout that is in the ViewScreen at child 0
-								Android.Views.View currentLayout = (ViewGroup)view.GetChildAt (0);
-								//Remove touch event
-								currentLayout.Touch -= HandleGenericMotion;
-							}
-							//Remove the old view from the back of the ViewScreen
-							_sliderView.ViewScreen.Children.Remove (_sliderView.Children [currentViewIndex - 1]);
-						}
-					}
-				}
-				break;
 			}
 		}
 
 		public async Task<bool> TranslateToCurrentViewAsync(string direction)
 		{
+			Console.WriteLine ("Enter Translate Async");
 			//Create the initial layout for Translation property
 			Rectangle initialLayoutRect = new Rectangle (
 				0,
@@ -148,25 +143,6 @@ namespace Slider.Droid
 			//It could be utilized for errors if you want to build this out more
 			bool error = false;
 
-			//Calculate the rectangle that will be used for the new dot layout
-			Rectangle dotRect = new Rectangle (
-				x: _sliderView.ViewScreen.Width / 2 - (_sliderView.DotStack.Children.Count * 15) / 2,
-				y: _sliderView.ViewScreen.Height - 15,
-				width: _sliderView.DotStack.Children.Count * 15,
-				height: 10
-			);
-
-			//Remove and update the dot Layout
-			_sliderView.ViewScreen.Children.Remove (_sliderView.DotStack);
-			_sliderView.UpdateDots ();
-
-			//Make sure the opacity is 0.5 for all of the dots and 1 for the current view
-			foreach (Button dot in _sliderView.DotStack.Children) {
-				dot.Opacity = 0.5;
-				if(dot.StyleId == currentViewIndex.ToString())
-					dot.Opacity = 1;
-			}
-
 			//Depending on the swiping direction...
 			switch (direction) {
 			case "Right":
@@ -174,39 +150,51 @@ namespace Slider.Droid
 				//SliderView was designed to take up the entire width of the page so the layout will be off screen to the left
 				initialLayoutRect.X = -_sliderView.ParentView.Width;
 
+				_sliderView.RemoveDotLayoutFromViewScreen ();
 				//Add the CurrentView to the ViewScreen, but it is still off screen
 				_sliderView.ViewScreen.Children.Add (_sliderView.CurrentView, initialLayoutRect);
 				//Add the dotLayout after the current view to make sure it is visible
-				_sliderView.ViewScreen.Children.Add (_sliderView.DotStack, dotRect);
+				_sliderView.RefreshDotOpacity ();
+				_sliderView.AddDotLayoutToViewScreen ();
 
 				//Translate the currentview into ViewScreen. CurrentView is now on screen
 				error = await _sliderView.CurrentView.TranslateTo (_sliderView.ParentView.Width, 0, _sliderView.TransitionLength);
 				break;
 			case "Left":
 				//Set the X value of the new CurrentView. 
-				//SliderView was designed to take up the entire width of the page so the layout will be off screen to the right
+                                                                                                                   				//SliderView was designed to take up the entire width of the page so the layout will be off screen to the right
 				initialLayoutRect.X = _sliderView.ParentView.Width;
 
+				_sliderView.RemoveDotLayoutFromViewScreen ();
 				//Add the CurrentView to the ViewScreen, but it is still off screen
 				_sliderView.ViewScreen.Children.Add (_sliderView.CurrentView, initialLayoutRect);
 				//Add the dotLayout after the current view to make sure it is visible
-				_sliderView.ViewScreen.Children.Add (_sliderView.DotStack, dotRect);
+				_sliderView.RefreshDotOpacity ();
+				_sliderView.AddDotLayoutToViewScreen ();
 
 				//Translate the currentview into ViewScreen. CurrentView is now on screen
-				error = await _sliderView.CurrentView.TranslateTo (-_sliderView.ParentView.Width , 0, _sliderView.TransitionLength);
+				error = await _sliderView.CurrentView.TranslateTo (-_sliderView.ParentView.Width, 0, _sliderView.TransitionLength);
 				break;
 			}
 
-			//If the CurrentView is a Layout, we need to add the same Touch event to this
-			//We need to do this because the Layout covers up the Touch even on the ViewScreen
-			//Don't worry, we also remove this event handler if the old currentView is a Layout so there is no memory leaks
-			if (_sliderView.CurrentView is Layout) {
-				ViewGroup view = (ViewGroup)this.ViewGroup.GetChildAt (0);
-				Android.Views.View currentLayout = (ViewGroup)view.GetChildAt (1);
-				currentLayout.Touch += HandleGenericMotion;
-			}
-
 			return error;
+		}
+
+		public void OnLongPress(MotionEvent e){}
+
+		public bool OnScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY)
+		{
+			return false;
+		}
+
+		public void OnShowPress(MotionEvent e){}
+		public bool OnSingleTapUp(MotionEvent e)
+		{
+			return false;
+		}
+		public bool OnDown(MotionEvent e)
+		{
+			return true;
 		}
 	}
 }

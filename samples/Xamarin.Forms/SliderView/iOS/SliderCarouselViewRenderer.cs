@@ -18,9 +18,6 @@ namespace Slider.iOS
 		//Create a holder for the SliderView to be used in the Renderer
 		SliderView _sliderView;
 
-		//Start off at the index of 0 in views
-		int currentViewIndex = 0;
-
 		//Create a holder for the swipe gesture recognizer
 		UISwipeGestureRecognizer rightGesture, leftGesture;
 
@@ -32,21 +29,21 @@ namespace Slider.iOS
 				//Set SliderView Instance
 				_sliderView = e.NewElement as SliderView;
 				//Make the currentView the same dimensions of the SliderView
-				_sliderView.Children [currentViewIndex].HeightRequest = _sliderView.Height;
-				_sliderView.Children [currentViewIndex].WidthRequest = _sliderView.Width;
+				_sliderView.Children [_sliderView.CurrentViewInt].HeightRequest = _sliderView.Height;
+				_sliderView.Children [_sliderView.CurrentViewInt].WidthRequest = _sliderView.Width;
 				//This is an optional thing, really depends on how you want to use this SliderView
-				_sliderView.Children [currentViewIndex].BackgroundColor = _sliderView.BackgroundColor;
+				_sliderView.Children [_sliderView.CurrentViewInt].BackgroundColor = _sliderView.BackgroundColor;
 			}
 
 			//Create the gesture that brings the view in from the right side
 			rightGesture = new UISwipeGestureRecognizer (swipe => {
 				Console.WriteLine("Swipe Left");
 				//Check to make sure we aren't on the current view
-				if (_sliderView.Children.Count > currentViewIndex + 1 ) {
+				if (_sliderView.Children.Count > _sliderView.CurrentViewInt + 1 ) {
 					//Add one to the index
-					currentViewIndex++;
+					_sliderView.CurrentViewInt++;
 
-					_sliderView.CurrentView = _sliderView.Children [currentViewIndex];
+					_sliderView.CurrentView = _sliderView.Children [_sliderView.CurrentViewInt];
 					_sliderView.CurrentView.HeightRequest = _sliderView.Height;
 					_sliderView.CurrentView.WidthRequest = _sliderView.Width;
 					_sliderView.CurrentView.BackgroundColor = _sliderView.BackgroundColor;
@@ -61,12 +58,12 @@ namespace Slider.iOS
 			//Create the gesture that brings the view in from the left side
 			leftGesture = new UISwipeGestureRecognizer (swipe => {
 				//Check to make sure we aren't at the first view
-				if (currentViewIndex != 0) {
+				if (_sliderView.CurrentViewInt != 0) {
 					//Drop the index one
-					currentViewIndex--;
+					_sliderView.CurrentViewInt--;
 
 					//Set the new CurrentView
-					_sliderView.CurrentView = _sliderView.Children [currentViewIndex];
+					_sliderView.CurrentView = _sliderView.Children [_sliderView.CurrentViewInt];
 					//Set the size of the CurrentView to the size of the SliderView
 					_sliderView.CurrentView.HeightRequest = _sliderView.Height;
 					_sliderView.CurrentView.WidthRequest = _sliderView.Width;
@@ -104,24 +101,9 @@ namespace Slider.iOS
 				_sliderView.Height
 			);
 
-			//Calculate the rectangle that will be used for the new dot layout
-			Rectangle dotRect = new Rectangle (
-				x: _sliderView.ViewScreen.Width / 2 - (_sliderView.DotStack.Children.Count * 15) / 2,
-				y: _sliderView.ViewScreen.Height - 15,
-				width: _sliderView.DotStack.Children.Count * 15,
-				height: 10
-			);
-
 			//Remove and update the dot Layout
-			_sliderView.ViewScreen.Children.Remove (_sliderView.DotStack);
-			_sliderView.UpdateDots ();
-
-			//Make sure the opacity is 0.5 for all of the dots and 1 for the current view
-			foreach (Button dot in _sliderView.DotStack.Children) {
-				dot.Opacity = 0.5;
-				if (dot.StyleId == currentViewIndex.ToString ())
-					dot.Opacity = 1;
-			}
+			_sliderView.RemoveDotLayoutFromViewScreen();
+			_sliderView.RefreshDotOpacity ();
 
 			//Depending on the swiping direction...
 			switch (direction) {
@@ -133,12 +115,12 @@ namespace Slider.iOS
 				//Add the CurrentView to the ViewScreen, but it is still off screen
 				_sliderView.ViewScreen.Children.Add (_sliderView.CurrentView, initialLayoutRect);
 				//Add the dotLayout after the current view to make sure it is visible
-				_sliderView.ViewScreen.Children.Add (_sliderView.DotStack, dotRect);
+				_sliderView.AddDotLayoutToViewScreen();
 
 				//Translate the currentview into ViewScreen. CurrentView is now on screen
 				await _sliderView.CurrentView.TranslateTo (_sliderView.ParentView.Width , 0, _sliderView.TransitionLength);
 				//Remove the old view from the back of the ViewScreen
-				_sliderView.ViewScreen.Children.Remove (_sliderView.Children [currentViewIndex + 1]);
+				_sliderView.ViewScreen.Children.Remove (_sliderView.Children [_sliderView.CurrentViewInt + 1]);
 			
 				break;
 			case "Left":
@@ -149,12 +131,12 @@ namespace Slider.iOS
 				//Add the CurrentView to the ViewScreen, but it is still off screen
 				_sliderView.ViewScreen.Children.Add (_sliderView.CurrentView, initialLayoutRect);
 				//Add the dotLayout after the current view to make sure it is visible
-				_sliderView.ViewScreen.Children.Add (_sliderView.DotStack, dotRect);
+				_sliderView.AddDotLayoutToViewScreen();
 
 				//Translate the currentview into ViewScreen. CurrentView is now on screen
 				await _sliderView.CurrentView.TranslateTo (-_sliderView.ParentView.Width , 0, _sliderView.TransitionLength);
 				//Remove the old view from the back of the ViewScreen
-				_sliderView.ViewScreen.Children.Remove (_sliderView.Children [currentViewIndex - 1]);
+				_sliderView.ViewScreen.Children.Remove (_sliderView.Children [_sliderView.CurrentViewInt - 1]);
 
 				break;
 			}

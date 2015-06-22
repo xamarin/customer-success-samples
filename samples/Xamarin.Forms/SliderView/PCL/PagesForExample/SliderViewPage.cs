@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 
@@ -28,7 +29,7 @@ namespace PCL
 				BackgroundColor = Color.Gray,
 				TransitionLength = 200,
 				StyleId = "SliderView",
-				MinimumSwipeDistance = 50
+				MinimumSwipeDistance = 50,
 			};
 
 			//Create a button to add items to the Slider
@@ -48,6 +49,7 @@ namespace PCL
 			Button removeChildrenButton = new Button { Text = "Remove View" };
 			removeChildrenButton.Clicked += (object sender, EventArgs e) => {
 				slider.Children.RemoveAt(slider.Children.Count-1);
+				slider.UpdateDots(-1);
 			};
 
 			//Add the views to the slider
