@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedUser.DataAccessLayer", "AdvancedUser.DataAccessLayer\AdvancedUser.DataAccessLayer.csproj", "{DCF2B918-B831-422E-8615-A12C4494C79F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedUser.BusinessLogicLayer", "..\..\..\AdvancedUser\AdvancedUser.Data\AdvancedUser.BusinessLogicLayer.csproj", "{820340C5-C299-475A-BD37-32BA0D9FDACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedUser.Infrastructure", "..\..\..\AdvancedUser\AdvancedUser.Infrastructure\AdvancedUser.Infrastructure.csproj", "{AA3DDFBB-E53E-456B-9738-D6C94CBACD07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{820340C5-C299-475A-BD37-32BA0D9FDACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820340C5-C299-475A-BD37-32BA0D9FDACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820340C5-C299-475A-BD37-32BA0D9FDACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820340C5-C299-475A-BD37-32BA0D9FDACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3DDFBB-E53E-456B-9738-D6C94CBACD07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3DDFBB-E53E-456B-9738-D6C94CBACD07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3DDFBB-E53E-456B-9738-D6C94CBACD07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3DDFBB-E53E-456B-9738-D6C94CBACD07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF2B918-B831-422E-8615-A12C4494C79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF2B918-B831-422E-8615-A12C4494C79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF2B918-B831-422E-8615-A12C4494C79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF2B918-B831-422E-8615-A12C4494C79F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
