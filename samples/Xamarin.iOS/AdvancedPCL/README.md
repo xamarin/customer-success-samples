@@ -5,7 +5,7 @@ This sample demonstrates the Advanced PCL / Bait and Switch technique through th
 ## About
 The Bait and Switch PCL Trick is fully documented by Paul Betts. I urge anyone new to this to read his [blog post](http://log.paulbetts.org/the-bait-and-switch-pcl-trick/) before continuing.
 #Screenshot
-![screenshot](https://github.com/xamarin/customersuccess/blob/AdvancedPCL/samples/Xamarin.iOS/AdvancedPCL/AdvancedUser/Screenshot/1.png "Xamarin.iOS, Bait and Switch")
+![screenshot](https://github.com/xamarin/customer-success/blob/AdvancedPCL/samples/Xamarin.iOS/AdvancedPCL/Screenshot/1.png "Xamarin.iOS, Bait and Switch")
 
 Xamarin.iOS Version
 ---------------------
