@@ -9,13 +9,13 @@ A key point of this sample is to demonstrate the ability of the PCL client to sp
 
 The iOS project includes a light, commented out, version of a Sqlcipher implementation. The reason for it being commented out is that anyone without the Sqlcipher component can benefit from this sample. The client speaks to the interfaces in the AdvancedUser.Infrastructure class. The implementation of the project works off mock objects in the AdvancedUser.DataAccessLayer.Mocks namespace.
 
-#Screenshots
+#Screenshot
 ![screenshot](https://github.com/xamarin/customer-success/blob/AdvancedPCL/samples/Xamarin.iOS/AdvancedPCL/Screenshot/1.png "Xamarin.iOS, Bait and Switch")
 
 Xamarin.iOS Version
 ---------------------
 This sample was written with [Xamarin.iOS 8.0](http://xamarin.com/platform)
 
-Author
+Authors
 -------
 Jon Davis
