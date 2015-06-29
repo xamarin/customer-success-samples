@@ -7,7 +7,6 @@ Create a draggable view that is similar to Tinder's in Xamarin.iOS.
 
 ## Screenshots
 ![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/TinderesqSwipe/TinderesqSwipe/Screenshots/SwipeLeft.png "Xamarin.iOS, Swipe Left")
-![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/TinderesqSwipe/TinderesqSwipe/Screenshots/Middle.png"Xamarin.iOS, Middle")
 ![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/TinderesqSwipe/TinderesqSwipe/Screenshots/SwipeRight.png "Xamarin.iOS, Swipe Right")
 ## Example
 
