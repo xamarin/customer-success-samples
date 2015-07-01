@@ -9,7 +9,7 @@ As the name of the class suggest, it is the base view controller of our sample c
 ####ViewController.cs
 Inherits from BaseViewController. It is marked as the Initial View Controller in Main.storyboard by the iOS Designer.
 #Screenshot
-![screenshot](https://github.com/xamarin/customersuccess/blob/OnKeyboardAnimation/samples/Xamarin.iOS/OnKeyboardAnimation/Screenshot/1.png "Xamarin.iOS, Keyboard Animation")
+![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/OnKeyboardAnimation/Screenshot/1.png "Xamarin.iOS, Keyboard Animation")
 Xamarin.iOS Version
 ---------------------
 This sample was written with [Xamarin.iOS 8.0](http://xamarin.com/platform)
