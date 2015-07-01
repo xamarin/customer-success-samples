@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnKeyboardAnimation", "OnKeyboardAnimation\OnKeyboardAnimation.csproj", "{74349018-995A-4E7B-91E7-0E98AAB2B5A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Debug|iPhone.Build.0 = Debug|iPhone
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Release|Any CPU.Build.0 = Release|iPhone
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Release|iPhone.ActiveCfg = Release|iPhone
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Release|iPhone.Build.0 = Release|iPhone
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{74349018-995A-4E7B-91E7-0E98AAB2B5A8}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
