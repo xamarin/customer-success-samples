@@ -42,7 +42,7 @@ namespace Slider.Droid
 
 			//Assign the Touch event of the SliderView
 			if (e.OldElement == null) {
-				Touch += HandleGenericMotion;
+				this.Touch += HandleGenericMotion;
 				//set instance of the current SliderView
 				_sliderView = (PCL.SliderView)e.NewElement;
 			}
