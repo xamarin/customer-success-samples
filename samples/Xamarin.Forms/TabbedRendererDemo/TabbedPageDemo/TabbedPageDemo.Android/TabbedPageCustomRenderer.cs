@@ -45,7 +45,6 @@ namespace TabbedPageDemo.Droid
 		protected override void SwitchContent (Page view)
 		{
 			base.SwitchContent (view);
-
 			//Need to remove and add Touch event to make sure it is effective on the top current page
 			ViewGroup.GetChildAt (0).Touch -= HandleGenericMotion;
 			//Need to reset the current index in case user touches tab

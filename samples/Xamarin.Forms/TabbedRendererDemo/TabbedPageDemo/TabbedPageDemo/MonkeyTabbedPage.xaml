@@ -1,4 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ 
+xmlns:local="clr-namespace:TabbedPageDemo;assembly=TabbedPageDemo"
+
+x:Class="TabbedPageDemo.MonkeyTabbedPage">
+
+
+
+<TabbedPage.Children>
+
+<ContentPage Title="Content1" Icon="monkeyicon.png" >
+
+<ListView x:Name="ListView1" BackgroundColor="Blue" />
+
+</ContentPage>
+
+<ContentPage Title="Content2" Icon="monkeyicon.png">
+
+<ListView x:Name="ListView2" />
+
+</ContentPage>
+
+<ContentPage Title="Content3" Icon="monkeyicon.png">
+
+<ListView x:Name="ListView3" />
+
+</ContentPage>
+
+</TabbedPage.Children>
+
+</TabbedPage>
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:local="clr-namespace:TabbedPageDemo;assembly=TabbedPageDemo"
@@ -15,19 +51,17 @@
       <ContentPage Title="{Binding Name}" Icon="monkeyicon.png">
         <StackLayout Padding="5, 25">
 
-          <!-- Name -->
+          
           <Label Text="{Binding Name}"
                  Font="Bold,Large"
                  HorizontalOptions="Center" />
 
-          <!-- Picture -->
           <Image Source="{Binding PhotoUrl}"
                  WidthRequest="200" 
                  HeightRequest="200" />
 
           <StackLayout Padding="50, 10">
 
-            <!-- Family -->
             <StackLayout Orientation="Horizontal">
               <Label Text="Family:"
                      HorizontalOptions="FillAndExpand" />
@@ -35,7 +69,6 @@
                      Font="Bold,Medium" />
             </StackLayout>
 
-            <!-- Subfamily -->
             <StackLayout Orientation="Horizontal"
                          IsVisible="{Binding Subfamily,
                             Converter={StaticResource booleanConverter}}">
@@ -45,7 +78,6 @@
                      Font="Bold,Medium" />
             </StackLayout>
 
-            <!-- Tribe -->
             <StackLayout Orientation="Horizontal"
                          IsVisible="{Binding Tribe,
                             Converter={StaticResource booleanConverter}}">
@@ -55,7 +87,6 @@
                      Font="Bold,Medium" />
             </StackLayout>
 
-            <!-- Genus -->
             <StackLayout Orientation="Horizontal">
               <Label Text="Genus:"
                      HorizontalOptions="FillAndExpand" />
@@ -67,4 +98,6 @@
       </ContentPage>
     </DataTemplate>
   </TabbedPage.ItemTemplate>
-</TabbedPage>
+</TabbedPage>-->
+
+
