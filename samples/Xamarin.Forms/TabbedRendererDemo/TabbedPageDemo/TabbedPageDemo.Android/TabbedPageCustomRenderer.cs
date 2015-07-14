@@ -33,6 +33,14 @@ namespace TabbedPageDemo.Droid
 			_detector = new GestureDetector (_listener);
 		}
 
+		public override bool OnInterceptTouchEvent (MotionEvent ev)
+		{
+			TouchEventArgs eventArgs = new TouchEventArgs (true, ev);
+			HandleGenericMotion (this, eventArgs);
+
+			return base.OnInterceptTouchEvent(ev);
+		}
+
 		protected override void OnElementChanged (ElementChangedEventArgs<TabbedPage> e)
 		{
 			base.OnElementChanged (e);
@@ -46,16 +54,16 @@ namespace TabbedPageDemo.Droid
 		{
 			base.SwitchContent (view);
 			//Need to remove and add Touch event to make sure it is effective on the top current page
-			ViewGroup.GetChildAt (0).Touch -= HandleGenericMotion;
+//			ViewGroup.GetChildAt (0).Touch -= HandleGenericMotion;
 			//Need to reset the current index in case user touches tab
 			currentIndex = Element.Children.IndexOf (view);
-			ViewGroup.GetChildAt (0).Touch += HandleGenericMotion;
+//			ViewGroup.GetChildAt (0).Touch += HandleGenericMotion;
 		}
 
 		public void HandleGenericMotion (object sender, TouchEventArgs e)
 		{
 			//This assignes the detectors touch event
-			_detector.OnTouchEvent (e.Event);
+//			_detector.OnTouchEvent (e.Event);
 
 			//We want to test the down and up actions from the TouchEventArgs
 			switch (e.Event.Action) {

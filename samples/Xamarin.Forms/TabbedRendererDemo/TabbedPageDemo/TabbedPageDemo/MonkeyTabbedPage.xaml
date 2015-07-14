@@ -18,6 +18,51 @@ x:Class="TabbedPageDemo.MonkeyTabbedPage">
 
 </ContentPage>
 
+<ContentPage Title="Monkey!" Icon="monkeyicon.png">
+        <StackLayout Padding="5, 25">
+
+          
+          <Label Text="Chimpanzee"
+                 Font="Bold,Large"
+                 HorizontalOptions="Center" />
+
+          <Image Source="http://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Schimpanse_Zoo_Leipzig.jpg/640px-Schimpanse_Zoo_Leipzig.jpg"
+                 WidthRequest="200" 
+                 HeightRequest="200" />
+
+          <StackLayout Padding="50, 10">
+
+            <StackLayout Orientation="Horizontal">
+              <Label Text="Family:"
+                     HorizontalOptions="FillAndExpand" />
+              <Label Text="Hominidae"
+                     Font="Bold,Medium" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+              <Label Text="Subfamily:"
+                     HorizontalOptions="FillAndExpand" />
+              <Label Text="Homininae"
+                     Font="Bold,Medium" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+              <Label Text="Tribe:"
+                      HorizontalOptions="FillAndExpand" />
+              <Label Text="Panini"
+                     Font="Bold,Medium" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+              <Label Text="Genus:"
+                     HorizontalOptions="FillAndExpand" />
+              <Label Text="Pan"
+                     Font="Bold,Medium" />
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+      </ContentPage>
+
 <ContentPage Title="Content2" Icon="monkeyicon.png">
 
 <ListView x:Name="ListView2" />
@@ -33,7 +78,6 @@ x:Class="TabbedPageDemo.MonkeyTabbedPage">
 </TabbedPage.Children>
 
 </TabbedPage>
-
 <!--<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -98,6 +142,5 @@ x:Class="TabbedPageDemo.MonkeyTabbedPage">
       </ContentPage>
     </DataTemplate>
   </TabbedPage.ItemTemplate>
-</TabbedPage>-->
-
-
+</TabbedPage>
+-->
