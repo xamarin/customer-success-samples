@@ -1,7 +1,7 @@
 ##Forms Webrequests - The Amazing Power ModernHttpClient
 
-![Droid](https://raw.githubusercontent.com/xamarin/customer-success/forms-tray/samples/Xamarin.Forms/FormsTrays/Tray_Droid.gif)
-![iOS](https://raw.githubusercontent.com/xamarin/customer-success/forms-tray/samples/Xamarin.Forms/FormsTrays/Tray_iOS.gif)
+![Droid](https://raw.githubusercontent.com/xamarin/customer-success/master/samples/Xamarin.Forms/FormsTrays/Tray_Droid.gif)
+![iOS](https://raw.githubusercontent.com/xamarin/customer-success/master/samples/Xamarin.Forms/FormsTrays/Tray_iOS.gif)
 
 This sample is a basic Tray that slides out from whatever side you want! It is build out for both iOS and Android and works in a simple manner. The Tray is added to the ParentView last and is placed off the screen depending on where you want to slide it out from. The TranslateTo Animation is then utilized to open and close the Tray. The Tray is a simple ContentView that can have anything set as it's view and gives a great option for displaying item details.
 
