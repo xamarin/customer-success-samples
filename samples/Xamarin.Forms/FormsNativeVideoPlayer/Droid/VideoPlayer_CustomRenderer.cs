@@ -46,7 +46,7 @@ namespace FormsNativeVideoPlayer.Droid
 			//Give some color to the play button, but not important
 			playButton.SetBackgroundColor (Android.Graphics.Color.Aqua);
 			//uri for a free video
-			var uri = Android.Net.Uri.Parse ("http://ia600507.us.archive.org/25/items/Cartoontheater1930sAnd1950s1/PigsInAPolka1943.mp4");
+			var uri = Android.Net.Uri.Parse ("https://www.dropbox.com/s/hi45psyy0wq9560/PigsInAPolka1943.mp4?dl=1");
 			//Set the videoView with our uri, this could also be a local video on device
 			videoView.SetVideoURI (uri);
 			//Assign click event on our play button to play the video

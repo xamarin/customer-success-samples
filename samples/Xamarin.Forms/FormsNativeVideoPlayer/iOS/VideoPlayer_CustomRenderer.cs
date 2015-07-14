@@ -9,6 +9,7 @@ using AVFoundation;
 using Foundation;
 using UIKit;
 using CoreGraphics;
+using AVKit;
 
 [assembly: ExportRenderer(typeof(ContentView), typeof(VideoPlayer_CustomRenderer))]
 
@@ -17,19 +18,21 @@ namespace FormsNativeVideoPlayer.iOS
 	public class VideoPlayer_CustomRenderer : ViewRenderer
 	{
 		//globally declare variables
-		AVPlayer _player;
-		AVPlayerLayer _playerLayer;
 		AVAsset _asset;
 		AVPlayerItem _playerItem;
+		AVPlayer _player;
+
+		AVPlayerLayer _playerLayer;
 		UIButton playButton;
 
 		protected override void OnElementChanged (ElementChangedEventArgs<View> e)
 		{
 			base.OnElementChanged (e);
 
-			//Get the video, this is a local video
+			//Get the video
 			//bubble up to the AVPlayerLayer
-			_asset = AVAsset.FromUrl (NSUrl.FromFilename ("sample.m4v"));
+			var url = new NSUrl ("http://www.androidbegin.com/tutorial/AndroidCommercial.3gp");
+			_asset = AVAsset.FromUrl (url);
 
 			_playerItem = new AVPlayerItem (_asset);
 
