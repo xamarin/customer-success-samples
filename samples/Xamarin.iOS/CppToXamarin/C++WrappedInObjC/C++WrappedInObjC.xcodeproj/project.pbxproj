@@ -1,0 +1,149 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		7DA86EB31B6172D400CD3F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA86EAF1B6172D400CD3F27 /* C++Project.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7D1D58EA1B616C1D00D81064;
+			remoteInfo = "C++Project";
+		};
+		7DA86EE31B61A01100CD3F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA86EDE1B61A01000CD3F27 /* C++WrappedInObjective-C.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DA86EC41B61A01000CD3F27;
+			remoteInfo = "C++WrappedInObjective-C";
+		};
+		7DA86EE51B61A01100CD3F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA86EDE1B61A01000CD3F27 /* C++WrappedInObjective-C.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DA86ECF1B61A01000CD3F27;
+			remoteInfo = "C++WrappedInObjective-CTests";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7DA86EAF1B6172D400CD3F27 /* C++Project.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "C++Project.xcodeproj"; path = "C++Project/C++Project.xcodeproj"; sourceTree = "<group>"; };
+		7DA86EDE1B61A01000CD3F27 /* C++WrappedInObjective-C.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "C++WrappedInObjective-C.xcodeproj"; path = "C++WrappedInObjective-C/C++WrappedInObjective-C.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		7D1D58DA1B616BE500D81064 = {
+			isa = PBXGroup;
+			children = (
+				7DA86EDE1B61A01000CD3F27 /* C++WrappedInObjective-C.xcodeproj */,
+				7DA86EAF1B6172D400CD3F27 /* C++Project.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		7DA86EB01B6172D400CD3F27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DA86EB41B6172D400CD3F27 /* C++Project */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DA86EDF1B61A01000CD3F27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DA86EE41B61A01100CD3F27 /* libC++WrappedInObjective-C.a */,
+				7DA86EE61B61A01100CD3F27 /* C++WrappedInObjective-CTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		7D1D58DB1B616BE500D81064 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = 7D1D58DE1B616BE500D81064 /* Build configuration list for PBXProject "C++WrappedInObjC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7D1D58DA1B616BE500D81064;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7DA86EB01B6172D400CD3F27 /* Products */;
+					ProjectRef = 7DA86EAF1B6172D400CD3F27 /* C++Project.xcodeproj */;
+				},
+				{
+					ProductGroup = 7DA86EDF1B61A01000CD3F27 /* Products */;
+					ProjectRef = 7DA86EDE1B61A01000CD3F27 /* C++WrappedInObjective-C.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7DA86EB41B6172D400CD3F27 /* C++Project */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "C++Project";
+			remoteRef = 7DA86EB31B6172D400CD3F27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7DA86EE41B61A01100CD3F27 /* libC++WrappedInObjective-C.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libC++WrappedInObjective-C.a";
+			remoteRef = 7DA86EE31B61A01100CD3F27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7DA86EE61B61A01100CD3F27 /* C++WrappedInObjective-CTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "C++WrappedInObjective-CTests.xctest";
+			remoteRef = 7DA86EE51B61A01100CD3F27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin XCBuildConfiguration section */
+		7D1D58DF1B616BE500D81064 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		7D1D58E01B616BE500D81064 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D1D58DE1B616BE500D81064 /* Build configuration list for PBXProject "C++WrappedInObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D1D58DF1B616BE500D81064 /* Debug */,
+				7D1D58E01B616BE500D81064 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7D1D58DB1B616BE500D81064 /* Project object */;
+}
