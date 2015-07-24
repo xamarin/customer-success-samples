@@ -21,10 +21,10 @@ Once you've cloned this repository:
 4. Type ```sharpie bind -output Wrapping -sdk iphoneos8.4 C++WrappedInObjC/C++WrappedInObjective-C/C++WrappedInObjective-C/StringWrapped.h -c -Ibuild/Headerss```
      * Make sure your sdk versions match up.
 
-An example output for ```sharpie xcode -sdks``` returns:
+Sharpie is targeting iOS SDK 8.4 because ```sharpie xcode -sdks``` returns:
 
     jond-mac-1540: jond$ sharpie xcode -sdks
-    sdk: **iphoneos8.4**    arch: arm64   armv7
+    sdk: iphoneos8.4    arch: arm64   armv7
     sdk: macosx10.10    arch: x86_64  i386
     sdk: macosx10.9     arch: x86_64  i386
 
