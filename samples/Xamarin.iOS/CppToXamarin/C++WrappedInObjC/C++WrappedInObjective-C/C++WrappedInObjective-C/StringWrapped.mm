@@ -7,9 +7,9 @@
 //
 
 #import "StringWrapped.h"
-#import "StringWorker.h" // This was added in User Header Search Paths
+#import "StringWorker.h" // This was added in Xcode's User Header Search Paths
 
-// Anonymous Category in mm file for C++ code
+// Anonymous Category in .mm file for C++ code
 @interface StringWrapped ()
 
 @property (nonatomic, readonly) StringWorker* stringWorker;
@@ -47,21 +47,23 @@
     return result;
 }
 
-// Excplicit setter for string proeprty
+// Explicit setter for string property
 - (void)setResult:(NSString *)cString
 {
     _stringWorker->SetString(cString.UTF8String);
 }
 
 
-// ToString equivalent
+// C#'s ToString() equivalent
 - (NSString *)description
 {
     return [self result];
 }
 
 
-// dealloc the c++ class. no arc
+// dealloc the c++ class. There is no ARC here
+// new an object? You must delete it.
+// Use malloc? You must free it.
 - (void)dealloc
 {
     delete _stringWorker;
