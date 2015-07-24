@@ -1,8 +1,8 @@
 C++ To Objective-C Bound in Xamarin.iOS
-=====
+
 ##About
 
-The purpose of this sample is to demonstrate the techqniue of binding C++ classes in Objective-C to Xamarin.iOS.
+The purpose of this sample is to demonstrate the technique of wrapping a C++ class in Objective-C and binding it to Xamarin.iOS.
 
 ###Requirements
 1. Xamarin Studio
@@ -10,14 +10,14 @@ The purpose of this sample is to demonstrate the techqniue of binding C++ classe
 3. [Objective Sharpie](https://files.xamarin.com/~abock/ObjectiveSharpie/latest)
 
 
-####How To Use This Sample
+###How To Use This Sample
 
 Once you've cloned this repository:
 
 
-1. Type ```make``` 
-2. Type ```sharpie update```
-3. Type ```sharpie xcode -sdks```
+1. Type ```make``` to compile the static archive
+2. Type ```sharpie update``` to check for Objective Sharpie updates
+3. Type ```sharpie xcode -sdks``` to determine what version of iOS you have installed
 4. Type ```sharpie bind -output Wrapping -sdk iphoneos8.4 C++WrappedInObjC/C++WrappedInObjective-C/C++WrappedInObjective-C/StringWrapped.h -c -Ibuild/Headerss```
      * Make sure your sdk versions match up.
 
@@ -28,14 +28,12 @@ Sharpie is targeting iOS SDK 8.4 because ```sharpie xcode -sdks``` returns:
     sdk: macosx10.10    arch: x86_64  i386
     sdk: macosx10.9     arch: x86_64  i386
 
-#Screenshot
+###Screenshot
 
 ![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/CppToXamarin/Screenshot/1.png "Xamarin.iOS Screenshot")
 
-Xamarin.iOS Version
----------------------
+###Xamarin.iOS Version
 This sample was written with [Xamarin.iOS 8.0](http://xamarin.com/platform)
 
-Author
--------
+###Author
 Jon Davis
