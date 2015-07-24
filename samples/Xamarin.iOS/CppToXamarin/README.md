@@ -27,7 +27,7 @@ For this reason, target iphoneos8.4
 run: sharpie bind -output Wrapping -sdk iphoneos8.4 C++WrappedInObjC/C++WrappedInObjective-C/C++WrappedInObjective-C/StringWrapped.h -c -Ibuild/Headers
 
 #Screenshot
-![screenshot](https://github.com/xamarin/customersuccess/blob/CppToXamarin/samples/Xamarin.iOS/CppToXamarin/Screenshot/1.png "Xamarin.iOS Screenshot")
+![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/CppToXamarin/Screenshot/1.png "Xamarin.iOS Screenshot")
 Xamarin.iOS Version
 ---------------------
 This sample was written with [Xamarin.iOS 8.0](http://xamarin.com/platform)
