@@ -9,8 +9,11 @@ The purpose of this sample is to demonstrate the techqniue of binding C++ classe
 2. Xcode
 3. [Objective Sharpie](https://files.xamarin.com/~abock/ObjectiveSharpie/latest)
 
+
 ####How To Use This Sample
+
 Once you've cloned this repository:
+
 
 1. Type ```make``` 
 2. Type ```sharpie update```
@@ -25,9 +28,9 @@ An example output for ```sharpie xcode -sdks``` returns:
     sdk: macosx10.10    arch: x86_64  i386
     sdk: macosx10.9     arch: x86_64  i386
 
-For this reason: target iphoneos8.4
+---------------------
 
-In the Terminal, run: ```sharpie bind -output Wrapping -sdk iphoneos8.4 C++WrappedInObjC/C++WrappedInObjective-C/C++WrappedInObjective-C/StringWrapped.h -c -Ibuild/Headers```
+For this reason: **target iphoneos8.4**
 
 #Screenshot
 
