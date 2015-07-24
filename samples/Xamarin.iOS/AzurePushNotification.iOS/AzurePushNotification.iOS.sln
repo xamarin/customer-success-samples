@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzurePushNotification.iOS", "AzurePushNotification.iOS\AzurePushNotification.iOS.csproj", "{A8C981D7-D605-49F2-9372-CE1EE55D71B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Debug|iPhone.Build.0 = Debug|iPhone
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Release|Any CPU.Build.0 = Release|iPhone
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Release|iPhone.ActiveCfg = Release|iPhone
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Release|iPhone.Build.0 = Release|iPhone
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{A8C981D7-D605-49F2-9372-CE1EE55D71B7}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
