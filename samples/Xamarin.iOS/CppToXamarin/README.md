@@ -24,13 +24,9 @@ Once you've cloned this repository:
 An example output for ```sharpie xcode -sdks``` returns:
 
     jond-mac-1540: jond$ sharpie xcode -sdks
-    sdk: iphoneos8.4    arch: arm64   armv7
+    sdk: **iphoneos8.4**    arch: arm64   armv7
     sdk: macosx10.10    arch: x86_64  i386
     sdk: macosx10.9     arch: x86_64  i386
-
----------------------
-
-For this reason: **target iphoneos8.4**
 
 #Screenshot
 
