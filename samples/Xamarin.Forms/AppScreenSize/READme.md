@@ -65,7 +65,8 @@ iOS Implementation:
 
 Now we can call App.ScreenHeight and App.ScreenWidth anywhere in our application to get the size of the screen. Use this easy technique to prep your application for all kinds of screen sizes!
 
-Authors
--------
+##Author
 
-Michael Watson
+Michael Watson  
+Customer Success Engineer  
+Xamarin.Forms and Xamarin.Android Specialist
