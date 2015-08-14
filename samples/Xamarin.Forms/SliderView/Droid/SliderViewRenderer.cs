@@ -50,7 +50,6 @@ namespace Slider.Droid
 
 		protected override void Dispose (bool disposing)
 		{
-			base.Dispose (disposing);
 			//If CurrentView is a Layout, then we need to remove the Touch event
 			if (_sliderView.CurrentView is Layout) {
 				//This viewgroup contains the ViewScreen that we need to get at child 0
@@ -64,7 +63,8 @@ namespace Slider.Droid
 			Touch -= HandleGenericMotion;
 			//Call the garbage collection to make sure the BitMaps are cleaned up
 			GC.Collect ();
-		}
+            base.Dispose(disposing);
+        }
 
 		async void HandleGenericMotion (object sender, TouchEventArgs e)
 		{
