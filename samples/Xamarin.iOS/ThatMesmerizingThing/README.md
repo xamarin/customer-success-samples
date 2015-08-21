@@ -11,4 +11,5 @@ This sample was written with [Xamarin.iOS 8.0](http://xamarin.com/platform)
 
 Authors
 -------
-Jon Davis and Colby Williams
+- Jon Davis: [GitHub](https://github.com/jon-davis-xamarin)
+- Colby Williams: [GitHub](http://github.com/colbylwilliams)
