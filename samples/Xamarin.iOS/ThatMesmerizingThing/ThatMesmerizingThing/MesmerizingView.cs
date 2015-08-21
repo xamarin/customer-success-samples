@@ -52,11 +52,15 @@ namespace ThatMesmerizingThing
 
 		private void CalculateThatMesmerizingThing ()
 		{
+			Path = new CGPath ();
+
 			for (int x = 0; x < 10; x++) 
 			{
 				_r = x * 10 + 4;
 				_st = ((Position * (x + 1)) % 200) / 100;
 				_et = (_st + 1) % 2;
+
+				Path.AddArc (Frame.GetMidX (), Frame.GetMidY (), _r, (nfloat)(_et * Math.PI), (nfloat)(_st * Math.PI), false);
 
 				SetNeedsDisplay ();
 
@@ -80,7 +84,7 @@ namespace ThatMesmerizingThing
 				UIColor.White.SetFill ();
 				UIColor.Black.SetStroke ();
 
-				Path.AddArc (Frame.GetMidX (), Frame.GetMidY (), _r, (nfloat)(_et * Math.PI), (nfloat)(_st * Math.PI), false);
+				// Path.AddArc (Frame.GetMidX (), Frame.GetMidY (), _r, (nfloat)(_et * Math.PI), (nfloat)(_st * Math.PI), false);
 
 				ctx.AddPath (Path);
 				ctx.DrawPath (CGPathDrawingMode.FillStroke);
