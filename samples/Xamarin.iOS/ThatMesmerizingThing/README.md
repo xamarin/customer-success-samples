@@ -3,7 +3,7 @@ That Mesmerizing Thing
 This is a port of a [JSFiddle](https://jsfiddle.net/gg19b2do/4/).
 
 ## Demo
-![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/ThatMesmerizingThing/ThatMesmerizingThing/Screenshots/action.gid "ThatMesmerizingThing")
+![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/ThatMesmerizingThing/ThatMesmerizingThing/Screenshot/action.gif "ThatMesmerizingThing")
 
 Xamarin.iOS Version
 ---------------------
