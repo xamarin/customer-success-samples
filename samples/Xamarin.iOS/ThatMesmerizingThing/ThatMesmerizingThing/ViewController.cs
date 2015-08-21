@@ -1,8 +1,6 @@
 ﻿using System;
 
 using UIKit;
-using CoreGraphics;
-using Foundation;
 
 namespace ThatMesmerizingThing
 {
@@ -15,7 +13,7 @@ namespace ThatMesmerizingThing
 		{
 			base.ViewDidLoad ();
 
-			View = new MesmerizingView (new CGRect (0, 0, View.Frame.Width, View.Frame.Height));
+			View = new MesmerizingView (View.Frame);
 		}
 
 

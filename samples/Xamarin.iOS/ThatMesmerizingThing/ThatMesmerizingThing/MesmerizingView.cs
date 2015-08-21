@@ -1,9 +1,9 @@
 ﻿using System;
 
-using CoreGraphics;
-using UIKit;
-using CoreAnimation;
 using Foundation;
+using UIKit;
+using CoreGraphics;
+using CoreAnimation;
 
 namespace ThatMesmerizingThing
 {
@@ -11,24 +11,15 @@ namespace ThatMesmerizingThing
 	{
 		public nfloat Position { get; set; } = 0.0f;
 		public nfloat PositionIncrement { get; set; } = 0.25f;
-		public CGSize CanvasSize { get; private set; } 
 
-		private nfloat Scale { get; } = UIScreen.MainScreen.Scale;
-		private CGPath Path { get; set; } = new CGPath ();
-
+		private Dimensions[] Dimensions { get; set; } = new Dimensions [10];
 		private CADisplayLink _displayLink;
-
-		private nfloat _r;
-		private nfloat _st;
-		private nfloat _et;
 
 
 		public MesmerizingView (CGRect frame)
 		{
 			Frame = frame;
-			CanvasSize = new CGSize (Frame.Width, Frame.Height);
 			BackgroundColor = UIColor.White;
-			ClearsContextBeforeDrawing = true;
 
 			SetupDisplayLink ();
 		}
@@ -45,24 +36,24 @@ namespace ThatMesmerizingThing
 		private void SetupDisplayLink ()
 		{
 			_displayLink = CADisplayLink.Create (CalculateThatMesmerizingThing);
-			_displayLink.FrameInterval = 0;
 			_displayLink.AddToRunLoop (NSRunLoop.Current, NSRunLoopMode.Default);
+		}
+
+
+		private void StopDisplayLink ()
+		{
+			_displayLink.Invalidate ();
+			_displayLink = null;
 		}
 
 
 		private void CalculateThatMesmerizingThing ()
 		{
-			Path = new CGPath ();
-
-			for (int x = 0; x < 10; x++) 
+			for (var x = 0; x < 10; x++) 
 			{
-				_r = x * 10 + 4;
-				_st = ((Position * (x + 1)) % 200) / 100;
-				_et = (_st + 1) % 2;
-
-				Path.AddArc (Frame.GetMidX (), Frame.GetMidY (), _r, (nfloat)(_et * Math.PI), (nfloat)(_st * Math.PI), false);
-
-				SetNeedsDisplay ();
+				Dimensions[x].R = x * 10 + 4;
+				Dimensions[x].St = ((Position * (x + 1)) % 200) / 100;
+				Dimensions[x].Et = (Dimensions[x].St + 1) % 2;
 
 				Position = (Position + PositionIncrement) % 200;
 			}
@@ -71,7 +62,8 @@ namespace ThatMesmerizingThing
 
 			if (PositionIncrement < 0.01f)
 				PositionIncrement = 0.01f;
-			
+
+			SetNeedsDisplay ();
 		}
 
 
@@ -84,11 +76,23 @@ namespace ThatMesmerizingThing
 				UIColor.White.SetFill ();
 				UIColor.Black.SetStroke ();
 
-				// Path.AddArc (Frame.GetMidX (), Frame.GetMidY (), _r, (nfloat)(_et * Math.PI), (nfloat)(_st * Math.PI), false);
+				for (var x = 0; x < 10; x++) 
+				{
+					var path = new CGPath ();
+					path.AddArc (Frame.GetMidX (), Frame.GetMidY (), Dimensions[x].R, (nfloat)(Dimensions[x].Et * Math.PI), (nfloat)(Dimensions[x].St * Math.PI), false);
+					ctx.AddPath (path);
+				}
 
-				ctx.AddPath (Path);
 				ctx.DrawPath (CGPathDrawingMode.FillStroke);
 			}
+		}
+
+
+		protected override void Dispose (bool disposing)
+		{
+			base.Dispose (disposing);
+
+			StopDisplayLink ();
 		}
 	}
 }

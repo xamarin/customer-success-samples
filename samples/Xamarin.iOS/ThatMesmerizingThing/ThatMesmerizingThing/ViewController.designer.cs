@@ -12,15 +12,9 @@ namespace ThatMesmerizingThing
 	[Register ("ViewController")]
 	partial class ViewController
 	{
-		[Outlet]
-		UIKit.UIImageView ImageView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ImageView != null) {
-				ImageView.Dispose ();
-				ImageView = null;
-			}
 		}
 	}
 }
