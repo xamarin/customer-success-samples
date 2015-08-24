@@ -27,7 +27,7 @@ The purpose of this sample is to create an app specific URLScheme that triggers 
  
 
 ## Screenshot
-![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/HttpLinkToApp/HttpLinkToApp/Screenshot/1.png "Screenshot")
+![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/HttpLinkToApp/Screenshot/1.png "Screenshot")
 
 Xamarin.iOS Version
 ---------------------
