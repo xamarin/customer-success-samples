@@ -16,9 +16,8 @@ The purpose of this sample is to create an app specific URLScheme that triggers 
 function OpenApp ()
 {
     var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
-
     var appUrlScheme = "xamapp://?data=" + 123;
-    console.log(appUrlScheme);
+
     if (iOS) 
     {
         window.open(appUrlScheme, "_self");
