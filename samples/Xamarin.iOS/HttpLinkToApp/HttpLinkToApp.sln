@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpLinkToApp", "HttpLinkToApp\HttpLinkToApp.csproj", "{DCC5C24B-4C49-47FD-8382-42CEB205A117}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Debug|iPhone.Build.0 = Debug|iPhone
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Release|Any CPU.Build.0 = Release|iPhone
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Release|iPhone.ActiveCfg = Release|iPhone
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Release|iPhone.Build.0 = Release|iPhone
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{DCC5C24B-4C49-47FD-8382-42CEB205A117}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
