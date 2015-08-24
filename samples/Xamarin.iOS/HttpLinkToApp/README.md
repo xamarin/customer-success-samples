@@ -5,10 +5,35 @@ The purpose of this sample is to create an app specific URLScheme that triggers 
 ## How to use
 
 1. Run the HttpLinkToApp in the simulator or on a device
-2. Click this [link](xamapp://?data=123)
-3. Or, in Safari, enter: xamapp://?data=123
+2. In Safari, enter: xamapp://?data=123
+3. Or go to this [JSFiddle](https://jsfiddle.net/JonDavis23/4nuyetL5/2/)
+
+### For a webpage
+
+1. Javascript
+
+```
+function OpenApp ()
+{
+    var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
+
+    var appUrlScheme = "xamapp://?data=" + 123;
+    console.log(appUrlScheme);
+    if (iOS) 
+    {
+        window.open(appUrlScheme, "_self");
+    } 
+}
+```
+
+2. Html
+
+```
+<a href="javascript:OpenApp();">Click me</a>
+```
 
 ## How it works
+
 1. In Info.plist register a URLScheme (xamapp)
 ```
 <key>CFBundleURLTypes</key>
