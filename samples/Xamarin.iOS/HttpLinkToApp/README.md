@@ -10,7 +10,7 @@ The purpose of this sample is to create an app specific URLScheme that triggers 
 
 ### For a webpage
 
-1. Javascript
+#### Javascript
 
 ```
 function OpenApp ()
@@ -26,7 +26,7 @@ function OpenApp ()
 }
 ```
 
-2. Html
+#### Html
 
 ```
 <a href="javascript:OpenApp();">Click me</a>
