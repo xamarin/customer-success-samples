@@ -1,6 +1,6 @@
 Blur Factory & UIImageView Extension
 =====
-This sample creates a Blur factory class, and UIImageView extension class for the UIBlurEffect.
+This sample creates a blur factory class and UIImageView extension class for the UIBlurEffect.
 
 ## How it works
 
