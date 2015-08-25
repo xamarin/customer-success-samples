@@ -4,17 +4,17 @@ This sample creates a Blur factory class, and UIImageView extension class for th
 
 ## How it works
 
-1. In Info.plist register a URLScheme (xamapp)
 ```
-			_imageView = new UIImageView {
-				Frame = View.Frame,
-				ContentMode = UIViewContentMode.ScaleAspectFill
-			};
+	_imageView = new UIImageView {
+		Frame = View.Frame,
+		ContentMode = UIViewContentMode.ScaleAspectFill
+	};
 
-			_imageView.AddBlur (UIBlurEffectStyle.Light);
+	_imageView.AddBlur (UIBlurEffectStyle.Light);
 
-			View.AddSubview (_imageView);
+	View.AddSubview (_imageView);
 ```
+
 ## Screenshot
 ![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/Blur.iOS/Screenshot/1.png "Screenshot")
 
