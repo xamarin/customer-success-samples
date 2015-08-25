@@ -5,14 +5,14 @@ This sample creates a Blur factory class, and UIImageView extension class for th
 ## How it works
 
 ```
-	_imageView = new UIImageView {
-		Frame = View.Frame,
-		ContentMode = UIViewContentMode.ScaleAspectFill
-	};
+var imageView = new UIImageView {
+	Frame = View.Frame,
+	ContentMode = UIViewContentMode.ScaleAspectFill
+};
 
-	_imageView.AddBlur (UIBlurEffectStyle.Light);
+imageView.AddBlur (UIBlurEffectStyle.Light);
 
-	View.AddSubview (_imageView);
+View.AddSubview (imageView);
 ```
 
 ## Screenshot
