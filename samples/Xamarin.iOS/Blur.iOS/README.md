@@ -15,8 +15,9 @@ imageView.AddBlur (UIBlurEffectStyle.Light);
 View.AddSubview (imageView);
 ```
 
-## Screenshot
-![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/Blur.iOS/Screenshot/1.png "Screenshot")
+## Screenshots
+![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/Blur.iOS/Screenshot/2.png "Before")
+![screenshot](https://github.com/xamarin/customer-success/blob/master/samples/Xamarin.iOS/Blur.iOS/Screenshot/1.png "After")
 
 Xamarin.iOS Version
 ---------------------
