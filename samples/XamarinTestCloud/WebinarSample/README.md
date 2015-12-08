@@ -9,6 +9,7 @@ It uses a local SQLite database to store the tasks, which are saved and read wit
 
 There are methods in the source code that are not called but are included for demonstration purposes.
 
+![screenshot](https://github.com/xamarin/customer-success-samples/blob/master/samples/XamarinTestCloud/WebinarSample/Screenshots/vervetaCrm1.png)
 
 
 Authors
