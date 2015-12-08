@@ -1,0 +1,14 @@
+
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleMetadata>
+    <ID>e130447a-4e63-4b99-8d9d-57154aee9f03</ID>
+    <IsFullApplication>false</IsFullApplication>
+    <Level>Beginner</Level>
+    <Tags>User Interface</Tags>
+    <SupportedPlatforms>Android, iOS</SupportedPlatforms>
+    <LicenseRequirement>Starter</LicenseRequirement>
+    <Brief>WebinarSample project sample that allows
+        you to see automated testing in action. </Brief>
+    <Gallery>false</Gallery>
+    <HideZip>false</HideZip><!--IF references code outside folder root, do not ZIP-->
+</SampleMetadata>
