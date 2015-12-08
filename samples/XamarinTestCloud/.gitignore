@@ -1,0 +1,65 @@
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @glennwester
+ Unwatch 153
+  Star 14
+ Fork 11 xamarin/customer-success-samples
+ Code  Issues 2  Pull requests 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathcustomer-success-samples/samples/Xamarin.Android/.gitignore
+3f340e3  on May 11
+@IanLeatherbury IanLeatherbury added .gitignore and README files
+1 contributor
+RawBlameHistory     51 lines (38 sloc)  628 Bytes
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+bin
+obj
+*.suo
+*.DotSettings.user
+*.userprefs
