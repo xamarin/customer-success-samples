@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleMetadata>
+    <ID>A55665EE-8C70-479D-B96C-5B63D3348DA4</ID>
+    <IsFullApplication>false</IsFullApplication>
+    <Level>Beginner</Level>
+    <Tags>User Interface, Custom Renderer, Gesture Recognition</Tags>
+    <SupportedPlatforms>Android, iOS</SupportedPlatforms>
+    <LicenseRequirement>Starter</LicenseRequirement>
+    <Brief>Demonstrates the creation of a custom image renderer in Xamarin.Forms; the custom rendere has a tap gesture recognizer on each platform, and returns coordinates of the tap as an alert </Brief>
+    <Gallery>false</Gallery>
+    <HideZip>false</HideZip><!--IF references code outside folder root, do not ZIP-->
+</SampleMetadata>
