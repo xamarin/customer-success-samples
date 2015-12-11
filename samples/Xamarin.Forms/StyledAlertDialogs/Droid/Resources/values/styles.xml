@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<style name="AlertDialogCustom" parent="@android:style/Theme.Holo">
+		 <item name="android:textColor">@android:color/holo_green_light</item>
+	     <item name="android:background">@android:color/holo_purple</item>
+	</style>
+</resources>
