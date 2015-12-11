@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geolocator.Plugin.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Geolocator.Plugin.Abstractions.IGeolocator">
+            <summary>
+            Interface for Geolocator
+            </summary>
+        </member>
+        <member name="M:Geolocator.Plugin.Abstractions.IGeolocator.GetPositionAsync(System.Int32,System.Nullable{System.Threading.CancellationToken},System.Boolean)">
+            <summary>
+            Gets position async with specified parameters
+            </summary>
+            <param name="timeout">Timeout to wait, Default Infinite</param>
+            <param name="token">Cancelation token</param>
+            <param name="includeHeading">If you would like to include heading</param>
+            <returns>Position</returns>
+        </member>
+        <member name="M:Geolocator.Plugin.Abstractions.IGeolocator.StartListening(System.Int32,System.Double,System.Boolean)">
+            <summary>
+            Start lisenting for changes
+            </summary>
+            <param name="minTime">Time</param>
+            <param name="minDistance">Distance</param>
+            <param name="includeHeading">Include heading or not</param>
+        </member>
+        <member name="M:Geolocator.Plugin.Abstractions.IGeolocator.StopListening">
+            <summary>
+            Stop linstening
+            </summary>
+        </member>
+        <member name="E:Geolocator.Plugin.Abstractions.IGeolocator.PositionError">
+            <summary>
+            Position error event handler
+            </summary>
+        </member>
+        <member name="E:Geolocator.Plugin.Abstractions.IGeolocator.PositionChanged">
+            <summary>
+            Position changed event handler
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.IGeolocator.DesiredAccuracy">
+            <summary>
+            Desired accuracy in meteres
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.IGeolocator.IsListening">
+            <summary>
+            Gets if you are listening for location changes
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.IGeolocator.SupportsHeading">
+            <summary>
+            Gets if device supports heading
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.IGeolocator.IsGeolocationAvailable">
+            <summary>
+            Gets if geolocation is available on device
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.IGeolocator.IsGeolocationEnabled">
+            <summary>
+            Gets if geolocation is enabled on device
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.Latitude">
+            <summary>
+            Gets or sets the latitude.
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.Longitude">
+            <summary>
+            Gets or sets the longitude.
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.Altitude">
+            <summary>
+            Gets or sets the altitude in meters relative to sea level.
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.Accuracy">
+            <summary>
+            Gets or sets the potential position error radius in meters.
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.AltitudeAccuracy">
+            <summary>
+            Gets or sets the potential altitude error range in meters.
+            </summary>
+            <remarks>
+            Not supported on Android, will always read 0.
+            </remarks>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.Heading">
+            <summary>
+            Gets or sets the heading in degrees relative to true North.
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.Abstractions.Position.Speed">
+            <summary>
+            Gets or sets the speed in meters per second.
+            </summary>
+        </member>
+        <member name="F:Geolocator.Plugin.Abstractions.GeolocationError.PositionUnavailable">
+            <summary>
+            The provider was unable to retrieve any position data.
+            </summary>
+        </member>
+        <member name="F:Geolocator.Plugin.Abstractions.GeolocationError.Unauthorized">
+            <summary>
+            The app is not, or no longer, authorized to receive location data.
+            </summary>
+        </member>
+    </members>
+</doc>
