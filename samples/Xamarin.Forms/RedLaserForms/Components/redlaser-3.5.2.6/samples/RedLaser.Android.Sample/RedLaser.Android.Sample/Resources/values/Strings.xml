@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, RLSample!</string>
+    <string name="app_name">RLSample</string>
+    <string name="empty_history">Click the scan button to start.</string>
+	<string name="code_types">Barcode Types</string>
+	<string name="logo_message">Barcode must be upright.\nAvoid glare and shadows.</string>
+	<string name="guidance_string">Try moving the camera close to each part of the barcode</string>
+	<string name="light">Light</string>
+	<string name="overlay_logo_contentdescription">RedLaser Logo</string>
+	<string name="positive_button">Ok</string>
+	<string name="done_button">Done</string>
+</resources>	

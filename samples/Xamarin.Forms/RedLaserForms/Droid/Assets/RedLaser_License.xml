@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>-NOTICE-</key>
+	<string>THIS FILE IS DIGITALLY SIGNED. DO NOT MODIFY.</string>
+	<key>Company Name</key>
+	<string>sgrote@groteconstruction.com</string>
+	<key>iOS</key>
+	<dict>
+		<key>App Bundle IDs</key>
+		<array>
+			<string>com.scottgrade.registry</string>
+		</array>
+	</dict>
+	<key>Android</key>
+	<dict>
+		<key>Root Class Names</key>
+		<array>
+			<string>gift.demo.splashscreen</string>
+		</array>
+	</dict>
+</dict>
+</plist>
+-----BEGIN SIGNATURE-----
+qlLOCVB0LtnSixWNJqbExzG8MP3/QwtEEIFT7sWfnbkqXiMF+Zr6hgd93Z09Evxv
+IOp5yyy/cQnle3hzPhbPGZMnA8JVG7BJC3Ihs1Yn5VERoDwTpJztaGk/J3F9miAZ
+39OtXkpKRrMbpNCyUm071ktTnrPfmghvkMchOTbl8NxJXBmxfUXL8Nh8/rUkQXyU
+HNMBEckKz/D+tNlblEf3vhy3vqgLaNnsYrpP0UWyWA3xYwaptmsG3JF9DTL4cNea
+Lvij95Fpk7mRqQz4BAahAyvLfb/JGQZ0vbAS9E4Q2civE1MArWYCNliHg2nn82pZ
+P7QCo1kdpTB0no3rMVSRbN6CW1XIaRkqsKWUHISBQ79y9by4dlJ49gEB1p61ZEuA
+BTToYxcwEHK72fTm37PEs9x8cqZDJphcPO+LwFOBJb4gqUzgMnEbjPGtmQBkXzvg
+5YxCZmPNN4bL5aben+X7WBjNuVcvt/mi55FIiGFo7ax1xeB0k6IN9tRV712vWte1
+wqJ8E+y7g8MadCBVs6finxxDgwjQRdvWHBaERc04YfepQ9lRdhviTm7AzXlHow6Z
+WRSX1CkH4GQd41gVnllF3xD3UxLedvwllqNOJNN4QIRpwgT/+B37W+mmNaP3vXaT
+DoQUuVmGwQF+mWlnecVKkwuZy2ty+bD18TW5vLe4sco=
+-----END SIGNATURE-----

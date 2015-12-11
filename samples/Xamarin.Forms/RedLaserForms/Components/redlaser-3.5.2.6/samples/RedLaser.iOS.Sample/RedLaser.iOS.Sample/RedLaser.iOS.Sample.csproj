@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{49535312-E644-4384-8B0F-B2D1D2F51F0A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RedLaserSampleiOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>RedLaserSampleiOS</AssemblyName>
+    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\unified\iPhoneSimulator\Debug</OutputPath>
+    <IntermediateOutputPath>obj\unified\iPhoneSimulator\Debug\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;__UNIFIED__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>i386</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhoneSimulator\Release</OutputPath>
+    <IntermediateOutputPath>obj\unified\iPhoneSimulator\Release\</IntermediateOutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;__UNIFIED__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhone\Ad-Hoc</OutputPath>
+    <IntermediateOutputPath>obj\unified\iPhone\Ad-Hoc\</IntermediateOutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;__UNIFIED__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\unified\iPhone\AppStore</OutputPath>
+    <IntermediateOutputPath>obj\unified\iPhone\AppStore\</IntermediateOutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;__UNIFIED__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\unified\iPhone\Debug</OutputPath>
+    <IntermediateOutputPath>obj\unified\iPhone\Debug\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>__MOBILE__;__IOS__;__UNIFIED__</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\unified\iPhone\Release</OutputPath>
+    <IntermediateOutputPath>obj\unified\iPhone\Release\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>__MOBILE__;__IOS__;__UNIFIED__</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="RedLaser.iOS">
+      <HintPath>../../../lib\/ios-unified/RedLaser.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\beep.wav" />
+    <BundleResource Include="Resources\bolt.png" />
+    <BundleResource Include="Resources\green_down_arrow.png" />
+    <BundleResource Include="Resources\green_up_arrow.png" />
+    <BundleResource Include="Resources\powered_by_redlaser.png" />
+    <BundleResource Include="Resources\powered_by_redlaser%402x.png" />
+    <BundleResource Include="Resources\redlaser-stripe.png" />
+    <BundleResource Include="Resources\redlaser-stripe%402x.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_DE_EAN.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_DE_EAN%402x.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_DE_EAN8.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_DE_EAN8%402x.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_DE_UPCE.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_DE_UPCE%402x.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_EAN.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_EAN8.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_EAN8%402x.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_UPCE.png" />
+    <BundleResource Include="Resources\RedLaserOverlay_UPCE%402x.png" />
+    <BundleResource Include="Resources\RedLaserOverlay.png" />
+    <BundleResource Include="Resources\white_down_arrow.png" />
+    <BundleResource Include="Resources\white_up_arrow.png" />
+    <BundleResource Include="Resources\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Scan Results Table\RLSampleViewController.cs" />
+    <Compile Include="Single Scan Picker\SingleScanPickerController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scan Results Table\" />
+    <Folder Include="Single Scan Picker\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+  </ItemGroup>
+</Project>
