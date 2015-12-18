@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.redlaserforms">
+	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="21" />
+	<application android:label="RedLaserForms">
+		<activity android:name="md560acda51f2af2e61837ed1fee7a466c4.RedLaserActivity" android:screenOrientation="portrait" />
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>

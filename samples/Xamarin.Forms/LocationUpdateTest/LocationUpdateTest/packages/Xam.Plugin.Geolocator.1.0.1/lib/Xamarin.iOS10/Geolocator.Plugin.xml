@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geolocator.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:Geolocator.Plugin.GeolocatorImplementation">
+            <summary>
+            Implementation for Geolocator
+            </summary>
+        </member>
+        <member name="M:Geolocator.Plugin.GeolocatorImplementation.GetPositionAsync(System.Int32,System.Nullable{System.Threading.CancellationToken},System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Geolocator.Plugin.GeolocatorImplementation.StartListening(System.Int32,System.Double,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Geolocator.Plugin.GeolocatorImplementation.StopListening">
+            <inheritdoc/>
+        </member>
+        <member name="E:Geolocator.Plugin.GeolocatorImplementation.PositionError">
+            <inheritdoc/>
+        </member>
+        <member name="E:Geolocator.Plugin.GeolocatorImplementation.PositionChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:Geolocator.Plugin.GeolocatorImplementation.DesiredAccuracy">
+            <inheritdoc/>
+        </member>
+        <member name="P:Geolocator.Plugin.GeolocatorImplementation.IsListening">
+            <inheritdoc/>
+        </member>
+        <member name="P:Geolocator.Plugin.GeolocatorImplementation.SupportsHeading">
+            <inheritdoc/>
+        </member>
+        <member name="P:Geolocator.Plugin.GeolocatorImplementation.IsGeolocationAvailable">
+            <inheritdoc/>
+        </member>
+        <member name="P:Geolocator.Plugin.GeolocatorImplementation.IsGeolocationEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="T:Geolocator.Plugin.CrossGeolocator">
+            <summary>
+            Cross platform Geolocator implemenations
+            </summary>
+        </member>
+        <member name="P:Geolocator.Plugin.CrossGeolocator.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{345C9517-A189-4B02-879D-DB2DD4CD37B1}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RecertificationApplicaiton</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)RecertificationApplicaiton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LandingPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimerViewModel.cs" />
+  </ItemGroup>
+</Project>
