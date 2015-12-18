@@ -1,8 +1,8 @@
 ##TabbedRenderer - Adding swipe feature to TabbedPage
 
-![iOS video](https://raw.githubusercontent.com/xamarin/customer-success/forms-samples-visual-updates/samples/Xamarin.Forms/TabbedRendererDemo/FormsTabbedPageSwipe_iOS.gif)
+![iOS video](FormsTabbedPageSwipe_iOS.gif)
 
-![Android Video](https://raw.githubusercontent.com/xamarin/customer-success/forms-samples-visual-updates/samples/Xamarin.Forms/TabbedRendererDemo/FormsTabbedPageSwipe_Droid.gif)
+![Android Video](FormsTabbedPageSwipe_Droid.gif)
 
 
 This sample modifies Charels Petzold's TabbedPage sample (iOS and Android) to add TabbedRenderers with swipe gesture capabilities. The user is now able to swipe between tabs or tap on the specific tab. 
