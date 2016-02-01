@@ -1,4 +1,5 @@
-##TabbedRenderer - Adding swipe feature to TabbedPage
+TabbedRenderer - Adding swipe feature to TabbedPage
+=============
 
 ![iOS video](FormsTabbedPageSwipe_iOS.gif)
 
@@ -11,7 +12,7 @@ If you have any questions, feel free to open an issue against this sample and I 
 
 You'll notice that on Android, we need to make sure we are manually firing off the GestureDetector events. We need to do this to ensure the ListView doesn't absorb any of the gestures. As you add controls with Gestures, you will always need to think how the Gesture propagates through the views.
 
-###Author
+Author
 ------
 
 Michael Watson  
