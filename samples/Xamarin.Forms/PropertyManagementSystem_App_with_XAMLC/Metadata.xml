@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleMetadata>
+	<ID>334670fb-086a-4b98-808b-03d734ab92e8</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Beginner</Level>
+	<Tags>User Interface</Tags>
+	<SupportedPlatforms>Android, iOS</SupportedPlatforms>
+	<LicenseRequirement>Indie</LicenseRequirement>
+	<Brief>Demonstrates a way to build a Property Management System UI using Xamarin.Forms</Brief>
+	<Gallery>true</Gallery>
+</SampleMetadata> 
