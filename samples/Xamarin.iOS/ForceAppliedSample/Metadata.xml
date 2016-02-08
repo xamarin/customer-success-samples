@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleMetadata>
+	<ID>c13df7a5-a82d-407e-9886-639100fcb150</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Beginner</Level>
+	<Tags>Touch, User Interface, Getting Started, iOS9, Graphics</Tags>
+	<SupportedPlatforms>iOS</SupportedPlatforms>
+	<LicenseRequirement>Starter</LicenseRequirement>
+	<Brief>Demonstrates 3D Touch, changes a UIView's opacity with force applied</Brief>
+	<Gallery>false</Gallery>
+	<HideZip>false</HideZip><!--IF references code outside folder root, do not ZIP-->
+</SampleMetadata>
