@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleMetadata>
+	<ID>531d90ba-6d76-40d3-b0e9-ada9e465d051</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Beginner</Level>
+	<Tags>Touch, User Interface, Getting Started, iOS9, Graphics</Tags>
+	<SupportedPlatforms>iOS</SupportedPlatforms>
+	<LicenseRequirement>Starter</LicenseRequirement>
+	<Brief>San Andreas Map is a simple Xamarin.iOS sample to demonstrate reading GPS coordinates from a text file and displaying them in a Google Map using the Google Maps Component.</Brief>
+	<Gallery>false</Gallery>
+	<HideZip>false</HideZip><!--IF references code outside folder root, do not ZIP-->
+</SampleMetadata>
