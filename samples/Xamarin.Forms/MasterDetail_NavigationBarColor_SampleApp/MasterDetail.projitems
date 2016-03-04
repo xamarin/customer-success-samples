@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{ACC9D56E-BCF0-4D8D-A808-30DF5E3A5734}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>MasterDetail</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RootPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ContractsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LeadsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AccountsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OpportunitiesPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuListView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuListData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuCell.cs" />
+  </ItemGroup>
+</Project>

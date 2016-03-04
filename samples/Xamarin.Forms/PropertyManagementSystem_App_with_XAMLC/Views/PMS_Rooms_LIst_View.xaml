@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PMS_Forms_App.PMS_Rooms_List_View">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<OnPlatform.iOS>0,20,0,0</OnPlatform.iOS>
+		</OnPlatform>
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<ListView x:Name="allHotelRooms" ItemsSource="{Binding .}" ItemTapped="OnItemTapped" HasUnevenRows="true">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="100" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="10"/> 
+							</Grid.ColumnDefinitions>
+							<Image WidthRequest="75" HeightRequest="75" Aspect="AspectFit" VerticalOptions="Center" Source="beds12" Grid.Column="0" />
+							<StackLayout Grid.Column="1" VerticalOptions="Center">
+								<Label Text="Room Number" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+								<Label Text="{Binding RoomNumber}" FontSize="Small" HorizontalTextAlignment="Center" />
+							</StackLayout>
+							<StackLayout Grid.Column="2" VerticalOptions="Center">
+								<Label Text="Vacant" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+								<Label Text="{Binding IsVacant}" FontSize="Small" HorizontalTextAlignment="Center"/>
+							</StackLayout>
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>

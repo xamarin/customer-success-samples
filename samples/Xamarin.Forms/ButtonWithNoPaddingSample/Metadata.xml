@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ButtonWithNoPaddingSample>
+	<ID>c9594deb-4691-460e-87cf-15e180e8b80b</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Brief>Sample app to show how to create a custom iOS renderer in Xamarin.Forms to remove the padding on a button</Brief>
+	<Level>Intermediate</Level>
+	<MinimumLicenseRequirement>Indie</MinimumLicenseRequirement>
+	<Tags>User Interface</Tags>
+	<SupportedPlatforms>iOS, Android</SupportedPlatforms>
+	<Gallery>False</Gallery>
+</ButtonWithNoPaddingSample>

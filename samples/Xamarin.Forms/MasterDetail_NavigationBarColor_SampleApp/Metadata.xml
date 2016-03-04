@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<MasterDetail_NavigationBarColor_SampleApp>
+	<ID>bbd2e00b-3a47-4147-8c8c-c6d5d2b51189</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Intermediate</Level>
+	<Tags>User Interface</Tags>
+	<SupportedPlatforms>Android, iOS</SupportedPlatforms>
+	<LicenseRequirement>Indie</LicenseRequirement>
+	<Brief>Shows how to customize the color of the navigation bar in a Xamarin.Forms MasterDetail Page.</Brief>
+	<Gallery>false</Gallery>
+</MasterDetail_NavigationBarColor_SampleApp>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<SimpleUITestApp>
+	<ID>991dff38-fccd-4083-927b-7abe504e5a4a</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Beginner</Level>
+	<Tags>Test</Tags>
+	<SupportedPlatforms>Android, iOS</SupportedPlatforms>
+	<LicenseRequirement>Starter</LicenseRequirement>
+	<Brief>Shows how to implement Page Object testing and Unit Testing in a Xamarin.Forms project.</Brief>
+	<Gallery>false</Gallery>
+</SimpleUITestApp>

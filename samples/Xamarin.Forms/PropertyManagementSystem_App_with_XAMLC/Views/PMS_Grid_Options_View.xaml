@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PMS_Forms_App.PMS_Grid_Options_View">
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>0,20,0,0</OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+	<Grid Padding="5,0" RowSpacing="1" ColumnSpacing="1">
+		<Grid.RowDefinitions>
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="*" />
+       </Grid.RowDefinitions>
+
+       <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+       </Grid.ColumnDefinitions>
+
+       <Button x:Name="cashierButton" Image="cashier1"  Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"/>
+       <Label Text="Cashier" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center"/>
+
+       <Button x:Name="roomsButton" Image="beds12" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+       <Label Text="Rooms" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center"/>
+
+       <Button x:Name="eventsButton" Image="calendar53" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"/>
+       <Label Text="Events" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"/>
+
+       <Button x:Name="customerButton" Image="avatar23" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"/>
+       <Label Text="Customers" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Center"/>
+
+	</Grid>
+</ContentPage>
