@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SampleMetadata>
+	<ID>d64eea26-b0bf-46ce-bd35-d4eecf5c3170</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Beginner</Level>
+	<Tags>User Interface,Getting Started</Tags>
+	<SupportedPlatforms>iOS,Android</SupportedPlatforms>
+	<LicenseRequirement>Starter</LicenseRequirement>
+	<Brief>Nasa Missions is a simple Xamarin.Forms sample to demonstrate populating a Form style TableView with some space data.</Brief>
+	<Gallery>false</Gallery>
+	<HideZip>false</HideZip><!--IF references code outside folder root, do not ZIP-->
+</SampleMetadata>

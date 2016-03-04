@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanAndreasMap", "SFPhotoMap\SanAndreasMap.csproj", "{14571476-A40F-4A7D-9EFE-885FECF73C24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Debug|iPhone.Build.0 = Debug|iPhone
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Release|iPhone.ActiveCfg = Release|iPhone
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Release|iPhone.Build.0 = Release|iPhone
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{14571476-A40F-4A7D-9EFE-885FECF73C24}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
