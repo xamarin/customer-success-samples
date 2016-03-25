@@ -25,7 +25,8 @@ namespace SmarterSecuritySampleApp
 					carouselPage1,
 					carouselPage2,
 					carouselPage3
-				}
+				},
+				Title = "Carousel Page"
 			};
 			//Set the Main Page to be the Carousel Page with Navigation capabilities
 			MainPage = new NavigationPage(mainCarouselPage);
