@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xamarin.Insights</name>
+    </assembly>
+    <members>
+        <member name="M:Xamarin.InsightsCore.IOWriter.ReadRawDiskImage(System.String)">
+            <summary>
+            Reads an image from disk in a portable way - will not decompress compressed images
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Xamarin.InsightsCore.IOWriter.ReadDiskImage(System.String)">
+            <summary>
+            Reads an image from disk in a portable way - also will decompress images that require decompression
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="T:Xamarin.InsightsCore.NetworkAvailability">
+            <summary>
+            One big state machine for network availability, with allowances for overrides. 
+            It is expected to have its NetworkState set by platform specific codebases signalling changes in their network state.
+            </summary>
+        </member>
+        <member name="T:Xamarin.InsightsCore.States.FuzzyNetworkState">
+            <summary>
+            Basically every platform has a different idea of network states and trying to represent the specifics of each one is a pita.
+            so lets just be fuzzy and use abstract concepts, trying to match the platform specific concepts to them as best we can 
+            </summary>
+        </member>
+        <member name="M:Xamarin.InsightsCore.WebApi.SubmitException(System.Exception,Xamarin.Insights.Severity,System.String)">
+            <summary>
+                Submits an exception to our api server, this runs through the crash api
+            </summary>
+            <param name="exception"></param>
+            <param name="warningLevel"></param>
+            <param name="Source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xamarin.InsightsCore.WebApi.SubmitExceptionAndSave(System.Exception,Xamarin.Insights.Severity,System.String)">
+            <summary>
+                Submits an exception to our api server, this runs through the crash api,
+                in addition this will save the current state of the journal to disk
+                this entire method will block. It is intended to be used when in an unhandled event handler
+            </summary>
+            <param name="exception"></param>
+            <param name="warningLevel"></param>
+            <param name="Source"></param>
+        </member>
+        <member name="M:Xamarin.InsightsCore.WebPoster45.TestPing(System.String)">
+            <summary>
+            Sends a ping request to the web api, we expect an X-Pong header back, if we don't get taht or the request fails assume no communication with the web api will work
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xamarin.ReportSeverity">
+            <summary>
+            Obsolete, use Xamarin.Insights.ReportSeverity instead
+            </summary>
+        </member>
+        <member name="F:Xamarin.ReportSeverity.Warning">
+            <summary>
+            A Warning
+            </summary>
+        </member>
+        <member name="F:Xamarin.ReportSeverity.Error">
+            <summary>
+            An Error
+            </summary>
+        </member>
+        <member name="T:Xamarin.Insights">
+            <summary>
+            Xamarin.Insights 
+            </summary>
+        </member>
+        <member name="M:Xamarin.Insights.Initialize(System.String,System.Boolean)">
+            <summary>
+            This method initializes Insights and starts automatic monitoring systems, it is required to be called before any other API
+            </summary>
+            <param name="apiKey">The APIKey given to you by Insights, which can be found here: https://insights.xamarin.com/app/$YourAppNameGoesHere$/settings </param>
+        </member>
+        <member name="T:Xamarin.Insights.HasPendingCrashReportEventHandler">
+            <summary>
+            A delegate for the HasPendingCrashReportEventHandler event, you are expected to call Insights.PurgePendingCrashReports() in this method 
+            if you wish for Insights to synchronously send a crash report on startup, otherwise ignore this and insights will send the crash report
+            in the background.
+            </summary>
+            <param name="sender"></param>
+            <param name="isStartupCrash"></param>
+        </member>
+        <member name="E:Xamarin.Insights.HasPendingCrashReport">
+            <summary>
+            This event is fired when Insights detects a new pending crash report
+            </summary>
+        </member>
+        <member name="F:Xamarin.Insights.DebugModeKey">
+            <summary>
+            Passing this key into <seealso cref="M:Xamarin.Insights.Initialize(System.String,System.Boolean)" />  will enable a silent debug mode in Insights.
+            Insights will not track, catch exceptions or submit information of any kind.
+            This is useful if you are trying to debug your application and want Insights to get out of the way.
+            </summary>
+        </member>
+        <member name="P:Xamarin.Insights.IsInitialized">
+            <summary>
+            This paramater will return true if Initialize has been successfully called
+            </summary>
+        </member>
+        <member name="T:Xamarin.Insights.CollectionTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xamarin.Insights.DisableCollectionTypes">
+             <summary>
+             This paramater allows you to disable certain collection types, they will not be reported to the Insights server.
+             </summary>
+             <example>
+             Insights.DisableCollection = true;         // Disables Insights automated behaviors
+             Insights.DisableDataTransmission = true;   // Disables data communication with the webapi
+             Insights.DisableExceptionCatching = true;  // Disables automatic unhandled exception catching
+            
+             Insights.DisableCollectionTypes = Insights.OSInfo;           // Stops Insights from tracking OSInfo
+             Insights.DisableCollectionTypes = Insights.Jailbroken;       // Stops Insights from tracking HardwareInfo
+             Insights.DisableCollectionTypes = Insights.NetworkInfo;      // Stops Insights from tracking NetworkInfo
+            
+             //Can be combined
+             Insights.DisableCollectionTypes = Insights.OSInfo | Insights.NetworkInfo; // Stops Insights from tracking OSInfo and NetworkInfo
+             </example>
+        </member>
+        <member name="F:Xamarin.Insights.Traits.Avatar">
+            <summary>
+            URL corresponding to the location of the users avatar
+            </summary>
+        </member>
+        <member name="F:Xamarin.Insights.Traits.DateOfBirth">
+            <summary>
+            Use Date.ToString('o'); to encode the users date of birth 
+            </summary>
+        </member>
+        <member name="F:Xamarin.Insights.Traits.CreatedAt">
+            <summary>
+            Use Date.ToString('o'); to encode the date the user created the account
+            </summary>
+        </member>
+        <member name="P:Xamarin.Insights.DisableCollection">
+            <summary>
+                DisableCollection allows you to disable Insights at run time, it will not collect information, it will not submit
+                information, any information it has collected will be preserved.
+                Crash reporting is also disabled if this flag is set, use at your own risk.
+            </summary>
+        </member>
+        <member name="P:Xamarin.Insights.DisableDataTransmission">
+            <summary>
+            DisableDataTransmission allows you to disable any use of data communication by Insights, when this value is set to True 
+            Insights will just gather data and not send any data. 
+            </summary>
+        </member>
+        <member name="P:Xamarin.Insights.DisableExceptionCatching">
+            <summary>
+            DisableExceptionCatching disables any automatic unhandled exception handling in Insights. 
+            Use this if you wish to catch exceptions yourself and .Report() them to insights at your leisure  
+            </summary>
+        </member>
+        <member name="P:Xamarin.Insights.ForceDataTransmission">
+            <summary>
+            Setting this property to true will force Insights to submit data to the server regardless of the network state
+            </summary>
+        </member>
+        <member name="M:Xamarin.Insights.Identify(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Identify is used to identify your users with unique information, this also allows Insights to attach other reports
+                to this user.
+            </summary>
+            <seealso cref="M:Xamarin.Insights.Identify(System.String,System.String,System.String)" />
+            <param name="uid">
+                The unique identifier for this user, this can be whatever string you like as long as it is unique for
+                that user, using DeviceIDs and such is not recommended, those are only unique to devices
+            </param>
+            <param name="table">A Generic table of information you would like to associate with this user.</param>
+            <example>
+                This sample shows how to call the method with a table of data
+                <code>
+            var manyInfos = new Dictionary&lt;string, string&gt;{
+                {"Email", "njpatel@catfacts.com"},
+                {"CatTeethFact", "Cats have 30 teeth (12 incisors, 10 premolars, 4 canines, and 4 molars), while dogs have 42. Kittens have baby teeth, which are replaced by permanent teeth around the age of 7 months."}
+             }
+            Insights.Identify("YourUsersUniqueId", manyInfos);
+            </code>
+            </example>
+        </member>
+        <member name="M:Xamarin.Insights.Identify(System.String,System.String,System.String)">
+            <summary>
+                Identify is used to identify your users with unique information, this also allows Insights to attach other reports
+                to this user.
+                This method is a shorthand version of Identify(string, IDictionary) in that it essentially represents
+                a table with one value
+            </summary>
+            <param name="uid">
+                The unique identifier for this user, this can be whatever string you like as long as it is unique for
+                that user, using DeviceIDs and such is not recommended, those are only unique to devices
+            </param>
+            <param name="key">The key representing a key/value storage type.</param>
+            <param name="value">The value representing a key/value storage type.</param>
+            <example>
+                This sample shows how to call the <see cref="M:Xamarin.Insights.Identify(System.String,System.String,System.String)" /> method with a key/value.
+                <code>
+            Insights.Identify("YourUsersUniqueId", "Email", "njpatel@catfacts.com");
+            </code>
+            </example>
+        </member>
+        <member name="M:Xamarin.Insights.Track(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                Track allows you to track usage of your application and add additional data to each event
+            </summary>
+            <param name="trackIdentifier">A unique name for this event</param>
+            <param name="table">
+                An optional key/value store representing additional data that you would like to attach to this
+                event
+            </param>
+        </member>
+        <member name="M:Xamarin.Insights.Track(System.String,System.String,System.String)">
+            <summary>
+            	Track allows you to track usage of your application and add additional data to each event
+            </summary>
+            <param name="trackIdentifier">A unique name for this event</param>
+            <param name="key">A trait for this track event, key value form of the Dictionary varient</param>
+            <param name="value">Value for the given trait, key value form of the Dictionary varient</param>
+        </member>
+        <member name="M:Xamarin.Insights.TrackTime(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                TrackTime allows you to track events that make take an amount of time to complete. For example measuring how long
+                it takes to submit login information to a remote server.
+            </summary>
+            <param name="identifier">A unique identifier name for this event</param>
+            <param name="table"></param>
+            <returns>a handler object that allows you to start and stop the built in timer.</returns>
+            <example>
+                This shows how to use this method with a using keyword
+                <code>
+             using (var handle = Insights.TrackTime("TimeToLogin")) {
+            		await SubmitLoginInformation("myuserid", "mypassword");
+            		... more code goes here ...
+             }
+             </code>
+                If you do not wish to use the using keyword or want to track events in more complex scenarios you can use the Start
+                and Stop methods on the handle object
+                <code>
+             var handle = Insights.TrackTime("TimeToLogin");
+             handle.Start();
+             await SubmitLoginInformation("myuserid", "mypassword");
+             ... more code goes here ...
+             handle.Stop();
+             </code>
+            </example>
+        </member>
+        <member name="M:Xamarin.Insights.TrackTime(System.String,System.String,System.String)">
+            <summary>
+                TrackTime allows you to track events that make take an amount of time to complete. For example measuring how long
+                it takes to submit login information to a remote server.
+            </summary>
+            <param name="identifier">A unique identifer name for this event</param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns>a handler object that allows you to start and stop the built in timer.</returns>
+            <example>
+                This shows how to use this method with a using keyword
+                <code>
+             using (var handle = Insights.TrackTime("TimeToLogin")) {
+            		await SubmitLoginInformation("myuserid", "mypassword");
+            		... more code goes here ...
+             }
+             </code>
+                If you do not wish to use the using keyword or want to track events in more complex scenarios you can use the Start
+                and Stop methods on the handle object
+             <code>
+             var handle = Insights.TrackTime("TimeToLogin");
+             handle.Start();
+             await SubmitLoginInformation("myuserid", "mypassword");
+             ... more code goes here ...
+             handle.Stop();
+             </code>
+            </example>
+        </member>
+        <member name="T:Xamarin.Insights.Severity">
+            <summary>
+            Describes the Severity of a Report
+            </summary>
+        </member>
+        <member name="F:Xamarin.Insights.Severity.Warning">
+            <summary>
+            Warning Severity
+            </summary>
+        </member>
+        <member name="F:Xamarin.Insights.Severity.Error">
+            <summary>
+            Error Severity, you are not expected to call this from client side code unless you have disabled unhandled exception handling.
+            </summary>
+        </member>
+        <member name="F:Xamarin.Insights.Severity.Critical">
+            <summary>
+            Critical Severity
+            </summary>
+        </member>
+        <member name="M:Xamarin.Insights.Report(System.Exception,Xamarin.Insights.Severity)">
+            <summary>
+                Report allows you to report exceptions to Insights when they are caught, this allows you to track exceptions
+                without crashing.
+            </summary>
+            <param name="exception">an Exception data type, you can also attach extra data to the .Data paramater of the exception</param>
+            <param name="warningLevel">A warning level for the given report, can be ReportSeverity.Warning or ReportSeverity.Error</param>
+            <example>
+                This sample shows how to call the Report method.
+                <code>
+            try {
+              ExceptionThrowingFunction();
+            } 
+            catch (Exception exception) {
+              exception.Data["This is some extra data"] = "A cat's field of vision is about 200 degrees."
+              Insights.Report(exception);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Xamarin.Insights.Report(System.Exception,System.Collections.IDictionary,Xamarin.Insights.Severity)">
+            <summary>
+            An overload of Report, this allows you to specify extra data to be sent with the exception. 
+            </summary>
+            <param name="exception">The Exception you want to report</param>
+            <param name="extraData">A Dictionary containing key/values that you want to report along with the exception</param>
+            <param name="warningLevel">A warning level for the given report, can be ReportSeverity.Warning or ReportSeverity.Error</param>	
+        </member>
+        <member name="M:Xamarin.Insights.Report(System.Exception,System.String,System.String,Xamarin.Insights.Severity)">
+            <summary>
+            An overload of Report, this allows you to specify a single key/value pair of extra data to be sent with the exception
+            </summary>
+            <param name="exception">The Exception you want to report</param>
+            <param name="warningLevel">A warning level for the given report, can be ReportSeverity.Warning or ReportSeverity.Error</param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Xamarin.Insights.Save">
+            <summary>
+            Save is intended to be called when your process is being stopped. It informs Insights that the process will no longer be active and lets Insights save its state to disk.
+            Insights auto detects most cases where this would happen, The intendted use case for this is if you are handling unhandled exceptions yourself, you will need to Insights.Save() after reporting your exceptions.
+            </summary>
+            <returns>Returns a task, it is recommended that you await this task.</returns>
+        </member>
+        <member name="M:Xamarin.Insights.PurgePendingCrashReports">
+            <summary>
+            Purges any pending crash reports. This is only ever intended to be used when Insights notifies you that there are pending crash reports.
+            </summary>
+            <returns>A Task that should be awaited until it has completed, signifying that the crash reports have been delivered to insights web.</returns>
+        </member>
+        <member name="T:Xamarin.ITrackHandle">
+            <summary>
+            Interface for TrackHandles, this not expected to be implimented by client side code
+            </summary>
+        </member>
+        <member name="M:Xamarin.ITrackHandle.Start">
+            <summary>
+            Starts the TrackTime handle
+            </summary>
+        </member>
+        <member name="M:Xamarin.ITrackHandle.Stop">
+            <summary>
+            Stops the TrackTime handle
+            </summary>
+        </member>
+        <member name="P:Xamarin.ITrackHandle.Data">
+            <summary>
+            the key value traits list associated with this TrackTime event
+            </summary>
+        </member>
+    </members>
+</doc>

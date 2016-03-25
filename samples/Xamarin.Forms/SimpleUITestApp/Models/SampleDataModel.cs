@@ -1,10 +1,6 @@
-﻿using System;
-using System.Dynamic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections;
 
 namespace SimpleUITestApp
 {
@@ -42,7 +38,7 @@ namespace SimpleUITestApp
 		{
 			var sampleData = new ObservableCollection<SampleDataModel> ();
 
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 20; i++) {
 				var thisObject = new SampleDataModel ();
 
 				thisObject.Number = i;

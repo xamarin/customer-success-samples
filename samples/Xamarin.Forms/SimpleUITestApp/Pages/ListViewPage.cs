@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using System.Collections.Generic;
+using Xamarin;
 
 namespace SimpleUITestApp
 {
@@ -9,7 +10,7 @@ namespace SimpleUITestApp
 	{
 		public ListViewPage()
 		{
-			this.Title = "List View Page";
+			Title = "List View Page";
 
 			var listViewData = SampleDataModelFactory.GetSampleData ();
 
@@ -25,10 +26,17 @@ namespace SimpleUITestApp
 
 			listView.ItemTapped += (s,e) => {
 				var item = e.Item;
-				DisplayAlert ("Random Number Tapped", $"You selected Number {item}","OK");
+				Insights.Track(Insights_Constants.LIST_VIEW_ITEM_TAPPED, Insights_Constants.LIST_VIEW_ITEM_NUMBER, item.ToString()); 
+
+				DisplayAlert ("Number Tapped", $"You Selected Number {item.ToString()}","OK");
 			};
 
 			Content = listView;
+		}
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			Insights.Track(Insights_Constants.LIST_VIEW_PAGE_ON_APPEARING);
 		}
 	}
 }

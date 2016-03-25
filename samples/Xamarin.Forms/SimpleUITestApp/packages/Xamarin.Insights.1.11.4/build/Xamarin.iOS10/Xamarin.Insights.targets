@@ -1,0 +1,17 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask TaskName="Xamarin.Insights.Build.Task.InsightsLicenceCodeGen" AssemblyFile="Xamarin.Insights.Build.Task.dll" />
+
+	<Target Name="XamarinInsightsLicenceBuilder" 
+		Outputs="InsightsGeneratedLicenceFile.cs"
+		Condition="'$(XamarinInsightsApiKey)' != '' And '$(RootNamespace)' != ''"
+		BeforeTargets="CoreCompile">
+
+		<InsightsLicenceCodeGen
+			XamarinInsightsApiKey="$(XamarinInsightsApiKey)"
+			RootNamespace="$(RootNamespace)"
+			OutputFilePath="$(IntermediateOutputPath)/InsightsGeneratedLicenceFile.cs" />
+		<ItemGroup>
+			<Compile Include="$(IntermediateOutputPath)/InsightsGeneratedLicenceFile.cs" />
+		</ItemGroup>
+	</Target>
+</Project>

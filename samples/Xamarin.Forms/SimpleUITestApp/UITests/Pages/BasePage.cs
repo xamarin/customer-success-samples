@@ -17,6 +17,7 @@ namespace SimpleUITestApp.UITests
 
 			OnAndroid = platform == Platform.Android;
 			OniOS = platform == Platform.iOS;
+
 		}
 
 		protected BasePage(IApp app, Platform platform, Func<AppQuery, AppQuery> androidTrait, Func<AppQuery, AppQuery> iOSTrait)

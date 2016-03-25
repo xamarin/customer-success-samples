@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Xamarin.UITest;
 
-using Xamarin.UITest;
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
-using NUnit.Framework;
-using Xamarin.UITest.Queries;
 
 namespace SimpleUITestApp.UITests
 {
@@ -18,67 +15,79 @@ namespace SimpleUITestApp.UITests
 		protected readonly Query EntryFieldUsingID;
 		protected readonly Query LabelFieldUsingID;
 		protected readonly Query ListViewButtonUsingID;
-		protected readonly Query ActivityIndicatoryUsingID;
+		protected readonly Query ActivityIndicatorUsingID;
 
-		public FirstPage (IApp app, Platform platform) : base (app, platform)
+		public FirstPage(IApp app, Platform platform) : base(app, platform)
 		{
-			GoButtonUsingID = x => x.Marked ("MyGoButton");
-			EntryFieldUsingID = x => x.Marked ("MyEntry");
-			LabelFieldUsingID = x => x.Marked ("MyLabel");
-			ListViewButtonUsingID = x => x.Marked ("MyListViewButton");
-			ActivityIndicatoryUsingID = x => x.Marked ("MyActivityIndicator");
+			GoButtonUsingID = x => x.Marked("MyGoButton");
+			EntryFieldUsingID = x => x.Marked("MyEntry");
+			LabelFieldUsingID = x => x.Marked("MyLabel");
+			ListViewButtonUsingID = x => x.Marked("MyListViewButton");
+			ActivityIndicatorUsingID = x => x.Marked("MyActivityIndicator");
 
-			if (OnAndroid) {
-				GoButton = x => x.Class ("Button").Index (0);
-				EntryField = x => x.Class ("EntryEditText");
-				ListViewButton = x => x.Class ("Button").Index (1);
+			if (OnAndroid)
+			{
+				GoButton = x => x.Class("Button").Index(0);
+				EntryField = x => x.Class("EntryEditText");
+				ListViewButton = x => x.Class("Button").Index(1);
 			}
-			if (OniOS) {
-				GoButton = x => x.Class ("UIButton").Index (0);
-				EntryField = x => x.Class ("UITextField");
-				ListViewButton = x => x.Class ("UIButton").Index (1);
+			if (OniOS)
+			{
+				GoButton = x => x.Class("UIButton").Index(0);
+				EntryField = x => x.Class("UITextField");
+				ListViewButton = x => x.Class("UIButton").Index(1);
 			}
 		}
 
-		public void EnterText (string text)
+		public void EnterText(string text)
 		{
-			app.Tap (EntryField);
-			app.ClearText ();
-			app.ClearText ();
-			app.EnterText (text);
+			app.Tap(EntryField);
+			app.ClearText();
+			app.ClearText();
+			app.EnterText(text);
 		}
 
-		public void ClickGo ()
+		public void ClickGo()
 		{
-			app.Tap (GoButton);
+			app.Tap(GoButton);
 		}
 
-		public void EnterTextByID (string text)
+		public void EnterTextByID(string text)
 		{
-			app.Tap (EntryFieldUsingID);
-			app.ClearText ();
-			app.ClearText ();
-			app.EnterText (text);
+			app.Tap(EntryFieldUsingID);
+			app.ClearText();
+			app.ClearText();
+			app.EnterText(text);
 		}
 
-		public void ClickGoByID ()
+		public void ClickGoByID()
 		{
-			app.Tap (GoButtonUsingID);
+			app.Tap(GoButtonUsingID);
 		}
 
-		public void ClickListViewButton ()
+		public void ClickListViewButton()
 		{
-			app.Tap (ListViewButton);
+			app.Tap(ListViewButton);
 		}
 
-		public void ClickListViewButtonByID ()
+		public void ClickListViewButtonByID()
 		{
-			app.Tap (ListViewButtonUsingID);
+			app.Tap(ListViewButtonUsingID);
 		}
 
 		public void WaitForNoActivityIndicator()
 		{
-			app.WaitForNoElement (ActivityIndicatoryUsingID);
+			app.WaitForNoElement(ActivityIndicatorUsingID);
+		}
+
+		public void RotateScreenToLandscape()
+		{
+			app.SetOrientationLandscape();
+		}
+
+		public void RotateScreenToPortrait()
+		{
+			app.SetOrientationPortrait();
 		}
 	}
 }
