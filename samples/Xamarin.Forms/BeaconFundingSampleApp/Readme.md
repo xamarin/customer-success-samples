@@ -15,4 +15,5 @@ The customer provided us this wireframe as the initial design for their mobile a
 
 ### Author
 Brandon Minnick
+
 Customer Success Engineer
