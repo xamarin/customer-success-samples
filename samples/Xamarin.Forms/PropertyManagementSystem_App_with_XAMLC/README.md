@@ -8,4 +8,4 @@ In [App.cs] (https://github.com/xamarin/customer-success-samples/blob/BrandonSam
 
 On the main Grid Options screen, only the Rooms button is wired up to an action.
 
-![Sample Gif] (https://github.com/xamarin/customer-success-samples/blob/BrandonSampleAppsJan2016/samples/Xamarin.Forms/PropertyManagementSystem_App_with_XAMLC/Screen%20Shots/SampleGif.gif)
+![Sample Gif] (./Screen\ Shots/SampleGif.gif)
