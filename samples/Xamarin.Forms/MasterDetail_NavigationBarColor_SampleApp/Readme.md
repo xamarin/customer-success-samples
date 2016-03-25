@@ -6,3 +6,5 @@ This application demonstrates how to customize the Navigation Bar of a Master De
 Authors
 ===
 Brandon Minnick
+
+Customer Success Engineer
