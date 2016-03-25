@@ -6,3 +6,5 @@ This sample shows how to create a custom iOS renderer to remove the padding surr
 Author
 ===
 Brandon Minnick
+
+Customer Success Engineer
