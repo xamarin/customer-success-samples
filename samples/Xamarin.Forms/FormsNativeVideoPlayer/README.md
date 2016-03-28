@@ -12,10 +12,10 @@ Things to note about this sample:
 	* Layout and Layout-land folders utilized
 	* Android OS handles the rotation by using the new layout file
 	* This technique can be used for any C# native views you want to utilize on Xamarin.Android
-*  iOS is a simpler solution, but you'll notice a different video was used
+* iOS is a simpler solution, but you'll notice a different video was used
 	* I was unable to utilize the dropbox link, it seems that Android is a little more robust
-	
-I will be creating a more advanced sample with the goal of being able to play YouTube videos in a cross-platform manner. The future advanced sample should have this addressed in it.
+* iOS may require certain Http exceptions to allow certain videos to be shown
+	* You can view the example [here](https://github.com/xamarin/customer-success-samples/blob/master/samples/Xamarin.Forms/FormsNativeVideoPlayer/iOS/Info.plist#L62)
 
 If you have any questions about this sample, please feel free to open an issue and assign it to the author.
 
