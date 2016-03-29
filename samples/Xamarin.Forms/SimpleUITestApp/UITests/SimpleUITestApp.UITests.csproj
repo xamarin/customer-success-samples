@@ -29,13 +29,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="monodoc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.1.2.0\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.1.3.5\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
-    <Reference Include="monodoc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iOS\SimpleUITestApp.iOS.csproj">
@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="AppInitializer.cs" />
     <Compile Include="Tests\Tests.cs" />
-    <Compile Include="Tests\SetupTest.cs" />
+    <Compile Include="Tests\AbstractSetup.cs" />
     <Compile Include="Tests\ReplTest.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\FirstPage.cs" />

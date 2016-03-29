@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<SimpleUITestApp>
+	<ID>d1341c24-6b63-4eac-9259-304aef687b2f</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Intermediate</Level>
+	<Tags>User Interface</Tags>
+	<SupportedPlatforms>Android, iOS</SupportedPlatforms>
+	<LicenseRequirement>Indie</LicenseRequirement>
+	<Brief>This sample app was made for Smarter Security to help them get started on their mobile app.</Brief>
+	<Gallery>false</Gallery>
+</SimpleUITestApp>

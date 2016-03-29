@@ -1,25 +1,24 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Xamarin.UITest;
-using Xamarin.UITest.Queries;
 
 namespace SimpleUITestApp.UITests
 {
-	public class ReplTests : SetupTest
+	public class ReplTests : AbstractSetup
 	{
 
 		public ReplTests (Platform platform) : base(platform)
 		{
 		}
 
-		[Ignore]
+		[Ignore ("REPL Tests only for Testing/Developing")]
 		[Test]
 		public void Repl()
 		{
 			app.Repl ();
+
+
 		}
+
 	}
 }
 

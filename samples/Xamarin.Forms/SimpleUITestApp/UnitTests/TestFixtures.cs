@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 using NUnit.Framework;
-
-using SimpleUITestApp;
 
 namespace SimpleUITestApp.UnitTests
 {
@@ -20,18 +17,18 @@ namespace SimpleUITestApp.UnitTests
 
 			// Act
 			SampleDataModel firstDataModel = new SampleDataModel (0);
-			SampleDataModel fifthDataModel = new SampleDataModel (4);
-			SampleDataModel tenthDataModel = new SampleDataModel (9);
+			SampleDataModel secondDataModel = new SampleDataModel (1);
+			SampleDataModel thirdDataModel = new SampleDataModel (2);
 
 			ObservableCollection<SampleDataModel> dataCollection = new ObservableCollection<SampleDataModel> ();
 			dataCollection.Add (firstDataModel);
-			dataCollection.Add (fifthDataModel);
-			dataCollection.Add (tenthDataModel);
+			dataCollection.Add (secondDataModel);
+			dataCollection.Add (thirdDataModel);
 
 			// Assert
 			Assert.AreEqual (zero, dataCollection.IndexOf (firstDataModel));
-			Assert.AreEqual (one, dataCollection.IndexOf (fifthDataModel));
-			Assert.AreEqual (two, dataCollection.IndexOf (tenthDataModel));
+			Assert.AreEqual (one, dataCollection.IndexOf (secondDataModel));
+			Assert.AreEqual (two, dataCollection.IndexOf (thirdDataModel));
 		}
 
 		[Test]
@@ -44,18 +41,18 @@ namespace SimpleUITestApp.UnitTests
 
 			// Act
 			SampleDataModel firstDataModel = new SampleDataModel (0);
-			SampleDataModel fifthDataModel = new SampleDataModel (4);
-			SampleDataModel tenthDataModel = new SampleDataModel (9);
+			SampleDataModel secondDataModel = new SampleDataModel (1);
+			SampleDataModel thirdDataModel = new SampleDataModel (2);
 
 			ObservableCollection<SampleDataModel> dataCollection = new ObservableCollection<SampleDataModel> ();
 			dataCollection.Add (firstDataModel);
-			dataCollection.Add (fifthDataModel);
-			dataCollection.Add (tenthDataModel);
+			dataCollection.Add (secondDataModel);
+			dataCollection.Add (thirdDataModel);
 
 			// Assert
 			Assert.AreEqual (two, dataCollection.IndexOf (firstDataModel));
-			Assert.AreEqual (zero, dataCollection.IndexOf (fifthDataModel));
-			Assert.AreEqual (one, dataCollection.IndexOf (tenthDataModel));
+			Assert.AreEqual (zero, dataCollection.IndexOf (secondDataModel));
+			Assert.AreEqual (one, dataCollection.IndexOf (thirdDataModel));
 		}
 
 		[Test]

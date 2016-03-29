@@ -8,3 +8,5 @@ The UnitTests project includes a sample iOS unit test.
 Author
 ===
 Brandon Minnick
+
+Customer Success Engineer
