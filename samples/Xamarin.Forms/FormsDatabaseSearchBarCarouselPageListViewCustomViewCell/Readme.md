@@ -8,11 +8,11 @@ The customer provided us this wireframe as the initial design for their mobile a
 ![Original App Mockup](./Screenshots/Desktop App on Mobile Device.png)
 
 ## Sample App on iPad
-This is the sample app we provided as it appears on a phone
+This is the sample app we provided as it appears on a tablet
 ![iPad Sample App](./Screenshots/BeaconFundingGif_iPad.gif)
 
-## Sample App on iPad
-This is the sample app we provided as it appears on a Tablet
+## Sample App on iPhone
+This is the sample app we provided as it appears on a phone
 ![iPhone Sample App](./Screenshots/BeaconFundingGif_iPhone.gif)
 
 ### Author
