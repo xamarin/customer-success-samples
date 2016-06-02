@@ -14,14 +14,12 @@ namespace SimpleUITestApp.UITests
 				return ConfigureApp
 					.Android
 					.EnableLocalScreenshots()
-					.ApkFile(apkPath)
 					.StartApp();
 			}
 
 			return ConfigureApp
 				.iOS
 				.EnableLocalScreenshots()
-				.AppBundle(appFile)
 				.StartApp();
 
 		}
