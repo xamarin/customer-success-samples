@@ -17,23 +17,6 @@ namespace SimpleUITestApp.UITests
 
 			OnAndroid = platform == Platform.Android;
 			OniOS = platform == Platform.iOS;
-
-		}
-
-		protected BasePage(IApp app, Platform platform, Func<AppQuery, AppQuery> androidTrait, Func<AppQuery, AppQuery> iOSTrait)
-			: this(app, platform)
-		{
-			if (OnAndroid)
-				Assert.DoesNotThrow(() => app.WaitForElement(androidTrait), "Unable to verify on page: " + this.GetType().Name);
-			if (OniOS)
-				Assert.DoesNotThrow(() => app.WaitForElement(iOSTrait), "Unable to verify on page: " + this.GetType().Name);
-
-			app.Screenshot("On " + this.GetType().Name);
-		}
-
-		protected BasePage(IApp app, Platform platform, string androidTrait, string iOSTrait)
-			: this(app, platform, x => x.Marked(androidTrait), x => x.Marked(iOSTrait))
-		{
 		}
 	}
 }

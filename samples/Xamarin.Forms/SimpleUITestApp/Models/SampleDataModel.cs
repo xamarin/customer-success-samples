@@ -11,10 +11,7 @@ namespace SimpleUITestApp
 
 		public event PropertyChangedEventHandler PropertyChanged = delegate {};
 
-		public SampleDataModel ()
-		{
-			
-		}
+		public SampleDataModel(){}
 
 		public SampleDataModel (int number)
 		{
@@ -39,9 +36,7 @@ namespace SimpleUITestApp
 			var sampleData = new ObservableCollection<SampleDataModel> ();
 
 			for (int i = 0; i < 20; i++) {
-				var thisObject = new SampleDataModel ();
-
-				thisObject.Number = i;
+				var thisObject = new SampleDataModel (i);
 
 				sampleData.Add (thisObject);
 			}

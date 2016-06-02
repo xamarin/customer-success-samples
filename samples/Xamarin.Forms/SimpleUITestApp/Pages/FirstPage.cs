@@ -30,23 +30,23 @@ namespace SimpleUITestApp
 			string entryTextPaceHolder = "Enter text and click 'Go'";
 
 			goButton.Text = "Go";
-			goButton.StyleId = "MyGoButton"; // This provides an ID that can be referenced in UITests
+			goButton.AutomationId = "MyGoButton"; // This provides an ID that can be referenced in UITests
 			goButton.Style = buttonStyle; //The formats the BackgroundColor, Border Radius and Height Request Property
 
 			entryField.Placeholder = entryTextPaceHolder;
-			entryField.StyleId = "MyEntry"; // This provides an ID that can be referenced in UITests
+			entryField.AutomationId = "MyEntry"; // This provides an ID that can be referenced in UITests
 
 			labelField.Text = "Your text will appear here";
-			labelField.StyleId = "MyLabel"; // This provides an ID that can be referenced in UITests
+			labelField.AutomationId = "MyLabel"; // This provides an ID that can be referenced in UITests
 			labelField.HorizontalOptions = LayoutOptions.Center;
 
 			goButton.Clicked += OnButtonClick;
 
 			listViewButton.Text = "Go to List View Page";
-			listViewButton.StyleId = "MyListViewButton"; // This provides an ID that can be referenced in UITests
+			listViewButton.AutomationId = "MyListViewButton"; // This provides an ID that can be referenced in UITests
 			listViewButton.Style = buttonStyle; //The formats the BackgroundColor, Border Radius and Height Request Property
 
-			activityIndicator.StyleId = "MyActivityIndicator";
+			activityIndicator.AutomationId = "MyActivityIndicator";
 
 			listViewButton.Clicked += (sender, e) =>
 			{

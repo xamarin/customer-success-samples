@@ -6,7 +6,6 @@ namespace SimpleUITestApp.UITests
 {
 	public class Tests : AbstractSetup
 	{
-
 		public Tests(Platform platform) : base(platform)
 		{
 			this.platform = platform;
@@ -15,62 +14,70 @@ namespace SimpleUITestApp.UITests
 		[Test]
 		public void EnterText()
 		{
-			new FirstPage(app, platform)
-				.EnterText("Hello World");
-			new FirstPage(app, platform)
-				.ClickGo();
-			new FirstPage(app, platform)
-				.WaitForNoActivityIndicator();
+			var textInput = "Hello World";
+
+			FirstPage.EnterText(textInput);
+			FirstPage.ClickGo();
+			FirstPage.WaitForNoActivityIndicator();
+
+			Assert.AreEqual(FirstPage.GetEntryFieldText(), textInput);
 		}
 
 		[Test]
 		public void EnterTextByID()
 		{
-			new FirstPage(app, platform)
-				.EnterTextByID("I used IDs to Enter this Text!");
-			new FirstPage(app, platform)
-				.ClickGoByID();
-			new FirstPage(app, platform)
-				.WaitForNoActivityIndicator();
+			var textInput = "I used IDs to Enter this Text!";
+
+			FirstPage.EnterTextByID(textInput);
+			FirstPage.ClickGoByID();
+			FirstPage.WaitForNoActivityIndicator();
+
+			Assert.AreEqual(FirstPage.GetEntryFieldTextByID(), textInput);
 		}
 
 		[Test]
 		public void SelectItemOnListView()
 		{
-			new FirstPage(app, platform)
-				.ClickListViewButton();
-			new ListViewPage(app, platform)
-				.TapListItemNumber(9);
+			var listItemNumber = 9;
+			var expectedAlertString = $"You Selected Number {listItemNumber}";
+
+			FirstPage.ClickListViewButton();
+			ListViewPage.TapListItemNumber(listItemNumber);
+
+			Assert.AreEqual(expectedAlertString, ListViewPage.GetAlertText(listItemNumber));
 		}
 
 		[Test]
 		public void SelectItemOnListViewByID()
 		{
-			new FirstPage(app, platform)
-				.ClickListViewButtonByID();
-			new ListViewPage(app, platform)
-				.TapListItemNumber(9);
+			var listItemNumber = 9;
+			var expectedAlertString = $"You Selected Number {listItemNumber}";
+
+			FirstPage.ClickListViewButtonByID();
+			ListViewPage.TapListItemNumber(listItemNumber);
+
+			Assert.AreEqual(expectedAlertString, ListViewPage.GetAlertText(listItemNumber));
 		}
 
 		[Test]
 		public void RotateScreenAndEnterTextByID()
 		{
-			new FirstPage(app, platform)
-				.RotateScreenToLandscape();
-			new FirstPage(app, platform)
-				.EnterText("The Screen Orientation Is Landscape");
-			new FirstPage(app, platform)
-				.ClickGoByID();
-			new FirstPage(app, platform)
-				.WaitForNoActivityIndicator();
-			new FirstPage(app, platform)
-				.RotateScreenToPortrait();
-			new FirstPage(app, platform)
-				.EnterText("The Screen Orientation Is Portrait");
-			new FirstPage(app, platform)
-				.ClickGoByID();
-			new FirstPage(app, platform)
-				.WaitForNoActivityIndicator();
+			var entryTextLandcape = "The Screen Orientation Is Landscape";
+			var entryTextPortrait = "The Screen Orientation Is Portrait";
+
+			FirstPage.RotateScreenToLandscape();
+			FirstPage.EnterText(entryTextLandcape);
+			FirstPage.ClickGoByID();
+			FirstPage.WaitForNoActivityIndicator();
+
+			Assert.AreEqual(FirstPage.GetEntryFieldTextByID(), entryTextLandcape);
+
+			FirstPage.RotateScreenToPortrait();
+			FirstPage.EnterText(entryTextPortrait);
+			FirstPage.ClickGoByID();
+			FirstPage.WaitForNoActivityIndicator();
+
+			Assert.AreEqual(FirstPage.GetEntryFieldTextByID(), entryTextPortrait);
 		}
 	}
 }
