@@ -51,7 +51,7 @@ namespace InvestmentDataSampleApp
 			{
 				Label = "Owner",
 			};
-			leaseAmountNumber.SetBinding(EntryCell.TextProperty, "Owner");
+			ownerText.SetBinding(EntryCell.TextProperty, "Owner");
 			#endregion
 
 			#region create the TableView
@@ -91,6 +91,8 @@ namespace InvestmentDataSampleApp
 
 			Content = tableView;
 
+			viewModel.SaveError += HandleSaveError;
+
 			SaveToDatabaseCompleted += async (sender, e) => await PopModalAsync(true);
 		}
 
@@ -98,6 +100,25 @@ namespace InvestmentDataSampleApp
 		{
 			if (SaveToDatabaseCompleted != null)
 				SaveToDatabaseCompleted(this, new EventArgs());
+		}
+
+		public void HandleSaveError(object sender, EventArgs e)
+		{
+			var opportunityModel = ((AddOpportunityViewModel)sender).addOpportunityModel;
+			var blankFieldsString = "\n";
+
+			if (opportunityModel.Topic == "")
+				blankFieldsString += "Topic\n";
+			if (opportunityModel.Company == "")
+				blankFieldsString += "Company\n";
+			if (opportunityModel.LeaseAmount == 0)
+				blankFieldsString += "Lease Amount\n";
+			if (opportunityModel.Owner == "")
+				blankFieldsString += "Owner\n";
+			if (opportunityModel.DBA == "")
+				blankFieldsString += "DBA";
+				
+			DisplayAlert("Error: Missing Data", $"The following fields are empty: {blankFieldsString}","OK");
 		}
 
 		public async Task PopModalAsync(bool isAnimated)

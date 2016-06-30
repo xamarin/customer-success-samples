@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<SimpleUITestApp>
+<?xml version="1.0" encoding="UTF-8" ?>
+<SampleMetadata>
 	<ID>b036b66d-ab49-4bf6-9735-7a14668a1a48</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Intermediate</Level>
@@ -7,5 +7,5 @@
 	<SupportedPlatforms>Android, iOS</SupportedPlatforms>
 	<LicenseRequirement>Indie</LicenseRequirement>
 	<Brief>This sample app was made for Beacon Funding to demonstrate how to port a Desktop app to a mobile app.</Brief>
-	<Gallery>false</Gallery>
-</SimpleUITestApp>
+	<Gallery>true</Gallery>
+</SampleMetadata>

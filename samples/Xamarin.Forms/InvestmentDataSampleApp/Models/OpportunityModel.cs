@@ -28,6 +28,17 @@ namespace InvestmentDataSampleApp
 
 		public DateTime DateCreated { get; set; }
 
+		public OpportunityModel()
+		{
+			Topic = "";
+			Company = "";
+			DBA = "";
+			LeaseAmount = 0;
+			SalesStage = SalesStages.New;
+			Owner = "";
+			DateCreated = DateTime.Now;
+		}
+
 	}
 
 	public enum SalesStages { New, Pending, Closed }

@@ -11,13 +11,29 @@ namespace InvestmentDataSampleApp
 	{
 		static object locker = new object();
 
-		SQLiteConnection database;
+		readonly SQLiteConnection database;
 
 		public OpportunityModelDatabase()
 		{
 			database = DependencyService.Get<ISQLite>().GetConnection();
 			// create the tables
 			database.CreateTable<OpportunityModel>();
+		}
+
+		public IEnumerable<OpportunityModel> GetAllOpportunityData_OldestToNewest_Filter(string filter)
+		{
+			lock (locker)
+			{
+				var tempList = (from i in database.Table<OpportunityModel>() select i).ToList();
+				return tempList.Where(x => x.ID > 0 &&
+                      	(x.Company.ToLower().Contains(filter.ToLower())) ||
+						x.DateCreated.ToString().ToLower().Contains(filter.ToLower()) ||
+						x.DBA.ToLower().Contains(filter.ToLower()) ||
+						x.LeaseAmountAsCurrency.ToLower().Contains(filter.ToLower()) ||
+						x.Owner.ToLower().Contains(filter.ToLower()) ||
+						x.SalesStage.ToString().ToLower().Contains(filter.ToLower()) ||
+                      	x.Topic.ToLower().Contains(filter.ToLower()));
+			}
 		}
 
 		public IEnumerable<OpportunityModel> GetAllOpportunityData_OldestToNewest()
@@ -34,7 +50,7 @@ namespace InvestmentDataSampleApp
 			lock (locker)
 			{
 				List<OpportunityModel> tempList = (from i in database.Table<OpportunityModel>()
-										   select i).ToList();
+												   select i).ToList();
 				return tempList.OrderByDescending(x => x.ID).Where(x => x.ID > 0);
 			}
 		}

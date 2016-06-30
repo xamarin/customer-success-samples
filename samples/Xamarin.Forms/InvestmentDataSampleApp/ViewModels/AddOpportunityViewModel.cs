@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Windows.Input;
-using Xamarin.Forms;
 using System.Threading.Tasks;
+
+using Xamarin.Forms;
+
 namespace InvestmentDataSampleApp
 {
 	public class AddOpportunityViewModel : BaseViewModel
 	{
-		OpportunityModel addOpportunityModel;
+		public readonly OpportunityModel addOpportunityModel;
+		public event EventHandler SaveError;
+
+		long _leaseAmountText;
 
 		public string Topic
 		{
-			get { return addOpportunityModel.Topic; }
+			get { return addOpportunityModel?.Topic; }
 			set
 			{
 				addOpportunityModel.Topic = value;
@@ -20,7 +25,7 @@ namespace InvestmentDataSampleApp
 
 		public string Company
 		{
-			get { return addOpportunityModel.Company; }
+			get { return addOpportunityModel?.Company; }
 			set
 			{
 				addOpportunityModel.Company = value;
@@ -30,7 +35,7 @@ namespace InvestmentDataSampleApp
 
 		public string DBA
 		{
-			get { return addOpportunityModel.DBA; }
+			get { return addOpportunityModel?.DBA; }
 			set
 			{
 				addOpportunityModel.DBA = value;
@@ -60,7 +65,7 @@ namespace InvestmentDataSampleApp
 
 		public string Owner
 		{
-			get { return addOpportunityModel.Owner; }
+			get { return addOpportunityModel?.Owner; }
 			set
 			{
 				addOpportunityModel.Owner = value;
@@ -78,7 +83,7 @@ namespace InvestmentDataSampleApp
 			}
 		}
 
-		public ICommand SaveButtonTapped { protected set; get;}
+		public ICommand SaveButtonTapped { protected set; get; }
 
 		public AddOpportunityViewModel(AddOpportunityPage page)
 		{
@@ -87,9 +92,15 @@ namespace InvestmentDataSampleApp
 
 			SaveButtonTapped = new Command(() =>
 			{
+				if (Topic.Length == 0 || Company.Length == 0 || Owner.Length == 0 || DBA.Length == 0 || LeaseAmount == 0)
+				{
+					SaveError(this, new EventArgs());
+					return;
+				}
+
 				DateCreated = DateTime.Now;
 				Task.Run(() => App.Database.SaveOpportunity(addOpportunityModel));
-				page.HandleSaveToDatabaseCompleted(page,new EventArgs());
+				page.HandleSaveToDatabaseCompleted(page, new EventArgs());
 			});
 		}
 	}
