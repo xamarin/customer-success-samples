@@ -6,7 +6,7 @@ using Xamarin;
 
 namespace SimpleUITestApp
 {
-	public class ListViewPage : ContentPage
+	public class ListViewPage : BasePage
 	{
 		public ListViewPage()
 		{
@@ -14,14 +14,15 @@ namespace SimpleUITestApp
 
 			var listViewData = SampleDataModelFactory.GetSampleData ();
 
-			var cell = new DataTemplate (typeof(ImageCell));
+			var cell = new DataTemplate (typeof(WhiteTextImageCell));
 			cell.SetValue (ImageCell.TextProperty, "Number");
 			cell.SetBinding (ImageCell.DetailProperty, "Number");
 			cell.SetValue (ImageCell.ImageSourceProperty, "Hash");
 
-			ListView listView = new ListView {
+			var listView = new ListView {
 				ItemTemplate = cell,
-				ItemsSource = listViewData
+				ItemsSource = listViewData,
+				BackgroundColor = Color.FromHex("#2980b9")
 			};
 
 			listView.ItemTapped += (s,e) => {

@@ -1,4 +1,5 @@
 ﻿using Xamarin.UITest;
+using Xamarin.UITest.Queries;
 
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
 
@@ -7,13 +8,13 @@ namespace SimpleUITestApp.UITests
 	public class FirstPage : BasePage
 	{
 		protected readonly Query GoButton;
-		protected readonly Query EntryField;
-		protected readonly Query LabelField;
+		protected readonly Query TextEntry;
+		protected readonly Query TextLabel;
 		protected readonly Query ListViewButton;
 
 		protected readonly Query GoButtonUsingID;
-		protected readonly Query EntryFieldUsingID;
-		protected readonly Query LabelFieldUsingID;
+		protected readonly Query TextEntryUsingID;
+		protected readonly Query TextLabelUsingID;
 		protected readonly Query ListViewButtonUsingID;
 		protected readonly Query ActivityIndicatorUsingID;
 
@@ -24,8 +25,8 @@ namespace SimpleUITestApp.UITests
 			//In Xamarin.Android, you set the UI ID by setting the control's "ContentDescription"
 			//In Xamarin.iOS, you set the UI ID by setting the control's "AccessibilityIdentifiers"
 			GoButtonUsingID = x => x.Marked("MyGoButton");
-			EntryFieldUsingID = x => x.Marked("MyEntry");
-			LabelFieldUsingID = x => x.Marked("MyLabel");
+			TextEntryUsingID = x => x.Marked("MyEntry");
+			TextLabelUsingID = x => x.Marked("MyLabel");
 			ListViewButtonUsingID = x => x.Marked("MyListViewButton");
 			ActivityIndicatorUsingID = x => x.Marked("MyActivityIndicator");
 
@@ -36,20 +37,20 @@ namespace SimpleUITestApp.UITests
 			if (OnAndroid)
 			{
 				GoButton = x => x.Class("AppCompatButton").Index(0);
-				EntryField = x => x.Class("EntryEditText");
+				TextEntry = x => x.Class("EntryEditText");
 				ListViewButton = x => x.Class("AppCompatButton").Index(1);
 			}
 			else if (OniOS)
 			{
 				GoButton = x => x.Class("UIButton").Index(1);
-				EntryField = x => x.Class("UITextField");
+				TextEntry = x => x.Class("UITextField");
 				ListViewButton = x => x.Class("UIButton").Index(0);
 			}
 		}
 
 		public void EnterText(string text)
 		{
-			app.Tap(EntryField);
+			app.Tap(TextEntry);
 			app.ClearText();
 			app.ClearText();
 			app.EnterText(text);
@@ -59,7 +60,7 @@ namespace SimpleUITestApp.UITests
 
 		public void EnterTextByID(string text)
 		{
-			app.Tap(EntryFieldUsingID);
+			app.Tap(TextEntryUsingID);
 			app.ClearText();
 			app.ClearText();
 			app.EnterText(text);
@@ -111,19 +112,28 @@ namespace SimpleUITestApp.UITests
 
 		public string GetEntryFieldText()
 		{
-			var entryFieldQuery = app.Query(EntryField);
+			var entryFieldQuery = app.Query(TextEntry);
 			return entryFieldQuery[0]?.Text;
 		}
 
 		public string GetEntryFieldTextByID()
 		{
-			var entryFieldQuery = app.Query(EntryFieldUsingID);
+			var entryFieldQuery = app.Query(TextEntryUsingID);
 			return entryFieldQuery[0]?.Text;
 		}
 
 		public string GetTitle()
 		{
-			var titleQuery = app.Query("First Page");
+			var title = "First Page";
+			AppResult[] titleQuery;
+
+			app.WaitForElement(title);
+
+			if(OniOS)
+				titleQuery = app.Query(x=>x.Class("UILabel").Marked("First Page"));
+			else
+				titleQuery = app.Query(x => x.Class("TextView").Marked("First Page"));
+
 			return titleQuery[0]?.Text;
 		}
 	}

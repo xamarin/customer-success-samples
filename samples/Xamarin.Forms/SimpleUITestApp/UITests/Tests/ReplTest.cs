@@ -3,7 +3,7 @@ using Xamarin.UITest;
 
 namespace SimpleUITestApp.UITests
 {
-	public class ReplTests : AbstractSetup
+	public class ReplTests : BaseTest
 	{
 
 		public ReplTests (Platform platform) : base(platform)
@@ -15,7 +15,6 @@ namespace SimpleUITestApp.UITests
 		public void Repl()
 		{
 			app.Repl ();
-
 		}
 	}
 }

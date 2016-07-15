@@ -5,15 +5,11 @@
 	<key>CFBundleDisplayName</key>
 	<string>SimpleUITestApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.simpleuitestapp</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>com.minnick.simpleuitestapp</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>6.0</string>
+	<string>7.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -42,5 +38,9 @@
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleName</key>
 	<string>SimpleUITestApp</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
+	<key>CFBundleVersion</key>
+	<string>2</string>
 </dict>
 </plist>

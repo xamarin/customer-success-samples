@@ -1,52 +1,46 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using Xamarin;
 using Xamarin.Forms;
 
-using Xamarin;
+using MyLoginUI;
+using MyLoginUI.Views;
 
 namespace SimpleUITestApp
 {
-	public class FirstPage : ContentPage
+	public class FirstPage : BasePage
 	{
-		Label labelField = new Label();
-		Entry entryField = new Entry();
-		Button goButton = new Button();
-		Button listViewButton = new Button();
+		Label textLabel = new StyledLabel();
+		StyledEntry textEntry = new StyledEntry(1);
+		Button goButton = new StyledButton(Borders.Thin, 1);
+		Button listViewButton = new StyledButton(Borders.Thin, 1);
 		ActivityIndicator activityIndicator = new ActivityIndicator();
 
 		public FirstPage()
 		{
 			Title = "First Page";
 
-			var buttonStyle = new Style(typeof(Button))
-			{
-				Setters = {
-					new Setter { Property = Button.FontAttributesProperty, Value = FontAttributes.Bold },
-					new Setter { Property = Button.BorderRadiusProperty, Value = 7 }
-				}
-			};
-
 			string entryTextPaceHolder = "Enter text and click 'Go'";
 
 			goButton.Text = "Go";
 			goButton.AutomationId = "MyGoButton"; // This provides an ID that can be referenced in UITests
-			goButton.Style = buttonStyle; //The formats the BackgroundColor, Border Radius and Height Request Property
 
-			entryField.Placeholder = entryTextPaceHolder;
-			entryField.AutomationId = "MyEntry"; // This provides an ID that can be referenced in UITests
+			textEntry.Placeholder = entryTextPaceHolder;
+			textEntry.AutomationId = "MyEntry"; // This provides an ID that can be referenced in UITests
+			textEntry.PlaceholderColor = Color.FromHex("749FA8");
 
-			labelField.Text = "Your text will appear here";
-			labelField.AutomationId = "MyLabel"; // This provides an ID that can be referenced in UITests
-			labelField.HorizontalOptions = LayoutOptions.Center;
+			textLabel.Text = "Your text will appear here";
+			textLabel.AutomationId = "MyLabel"; // This provides an ID that can be referenced in UITests
+			textLabel.HorizontalOptions = LayoutOptions.Center;
 
 			goButton.Clicked += OnButtonClick;
 
 			listViewButton.Text = "Go to List View Page";
 			listViewButton.AutomationId = "MyListViewButton"; // This provides an ID that can be referenced in UITests
-			listViewButton.Style = buttonStyle; //The formats the BackgroundColor, Border Radius and Height Request Property
 
 			activityIndicator.AutomationId = "MyActivityIndicator";
+			activityIndicator.Color = Color.White;
 
 			listViewButton.Clicked += (sender, e) =>
 			{
@@ -60,10 +54,10 @@ namespace SimpleUITestApp
 			var stackLayout = new StackLayout
 			{
 				Children = {
-					entryField,
+					textEntry,
 					goButton,
 					activityIndicator,
-					labelField,
+					textLabel,
 				},
 				VerticalOptions = LayoutOptions.StartAndExpand,
 				HorizontalOptions = LayoutOptions.CenterAndExpand
@@ -95,10 +89,7 @@ namespace SimpleUITestApp
 				{
 					return parent.X;
 				}),
-				Constraint.RelativeToView(stackLayout, (parent, view) =>
-				{
-					return parent.Height - view.Height + 10;
-				}),
+				Constraint.Constant(250),
 				Constraint.RelativeToParent((parent) =>
 				{
 					return parent.Width - 20;
@@ -111,16 +102,17 @@ namespace SimpleUITestApp
 
 		public async void OnButtonClick(object sender, EventArgs e)
 		{
-			string entryText = entryField.Text;
+			string entryText = textEntry.Text;
 			Insights.Track(Insights_Constants.GO_BUTTON_TAPPED, Insights_Constants.TEXT_ENTERED, entryText);
 
 			Device.BeginInvokeOnMainThread(() =>
 			{
-				//Hide the keyboard
-				entryField.Unfocus();
+			//Hide the keyboard
+			textEntry.Unfocus();
 
-				//Show the activity indicator and hide the Go Button
-				activityIndicator.IsRunning = true;
+			//Show the activity indicator and hide the Go Button
+
+			activityIndicator.IsRunning = true;
 				activityIndicator.IsVisible = true;
 				goButton.IsVisible = false;
 				goButton.IsEnabled = false;
@@ -133,14 +125,14 @@ namespace SimpleUITestApp
 
 			Device.BeginInvokeOnMainThread(() =>
 			{
-				//Hide the activity indicator now that task has completed
-				activityIndicator.IsRunning = false;
+			//Hide the activity indicator now that task has completed
+			activityIndicator.IsRunning = false;
 				activityIndicator.IsVisible = false;
 				goButton.IsVisible = true;
 				goButton.IsEnabled = true;
 
-				//display the 
-				labelField.Text = entryText;
+			//display the 
+			textLabel.Text = entryText;
 			});
 		}
 
