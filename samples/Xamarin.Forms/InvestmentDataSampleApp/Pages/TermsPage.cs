@@ -261,7 +261,7 @@ namespace InvestmentDataSampleApp
 
 			var pageNumberLabel = new Label
 			{
-				Text = $"Terms Page {pageNumber} of {totalPageNumbers}",
+				Text = $"Page {pageNumber} of {totalPageNumbers}",
 				FontAttributes = FontAttributes.Bold,
 				HorizontalOptions = LayoutOptions.Center
 			};

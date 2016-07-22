@@ -11,7 +11,9 @@ namespace InvestmentDataSampleApp
 		public App()
 		{
 			// The root page of your application
-			MainPage = new NavigationPage(new OpportunitiesPage());
+            var customNavigationPage = new ShakeListenerNavigationPage(new OpportunitiesPage());
+
+            MainPage = customNavigationPage;
 		}
 
 		protected override void OnStart()

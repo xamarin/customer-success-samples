@@ -10,8 +10,7 @@ namespace InvestmentDataSampleApp
 	{
 		public readonly OpportunityModel addOpportunityModel;
 		public event EventHandler SaveError;
-
-		long _leaseAmountText;
+		public event EventHandler SaveToDatabaseCompleted;
 
 		public string Topic
 		{
@@ -85,7 +84,7 @@ namespace InvestmentDataSampleApp
 
 		public ICommand SaveButtonTapped { protected set; get; }
 
-		public AddOpportunityViewModel(AddOpportunityPage page)
+		public AddOpportunityViewModel()
 		{
 			addOpportunityModel = new OpportunityModel();
 			SalesStage = SalesStages.New;
@@ -100,7 +99,7 @@ namespace InvestmentDataSampleApp
 
 				DateCreated = DateTime.Now;
 				Task.Run(() => App.Database.SaveOpportunity(addOpportunityModel));
-				page.HandleSaveToDatabaseCompleted(page, new EventArgs());
+				SaveToDatabaseCompleted(this, new EventArgs());
 			});
 		}
 	}
