@@ -14,25 +14,23 @@ namespace InvestmentDataSampleApp.iOS
 {
 	public class AddOpportunityPageCustomRenderer : PageRenderer
 	{
-		public new AddOpportunityPage Element
-		{
-			get { return (AddOpportunityPage)base.Element; }
-		}
 
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
+
+			var thisElement = (AddOpportunityPage)Element;
 
 			var LeftNavList = new List<UIBarButtonItem>();
 			var rightNavList = new List<UIBarButtonItem>();
 
 			var navigationItem = NavigationController.TopViewController.NavigationItem;
 
-			for (var i = 0; i < Element.ToolbarItems.Count; i++)
+			for (var i = 0; i < thisElement.ToolbarItems.Count; i++)
 			{
 
-				var reorder = (Element.ToolbarItems.Count - 1);
-				var ItemPriority = Element.ToolbarItems[reorder - i].Priority;
+				var reorder = (thisElement.ToolbarItems.Count - 1);
+				var ItemPriority = thisElement.ToolbarItems[reorder - i].Priority;
 
 				if (ItemPriority == 1)
 				{

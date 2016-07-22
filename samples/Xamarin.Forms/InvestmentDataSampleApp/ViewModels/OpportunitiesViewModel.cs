@@ -23,12 +23,12 @@ namespace InvestmentDataSampleApp
 
 		public OpportunitiesViewModel()
 		{
-			Task.Run(async () => await RefreshOpportunitiesData());
+			RefreshOpportunitiesDataAsync();
 
-			MessagingCenter.Subscribe<object>(this, "RefreshData", async (sender) =>
-			{
-				await RefreshOpportunitiesData();
-			});
+			MessagingCenter.Subscribe<object>(this, "RefreshData", (sender) =>
+		   	{
+			   RefreshOpportunitiesDataAsync();
+		   	});
 
 			// If the database is empty, initialize the database with dummy data
 			if (App.Database.GetNumberOfRows() < 20)
@@ -74,17 +74,22 @@ namespace InvestmentDataSampleApp
 			}
 		}
 
-		public async Task RefreshOpportunitiesData()
+		public void RefreshOpportunitiesData()
 		{
-			await Task.Factory.StartNew(() =>
+			AllOpportunitiesData = App.Database.GetAllOpportunityData_OldestToNewest();
+		}
+
+		public async Task RefreshOpportunitiesDataAsync()
+		{
+			await Task.Run(() =>
 			{
-				AllOpportunitiesData = App.Database.GetAllOpportunityData_OldestToNewest();
+				RefreshOpportunitiesData();
 			});
 		}
 		public void FilterLocations(string filter)
 		{
 			if (string.IsNullOrWhiteSpace(filter))
-				RefreshOpportunitiesData();
+				RefreshOpportunitiesDataAsync();
 			else {
 				AllOpportunitiesData = AllOpportunitiesData.Where(x =>
 					x.Company.ToLower().Contains(filter.ToLower()) ||
@@ -93,8 +98,8 @@ namespace InvestmentDataSampleApp
 					x.LeaseAmountAsCurrency.ToLower().Contains(filter.ToLower()) ||
 					x.Owner.ToLower().Contains(filter.ToLower()) ||
 					x.SalesStage.ToString().ToLower().Contains(filter.ToLower()) ||
-				    x.Topic.ToLower().Contains(filter.ToLower())
-             	);
+					x.Topic.ToLower().Contains(filter.ToLower())
+				 );
 			}
 		}
 	}

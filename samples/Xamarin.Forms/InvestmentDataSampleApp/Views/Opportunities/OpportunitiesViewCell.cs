@@ -85,7 +85,7 @@ namespace InvestmentDataSampleApp
 			};
 			#endregion
 
-			#region 
+			#region Create MenuItem
 			var deleteAction = new MenuItem
 			{
 				Text = "Delete",

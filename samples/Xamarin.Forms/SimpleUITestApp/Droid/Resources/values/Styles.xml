@@ -2,7 +2,7 @@
 <resources>
 	<style name="MyTheme" parent="MyTheme.Base">
 	</style>
-	<style name="MyTheme.Base" parent="Theme.AppCompat.Light">
+	<style name="MyTheme.Base" parent="Theme.AppCompat">
 		<item name="windowNoTitle">true</item>
 	</style>
 </resources>

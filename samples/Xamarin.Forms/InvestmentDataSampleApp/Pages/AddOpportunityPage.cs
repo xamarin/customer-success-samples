@@ -6,12 +6,15 @@ namespace InvestmentDataSampleApp
 {
 	public class AddOpportunityPage : ContentPage
 	{
-		public event EventHandler SaveToDatabaseCompleted;
+		const string _saveToolBarItemText = "Save";
+		const string _cancelToolBarItemText = "Cancel";
+
+		AddOpportunityViewModel _viewModel;
 
 		public AddOpportunityPage()
 		{
-			var viewModel = new AddOpportunityViewModel(this);
-			BindingContext = viewModel;
+			_viewModel = new AddOpportunityViewModel();
+			BindingContext = _viewModel;
 
 			#region Create Topic Entry
 			var topicText = new EntryCell
@@ -73,7 +76,7 @@ namespace InvestmentDataSampleApp
 
 			#region Create Save Button
 			var saveButtonToolBar = new ToolbarItem();
-			saveButtonToolBar.Text = "Save";
+			saveButtonToolBar.Text = _saveToolBarItemText;
 			saveButtonToolBar.SetBinding(ToolbarItem.CommandProperty, "SaveButtonTapped");
 			saveButtonToolBar.Priority = 0;
 			ToolbarItems.Add(saveButtonToolBar);
@@ -81,8 +84,8 @@ namespace InvestmentDataSampleApp
 
 			#region Create Cancel Button
 			var cancelButtonToolBar = new ToolbarItem();
-			cancelButtonToolBar.Text = "Cancel";
-			cancelButtonToolBar.Command = new Command (async ()=> await PopModalAsync(true));
+			cancelButtonToolBar.Text = _cancelToolBarItemText;
+			cancelButtonToolBar.Clicked += HandleCancelButtonTapped;
 			cancelButtonToolBar.Priority = 1;
 			ToolbarItems.Add(cancelButtonToolBar);
 			#endregion
@@ -91,15 +94,9 @@ namespace InvestmentDataSampleApp
 
 			Content = tableView;
 
-			viewModel.SaveError += HandleSaveError;
+			_viewModel.SaveError += HandleSaveError;
 
-			SaveToDatabaseCompleted += async (sender, e) => await PopModalAsync(true);
-		}
-
-		public void HandleSaveToDatabaseCompleted(object sender, EventArgs e)
-		{
-			if (SaveToDatabaseCompleted != null)
-				SaveToDatabaseCompleted(this, new EventArgs());
+			_viewModel.SaveToDatabaseCompleted += HandleCancelButtonTapped;
 		}
 
 		public void HandleSaveError(object sender, EventArgs e)
@@ -117,13 +114,30 @@ namespace InvestmentDataSampleApp
 				blankFieldsString += "Owner\n";
 			if (opportunityModel.DBA == "")
 				blankFieldsString += "DBA";
-				
-			DisplayAlert("Error: Missing Data", $"The following fields are empty: {blankFieldsString}","OK");
+
+			DisplayAlert("Error: Missing Data", $"The following fields are empty: {blankFieldsString}", "OK");
 		}
 
 		public async Task PopModalAsync(bool isAnimated)
 		{
 			await Navigation.PopModalAsync(true);
+
+			while (ToolbarItems.Count > 0)
+			{
+				if (string.Equals(ToolbarItems[0]?.Text, _cancelToolBarItemText))
+					ToolbarItems[0].Clicked -= HandleCancelButtonTapped;
+
+				ToolbarItems.RemoveAt(0);
+			}
+
+			_viewModel.SaveToDatabaseCompleted -= HandleCancelButtonTapped;
+			_viewModel.SaveError -= HandleSaveError;
+			_viewModel = null;
+		}
+
+		void HandleCancelButtonTapped(object sender, EventArgs e)
+		{
+			PopModalAsync(true);
 		}
 	}
 }
