@@ -14,10 +14,10 @@ namespace SimpleUITestApp.UITests
 		public NewUserSignUpPage(IApp app, Platform platform)
 			: base(app, platform)
 		{
-			CancelButton = x => x.Marked("cancelButton");
-			PasswordEntry = x => x.Marked("newPasswordEntry");
-			SaveUsernameButton = x => x.Marked("saveUsernameButton");
-			UsernameEntry = x => x.Marked("newUsernameEntry");
+			CancelButton = x => x.Marked(AutomationIdConstants.CancelButton);
+			PasswordEntry = x => x.Marked(AutomationIdConstants.NewPasswordEntry);
+			SaveUsernameButton = x => x.Marked(AutomationIdConstants.SaveUsernameButton);
+			UsernameEntry = x => x.Marked(AutomationIdConstants.NewUserNameEntry);
 		}
 
 		public void CreateNewUserWithPassword(string username, string password)

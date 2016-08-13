@@ -24,11 +24,11 @@ namespace SimpleUITestApp.UITests
 			//In Xamarin.Forms, you set the UI ID by setting the control's "AutomationId"
 			//In Xamarin.Android, you set the UI ID by setting the control's "ContentDescription"
 			//In Xamarin.iOS, you set the UI ID by setting the control's "AccessibilityIdentifiers"
-			GoButtonUsingID = x => x.Marked("MyGoButton");
-			TextEntryUsingID = x => x.Marked("MyEntry");
-			TextLabelUsingID = x => x.Marked("MyLabel");
-			ListViewButtonUsingID = x => x.Marked("MyListViewButton");
-			ActivityIndicatorUsingID = x => x.Marked("MyActivityIndicator");
+			GoButtonUsingID = x => x.Marked(AutomationIdConstants.GoButton);
+			TextEntryUsingID = x => x.Marked(AutomationIdConstants.TextEntry);
+			TextLabelUsingID = x => x.Marked(AutomationIdConstants.TextLabel);
+			ListViewButtonUsingID = x => x.Marked(AutomationIdConstants.ListViewButton);
+			ActivityIndicatorUsingID = x => x.Marked(AutomationIdConstants.BusyActivityIndicator);
 
 			//Below shows the improper way to initalize queries.
 			//This code would break if a developer added a third button...

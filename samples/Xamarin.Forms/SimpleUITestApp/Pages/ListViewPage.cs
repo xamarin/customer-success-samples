@@ -12,24 +12,26 @@ namespace SimpleUITestApp
 		{
 			Title = "List View Page";
 
-			var listViewData = SampleDataModelFactory.GetSampleData ();
+			var listViewData = SampleDataModelFactory.GetSampleData();
 
-			var cell = new DataTemplate (typeof(WhiteTextImageCell));
-			cell.SetValue (ImageCell.TextProperty, "Number");
-			cell.SetBinding (ImageCell.DetailProperty, "Number");
-			cell.SetValue (ImageCell.ImageSourceProperty, "Hash");
+			var cell = new DataTemplate(typeof(WhiteTextImageCell));
+			cell.SetValue(TextCell.TextProperty, "Number");
+			cell.SetBinding(ImageCell.DetailProperty, "Number");
+			cell.SetValue(ImageCell.ImageSourceProperty, "Hash");
 
-			var listView = new ListView {
+			var listView = new ListView
+			{
 				ItemTemplate = cell,
 				ItemsSource = listViewData,
 				BackgroundColor = Color.FromHex("#2980b9")
 			};
 
-			listView.ItemTapped += (s,e) => {
+			listView.ItemTapped += (s, e) =>
+			{
 				var item = e.Item;
-				Insights.Track(Insights_Constants.LIST_VIEW_ITEM_TAPPED, Insights_Constants.LIST_VIEW_ITEM_NUMBER, item.ToString()); 
+				Insights.Track(Insights_Constants.LIST_VIEW_ITEM_TAPPED, Insights_Constants.LIST_VIEW_ITEM_NUMBER, item.ToString());
 
-				DisplayAlert ("Number Tapped", $"You Selected Number {item.ToString()}","OK");
+				DisplayAlert("Number Tapped", $"You Selected Number {item.ToString()}", "OK");
 			};
 
 			Content = listView;

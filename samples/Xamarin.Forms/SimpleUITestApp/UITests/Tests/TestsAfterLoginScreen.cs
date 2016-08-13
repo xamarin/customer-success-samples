@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 
 using Xamarin.UITest;
+using Xamarin.UITest.iOS;
 
 namespace SimpleUITestApp.UITests
 {
@@ -64,22 +65,13 @@ namespace SimpleUITestApp.UITests
 			var expectedAlertString = $"You Selected Number {listItemNumber}";
 
 			//Act
-			FirstPage.ClickListViewButton();
-			ListViewPage.TapListItemNumber(listItemNumber);
+			if (app is iOSApp)
+				app.Invoke("openListViewPage:", "");
+			else
+				app.Invoke("OpenListViewPage");
 
-			//Assert
-			Assert.AreEqual(expectedAlertString, ListViewPage.GetAlertText(listItemNumber));
-		}
+			app.Screenshot("Backdoor to List View Page");
 
-		[Test]
-		public void SelectItemOnListViewByID()
-		{
-			//Arrange
-			var listItemNumber = 9;
-			var expectedAlertString = $"You Selected Number {listItemNumber}";
-
-			//Act
-			FirstPage.ClickListViewButtonByID();
 			ListViewPage.TapListItemNumber(listItemNumber);
 
 			//Assert

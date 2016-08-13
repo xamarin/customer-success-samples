@@ -24,22 +24,22 @@ namespace SimpleUITestApp
 			string entryTextPaceHolder = "Enter text and click 'Go'";
 
 			goButton.Text = "Go";
-			goButton.AutomationId = "MyGoButton"; // This provides an ID that can be referenced in UITests
+			goButton.AutomationId = AutomationIdConstants.GoButton; // This provides an ID that can be referenced in UITests
 
 			textEntry.Placeholder = entryTextPaceHolder;
-			textEntry.AutomationId = "MyEntry"; // This provides an ID that can be referenced in UITests
+			textEntry.AutomationId = AutomationIdConstants.TextEntry; // This provides an ID that can be referenced in UITests
 			textEntry.PlaceholderColor = Color.FromHex("749FA8");
 
 			textLabel.Text = "Your text will appear here";
-			textLabel.AutomationId = "MyLabel"; // This provides an ID that can be referenced in UITests
+			textLabel.AutomationId = AutomationIdConstants.TextLabel; // This provides an ID that can be referenced in UITests
 			textLabel.HorizontalOptions = LayoutOptions.Center;
 
 			goButton.Clicked += OnButtonClick;
 
 			listViewButton.Text = "Go to List View Page";
-			listViewButton.AutomationId = "MyListViewButton"; // This provides an ID that can be referenced in UITests
+			listViewButton.AutomationId = AutomationIdConstants.ListViewButton; // This provides an ID that can be referenced in UITests
 
-			activityIndicator.AutomationId = "MyActivityIndicator";
+			activityIndicator.AutomationId = AutomationIdConstants.BusyActivityIndicator;
 			activityIndicator.Color = Color.White;
 
 			listViewButton.Clicked += (sender, e) =>
