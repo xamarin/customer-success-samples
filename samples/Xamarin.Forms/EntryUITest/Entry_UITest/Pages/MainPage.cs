@@ -17,7 +17,7 @@ namespace Entry_UITest.Pages
                 Placeholder = "Enter Text Here",
                 PlaceholderColor = Color.FromHex("749FA8"),
                 Keyboard = Keyboard.Email,
-                AutomationId = "MyEntry",
+                AutomationId = AutomationIdConstants.EntryAutomationID,
                 TextColor = Color.FromHex("2C7797"),
                 BackgroundColor = Color.FromHex("91E2F4")
             };
@@ -26,7 +26,7 @@ namespace Entry_UITest.Pages
             var textLabel = new Label
             {
                 TextColor = Color.White,
-                AutomationId = "MyLabel",
+                AutomationId = AutomationIdConstants.LabelAutomationID,
             };
             textLabel.SetBinding(Label.TextProperty, "TextLabelText");
 
@@ -42,8 +42,6 @@ namespace Entry_UITest.Pages
                     textLabel
                 }
             };
-
-
         }
     }
 }
