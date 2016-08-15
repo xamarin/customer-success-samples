@@ -7,7 +7,7 @@ namespace SimpleUITestApp.UITests
 	[TestFixture(Platform.Android)]
 	[TestFixture(Platform.iOS)]
 
-	public class BaseTest
+	public abstract class BaseTest
 	{
 		protected IApp app;
 		protected Platform platform;

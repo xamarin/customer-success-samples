@@ -1,5 +1,4 @@
 ﻿using Xamarin.UITest;
-
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
 
 namespace SimpleUITestApp.UITests
@@ -16,17 +15,16 @@ namespace SimpleUITestApp.UITests
 		public LoginPage(IApp app, Platform platform)
 			: base(app, platform)
 		{
-			ForgotPasswordButton = x => x.Marked("forgotPasswordButton");
-			LoginButton = x => x.Marked("loginButton");
-			PasswordEntry = x => x.Marked("passwordEntry");
-			RememberMeSwitch = x => x.Marked("saveUsernameSwitch");
-			SignUpButton = x => x.Marked("newUserButton");
-			UsernameEntry = x => x.Marked("usernameEntry");
+			ForgotPasswordButton = x => x.Marked(MyLoginUI.AutomationIdConstants.ForgotPasswordButton);
+			LoginButton = x => x.Marked(MyLoginUI.AutomationIdConstants.LoginButton);
+			PasswordEntry = x => x.Marked(MyLoginUI.AutomationIdConstants.PasswordEntry);
+			RememberMeSwitch = x => x.Marked(MyLoginUI.AutomationIdConstants.SaveUsernameSwitch);
+			SignUpButton = x => x.Marked(MyLoginUI.AutomationIdConstants.NewUserButton);
+			UsernameEntry = x => x.Marked(MyLoginUI.AutomationIdConstants.UsernameEntry);
 		}
 
 		public void LoginWithUsernamePassword(string username, string password)
 		{
-			
 			EnterUsername(username);
 			EnterPassword(password);
 			PressLoginButton();

@@ -86,6 +86,7 @@ namespace SimpleUITestApp
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+
 			//Need bug fixed on Material Design for PopToRootAsync() 
 			//https://bugzilla.xamarin.com/show_bug.cgi?id=36907
 			if (!isInitialized)

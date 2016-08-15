@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<SampleMetadata>
+	<ID>05ea3384-45b0-4b8b-aed6-e303b423b2f6</ID>
+	<IsFullApplication>false</IsFullApplication>
+	<Level>Beginner</Level>
+	<Tags>Hockeyapp, UITest, Android</Tags>
+	<SupportedPlatforms>Android</SupportedPlatforms>
+	<LicenseRequirement>Indie</LicenseRequirement>
+	<Brief>This app shows how to incorporate Hockeyapp's features into your app'.</Brief>
+	<Gallery>true</Gallery>
+</SampleMetadata>

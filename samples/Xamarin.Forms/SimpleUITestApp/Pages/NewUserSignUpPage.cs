@@ -31,7 +31,7 @@ namespace SimpleUITestApp
 			usernameEntry = new StyledEntry(1)
 			{
 				Style = StyleConstants.UnderlinedEntry,
-				AutomationId = "newUsernameEntry",
+				AutomationId = AutomationIdConstants.NewUserNameEntry,
 				Placeholder = "Username",
 				HorizontalOptions = LayoutOptions.Fill,
 				HorizontalTextAlignment = TextAlignment.End,
@@ -41,7 +41,7 @@ namespace SimpleUITestApp
 			passwordEntry = new StyledEntry(1)
 			{
 				Style = StyleConstants.UnderlinedEntry,
-				AutomationId = "newPasswordEntry",
+				AutomationId = AutomationIdConstants.NewPasswordEntry,
 				Placeholder = "Password",
 				IsPassword = true,
 				HorizontalOptions = LayoutOptions.Fill,
@@ -53,7 +53,7 @@ namespace SimpleUITestApp
 			saveUsernameButton = new StyledButton(Borders.Thin, 1)
 			{
 				Style = StyleConstants.BorderedButton,
-				AutomationId = "saveUsernameButton",
+				AutomationId = AutomationIdConstants.SaveUsernameButton,
 				Text = "Save Username",
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.EndAndExpand
@@ -61,7 +61,7 @@ namespace SimpleUITestApp
 			cancelButton = new StyledButton(Borders.Thin, 1)
 			{
 				Style = StyleConstants.BorderedButton,
-				AutomationId = "cancelButton",
+				AutomationId = AutomationIdConstants.CancelButton,
 				Text = "Cancel",
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.End

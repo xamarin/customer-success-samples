@@ -1,7 +1,5 @@
 ﻿using Xamarin.UITest;
 
-using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
-
 namespace SimpleUITestApp.UITests
 {
 	public class ListViewPage : BasePage
@@ -11,17 +9,19 @@ namespace SimpleUITestApp.UITests
 		{
 		}
 
-		public void TapListItemNumber(int ListItemNumber)
+		public void TapListItemNumber(int listItemNumber)
 		{
-			app.ScrollDownTo(ListItemNumber.ToString());
-			app.Tap(x => x.Marked(ListItemNumber.ToString()));
+			app.ScrollDownTo(listItemNumber.ToString());
+			app.Tap(x => x.Marked(listItemNumber.ToString()));
 			app.WaitForElement("OK");
+			app.Screenshot($"Tap {listItemNumber} on List View Page");
 		}
 
 		public void TapOKOnAlert()
 		{
 			app.WaitForElement("OK");
 			app.Tap("OK");
+			app.Screenshot("Tap OK On Alert");
 		}
 
 		public string GetAlertText(int numberSelected)
@@ -33,6 +33,7 @@ namespace SimpleUITestApp.UITests
 		public void TapBackButton()
 		{
 			app.Back();
+			app.Screenshot("Tap Back Button");
 		}
 	}
 }

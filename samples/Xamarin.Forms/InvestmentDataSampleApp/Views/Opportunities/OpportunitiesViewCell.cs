@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
+
 namespace InvestmentDataSampleApp
 {
 	public class OpportunitiesViewCell : ViewCell
@@ -93,11 +96,16 @@ namespace InvestmentDataSampleApp
 			};
 			deleteAction.SetBinding(MenuItem.CommandProperty, "DeleteActionSelected");
 
-			deleteAction.Clicked += (sender, e) =>
+			deleteAction.Clicked += async (sender, e) =>
 			{
 				var menuItem = (MenuItem)sender;
 				OpportunityModel thisModel = ((OpportunityModel)menuItem.BindingContext);
 				App.Database.DeleteItem(thisModel.ID);
+
+				//Wait for the iOS animation to finish
+				if(Device.OS == TargetPlatform.iOS)
+					await Task.Delay(300);
+
 				MessagingCenter.Send<object>(this, "RefreshData");
 			};
 			ContextActions.Add(deleteAction);

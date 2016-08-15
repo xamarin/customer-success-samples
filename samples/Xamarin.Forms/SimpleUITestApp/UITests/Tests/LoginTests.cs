@@ -38,8 +38,8 @@ namespace SimpleUITestApp.UITests
 			NewUserSignUpPage.CreateNewUserWithPassword(username, password);
 			LoginPage.LoginWithUsernamePassword(username, password);
 
-			var actualFirstPageTitle = FirstPage.GetTitle();
 			//Assert
+			var actualFirstPageTitle = FirstPage.GetTitle();
 			Assert.AreEqual(expectedFirstPageTitle,actualFirstPageTitle);
 		}
 
