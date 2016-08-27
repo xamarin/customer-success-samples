@@ -1,11 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System;
+
+using Android.OS;
 
 using SimpleUITestApp.Droid;
 
-using System;
-
-using Android.OS;
 using Xamarin;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(Environment_Android))]
 namespace SimpleUITestApp.Droid
