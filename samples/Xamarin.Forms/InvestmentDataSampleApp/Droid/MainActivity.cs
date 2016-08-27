@@ -1,8 +1,7 @@
-
+using Android.OS;
 using Android.App;
 using Android.Content.PM;
-using Android.OS;
-using System;
+
 using Xamarin;
 
 namespace InvestmentDataSampleApp.Droid
@@ -12,12 +11,19 @@ namespace InvestmentDataSampleApp.Droid
 	{
 		protected override void OnCreate(Bundle bundle)
 		{
-			base.OnCreate(bundle);
-
 			Insights.Initialize(InsightsConstants.InsightsAPIKey, this);
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
+			Insights.HasPendingCrashReport += (sender, isStartupCrash) =>
+			{
+				if (isStartupCrash)
+				{
+					Insights.PurgePendingCrashReports().Wait();
+				}
+			};
 
+			base.OnCreate(bundle);
+
+			global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			LoadApplication(new App());
 		}
