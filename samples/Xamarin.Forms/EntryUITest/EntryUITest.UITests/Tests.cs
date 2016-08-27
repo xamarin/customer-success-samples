@@ -2,6 +2,8 @@
 
 using Xamarin.UITest;
 
+using EntryUITest;
+
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
 
 namespace Entry_UITest.UITests

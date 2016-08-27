@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{27CC5E57-20BA-45D7-A9E1-9623556B7B0B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Entry_UITest.UITests</RootNamespace>
-    <AssemblyName>EmailKeyboard_UITest.UITests</AssemblyName>
+    <RootNamespace>EntryUITest.UITests</RootNamespace>
+    <AssemblyName>EntryUITest.UITests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -28,29 +28,29 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.1.3.14\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.1.3.15\lib\Xamarin.UITest.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iOS\Entry_UITest.iOS.csproj">
       <Project>{5FAB7ED8-E455-4ABD-842B-478F1649C92A}</Project>
-      <Name>Entry_UITest.iOS</Name>
+      <Name>EntryUITest.iOS</Name>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Droid\Entry_UITest.Droid.csproj">
       <Project>{1F595B81-B95E-4620-AFC8-FD345751DF61}</Project>
-      <Name>Entry_UITest.Droid</Name>
+      <Name>EntryUITest.Droid</Name>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Entry_UITest\Entry_UITest.csproj">
+    <ProjectReference Include="..\EntryUITest\EntryUITest.csproj">
       <Project>{1AF1DA0E-563E-4B5B-95E4-177632D433F4}</Project>
-      <Name>Entry_UITest</Name>
+      <Name>EntryUITest</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

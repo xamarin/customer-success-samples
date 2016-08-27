@@ -2,9 +2,9 @@
 using Android.Content.PM;
 using Android.OS;
 
-using Entry_UITest;
+using EntryUITest;
 
-namespace Entry_UITest.Droid
+namespace EntryUITest.Droid
 {
 	[Activity(Label = "Entry_UITest.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

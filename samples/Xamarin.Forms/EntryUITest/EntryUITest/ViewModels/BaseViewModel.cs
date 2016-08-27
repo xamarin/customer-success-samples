@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Entry_UITest.ViewModels
+namespace EntryUITest.ViewModels
 {
     class BaseViewModel : INotifyPropertyChanged
     {

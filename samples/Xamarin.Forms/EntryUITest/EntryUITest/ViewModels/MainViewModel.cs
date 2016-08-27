@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entry_UITest.ViewModels
+namespace EntryUITest.ViewModels
 {
     class MainViewModel : BaseViewModel
     {

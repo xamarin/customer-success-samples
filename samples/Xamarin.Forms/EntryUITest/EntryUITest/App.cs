@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Entry_UITest
+namespace EntryUITest
 {
 	public class App : Application
 	{

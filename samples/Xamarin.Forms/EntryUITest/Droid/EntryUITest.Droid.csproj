@@ -6,8 +6,8 @@
     <ProjectGuid>{1F595B81-B95E-4620-AFC8-FD345751DF61}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Entry_UITest.Droid</RootNamespace>
-    <AssemblyName>EmailKeyboard_UITest.Droid</AssemblyName>
+    <RootNamespace>EntryUITest.Droid</RootNamespace>
+    <AssemblyName>EntryUITest.Droid</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -30,7 +30,7 @@
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <Debugger>Microsoft</Debugger>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86,x86_64,arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -105,9 +105,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entry_UITest\Entry_UITest.csproj">
+    <ProjectReference Include="..\EntryUITest\EntryUITest.csproj">
       <Project>{1AF1DA0E-563E-4B5B-95E4-177632D433F4}</Project>
-      <Name>Entry_UITest</Name>
+      <Name>EntryUITest</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

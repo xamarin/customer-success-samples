@@ -6,7 +6,7 @@
     <ProjectGuid>{5FAB7ED8-E455-4ABD-842B-478F1649C92A}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Entry_UITest.iOS</RootNamespace>
+    <RootNamespace>EntryUITest.iOS</RootNamespace>
     <AssemblyName>EmailKeyboard_UITestiOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
@@ -30,6 +30,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <AssemblyName>EntryUITestiOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -47,6 +48,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <AssemblyName>EntryUITest</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <Optimize>true</Optimize>
@@ -62,6 +64,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <AssemblyName>EntryUITestiOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -86,6 +89,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <AssemblyName>EntryUITest</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,9 +136,9 @@
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entry_UITest\Entry_UITest.csproj">
+    <ProjectReference Include="..\EntryUITest\EntryUITest.csproj">
       <Project>{1AF1DA0E-563E-4B5B-95E4-177632D433F4}</Project>
-      <Name>Entry_UITest</Name>
+      <Name>EntryUITest</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

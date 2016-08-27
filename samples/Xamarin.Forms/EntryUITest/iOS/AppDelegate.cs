@@ -1,9 +1,9 @@
 ﻿using UIKit;
 using Foundation;
 
-using Xamarin.Forms;
+using EntryUITest;
 
-namespace Entry_UITest.iOS
+namespace EntryUITest.iOS
 {
 	[Register("AppDelegate")]
 	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate

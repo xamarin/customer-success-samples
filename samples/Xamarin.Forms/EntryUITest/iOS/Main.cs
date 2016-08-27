@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Entry_UITest.iOS
+namespace EntryUITest.iOS
 {
 	public class Application
 	{

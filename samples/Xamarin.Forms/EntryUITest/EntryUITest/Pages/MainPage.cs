@@ -1,8 +1,8 @@
 ﻿using Xamarin.Forms;
 
-using Entry_UITest.ViewModels;
+using EntryUITest.ViewModels;
 
-namespace Entry_UITest.Pages
+namespace EntryUITest.Pages
 {
     class MainPage : ContentPage
     {
