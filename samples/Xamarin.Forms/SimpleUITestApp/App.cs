@@ -66,17 +66,11 @@ namespace SimpleUITestApp
 		{
 			if (uri.ToString().Equals($"{Extensions.BaseUrl}{DeepLinkingIdConstants.ListViewPageId}"))
 			{
-				//Navigate to List View Page
-				Device.BeginInvokeOnMainThread(async () =>
-				{
-					await Navigation.PopToRootAsync();
-					await Navigation.PushAsync(new ListViewPage());
-				});
+				NavigateToListViewPage();
 			}
 
 			base.OnAppLinkRequestReceived(uri);
 		}
-
 
 		public void OpenListViewPageUsingDeepLinking()
 		{
@@ -85,6 +79,12 @@ namespace SimpleUITestApp
 
 		public void OpenListViewPageUsingNavigation()
 		{
+			NavigateToListViewPage();
+		}
+
+		void NavigateToListViewPage()
+		{
+			// Navigate to List View Page By recreating the Navigation Stack to mimic the user journey
 			Device.BeginInvokeOnMainThread(async () =>
 			{
 				await Navigation.PopToRootAsync();
