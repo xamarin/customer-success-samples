@@ -21,4 +21,18 @@
         android:layout_height="wrap_content"
         android:contentDescription="CheckBox3"
         android:text="This is CheckBox 3" />
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="Button1"
+        android:textColor="#ef4444"
+        android:text="This is a Button" />
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="TextView1"
+        android:textColor="#ef4444"
+        android:text="" />
 </LinearLayout>
