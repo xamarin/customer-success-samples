@@ -32,15 +32,13 @@ namespace SimpleUITestApp.UITests
 			var expectedFirstPageTitle = "First Page";
 
 			//Act
-			app.Screenshot("Application Start");
-
 			LoginPage.PressSignUpButton();
 			NewUserSignUpPage.CreateNewUserWithPassword(username, password);
 			LoginPage.LoginWithUsernamePassword(username, password);
 
 			//Assert
 			var actualFirstPageTitle = FirstPage.GetTitle();
-			Assert.AreEqual(expectedFirstPageTitle,actualFirstPageTitle);
+			Assert.AreEqual(expectedFirstPageTitle, actualFirstPageTitle);
 		}
 
 		[Test]

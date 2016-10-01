@@ -31,8 +31,7 @@ namespace InvestmentDataSampleApp
 			get { return _pickerValue; }
 			set
 			{
-				_pickerValue = value;
-				OnPropertyChanged("PickerValue");
+				SetProperty<double>(ref _pickerValue, value);
 				UpdateTermData();
 			}
 		}
@@ -42,8 +41,7 @@ namespace InvestmentDataSampleApp
 			get { return _term1Data; }
 			set
 			{
-				_term1Data = value;
-				OnPropertyChanged("Term1Data");
+				SetProperty<string>(ref _term1Data, value);
 			}
 		}
 
@@ -52,8 +50,7 @@ namespace InvestmentDataSampleApp
 			get { return _term2Data; }
 			set
 			{
-				_term2Data = value;
-				OnPropertyChanged("Term2Data");
+				SetProperty<string>(ref _term2Data, value);
 			}
 		}
 
@@ -62,8 +59,7 @@ namespace InvestmentDataSampleApp
 			get { return _term3Data; }
 			set
 			{
-				_term3Data = value;
-				OnPropertyChanged("Term3Data");
+				SetProperty<string>(ref _term3Data, value);
 			}
 		}
 
@@ -72,8 +68,7 @@ namespace InvestmentDataSampleApp
 			get { return _term4Data; }
 			set
 			{
-				_term4Data = value;
-				OnPropertyChanged("Term4Data");
+				SetProperty<string>(ref _term4Data, value);
 			}
 		}
 
@@ -82,8 +77,7 @@ namespace InvestmentDataSampleApp
 			get { return _term5Data; }
 			set
 			{
-				_term5Data = value;
-				OnPropertyChanged("Term5Data");
+				SetProperty<string>(ref _term5Data, value);
 			}
 		}
 
@@ -92,8 +86,7 @@ namespace InvestmentDataSampleApp
 			get { return _term6Data; }
 			set
 			{
-				_term6Data = value;
-				OnPropertyChanged("Term6Data");
+				SetProperty<string>(ref _term6Data, value);
 			}
 		}
 
@@ -102,8 +95,7 @@ namespace InvestmentDataSampleApp
 			get { return _term7Data; }
 			set
 			{
-				_term7Data = value;
-				OnPropertyChanged("Term7Data");
+				SetProperty<string>(ref _term7Data, value);
 			}
 		}
 
@@ -112,8 +104,7 @@ namespace InvestmentDataSampleApp
 			get { return _term8Data; }
 			set
 			{
-				_term8Data = value;
-				OnPropertyChanged("Term8Data");
+				SetProperty<string>(ref _term8Data, value);
 			}
 		}
 
@@ -122,8 +113,7 @@ namespace InvestmentDataSampleApp
 			get { return _term9Data; }
 			set
 			{
-				_term9Data = value;
-				OnPropertyChanged("Term9Data");
+				SetProperty<string>(ref _term9Data, value);
 			}
 		}
 
@@ -132,8 +122,7 @@ namespace InvestmentDataSampleApp
 			get { return _term10Data; }
 			set
 			{
-				_term10Data = value;
-				OnPropertyChanged("Term10Data");
+				SetProperty<string>(ref _term10Data, value);
 			}
 		}
 
@@ -142,8 +131,7 @@ namespace InvestmentDataSampleApp
 			get { return _term11Data; }
 			set
 			{
-				_term11Data = value;
-				OnPropertyChanged("Term11Data");
+				SetProperty<string>(ref _term11Data, value);
 			}
 		}
 
@@ -152,8 +140,7 @@ namespace InvestmentDataSampleApp
 			get { return _term12Data; }
 			set
 			{
-				_term12Data = value;
-				OnPropertyChanged("Term12Data");
+				SetProperty<string>(ref _term12Data, value);
 			}
 		}
 
@@ -162,8 +149,7 @@ namespace InvestmentDataSampleApp
 			get { return _term13Data; }
 			set
 			{
-				_term13Data = value;
-				OnPropertyChanged("Term13Data");
+				SetProperty<string>(ref _term13Data, value);
 			}
 		}
 
@@ -172,8 +158,7 @@ namespace InvestmentDataSampleApp
 			get { return _term14Data; }
 			set
 			{
-				_term14Data = value;
-				OnPropertyChanged("Term14Data");
+				SetProperty<string>(ref _term14Data, value);
 			}
 		}
 
@@ -182,8 +167,7 @@ namespace InvestmentDataSampleApp
 			get { return _term15Data; }
 			set
 			{
-				_term15Data = value;
-				OnPropertyChanged("Term15Data");
+				SetProperty<string>(ref _term15Data, value);
 			}
 		}
 
@@ -192,8 +176,7 @@ namespace InvestmentDataSampleApp
 			get { return _term16Data; }
 			set
 			{
-				_term16Data = value;
-				OnPropertyChanged("Term16Data");
+				SetProperty<string>(ref _term16Data, value);
 			}
 		}
 
@@ -202,8 +185,7 @@ namespace InvestmentDataSampleApp
 			get { return _term17Data; }
 			set
 			{
-				_term17Data = value;
-				OnPropertyChanged("Term17Data");
+				SetProperty<string>(ref _term17Data, value);
 			}
 		}
 
@@ -212,8 +194,7 @@ namespace InvestmentDataSampleApp
 			get { return _term18Data; }
 			set
 			{
-				_term18Data = value;
-				OnPropertyChanged("Term18Data");
+				SetProperty<string>(ref _term18Data, value);
 			}
 		}
 
@@ -222,8 +203,7 @@ namespace InvestmentDataSampleApp
 			get { return _term19Data; }
 			set
 			{
-				_term19Data = value;
-				OnPropertyChanged("Term19Data");
+				SetProperty<string>(ref _term19Data, value);
 			}
 		}
 
@@ -232,8 +212,7 @@ namespace InvestmentDataSampleApp
 			get { return _term20Data; }
 			set
 			{
-				_term20Data = value;
-				OnPropertyChanged("Term20Data");
+				SetProperty<string>(ref _term20Data, value);
 			}
 		}
 
@@ -241,26 +220,26 @@ namespace InvestmentDataSampleApp
 		{
 			var rnd = new Random();
 
-			Term1Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term2Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term3Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term4Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term5Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term6Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term7Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term8Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term9Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term10Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term11Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term12Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term13Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term14Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term15Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term16Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term17Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term18Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term19Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
-			Term20Data = LoremIpsum_Constants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term1Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term2Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term3Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term4Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term5Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term6Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term7Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term8Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term9Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term10Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term11Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term12Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term13Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term14Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term15Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term16Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term17Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term18Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term19Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
+			Term20Data = LoremIpsumConstants.LoremIpsum.Substring(rnd.Next(100), 10);
 		}
 	}
 }

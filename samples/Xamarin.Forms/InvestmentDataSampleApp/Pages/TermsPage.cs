@@ -263,7 +263,8 @@ namespace InvestmentDataSampleApp
 			{
 				Text = $"Page {pageNumber} of {totalPageNumbers}",
 				FontAttributes = FontAttributes.Bold,
-				HorizontalOptions = LayoutOptions.Center
+				HorizontalOptions = LayoutOptions.Center,
+				AutomationId = AutomationIdConstants.PageNumberLabel
 			};
 
 			var scenarioListStack = new StackLayout

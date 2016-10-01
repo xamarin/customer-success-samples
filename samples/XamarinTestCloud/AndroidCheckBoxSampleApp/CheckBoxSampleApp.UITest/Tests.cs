@@ -1,7 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 using Xamarin.UITest;
 using Xamarin.UITest.Android;
+
+using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
+using Xamarin.UITest.Queries;
 
 namespace CheckBoxSampleApp.UITest
 {
@@ -15,7 +19,6 @@ namespace CheckBoxSampleApp.UITest
 		{
 			app = ConfigureApp
 				.Android
-				.InstalledApp("com.minnick.checkboxsampleapp")
 				.PreferIdeSettings()
 				.StartApp();
 
@@ -27,6 +30,29 @@ namespace CheckBoxSampleApp.UITest
 		public void ReplTest()
 		{
 			app.Repl();
+		}
+
+		[Test]
+		public void VerifyButtonClick_VerifyButtonColor_VerifyTextViewColor()
+		{
+			//Arrange
+			var expectedButtonTextColorAsInt = ConvertAndroidDrawingHexColorToInt("#ef4444");
+			var expectedTextViewTextColorAsInt = ConvertAndroidDrawingHexColorToInt("#ef4444");
+			var expectedTextViewText = "1 Check Box Is Checked";
+
+			//Act
+			ToggleCheckBox("CheckBox1");
+			app.Tap(x => x.Marked("Button1"));
+			app.WaitForElement(x => x.Marked("TextView1"));
+
+			//Assert
+			var actualButtonColorAsInt = GetHexColorAsInt("Button1");
+			var actualTextViewTextColorAsInt = GetHexColorAsInt("TextView1");
+			var actualTextViewText = app.Query(x => x.Marked("TextView1"))[0]?.Text;
+
+			Assert.AreEqual(expectedButtonTextColorAsInt, actualButtonColorAsInt);
+			Assert.AreEqual(expectedTextViewTextColorAsInt, actualTextViewTextColorAsInt);
+			Assert.AreEqual(expectedTextViewText, actualTextViewText);
 		}
 
 		[TestCase("CheckBox1")]
@@ -98,10 +124,10 @@ namespace CheckBoxSampleApp.UITest
 				Assert.False((bool)isCheckBoxCheckedArray[i], $"Check box {i} is checked");
 		}
 
-		void ToggleCheckBox(string textBoxContentDescription)
+		void ToggleCheckBox(string checkBoxContentDescription)
 		{
-			app.Query(x => x.Marked(textBoxContentDescription).Invoke("performClick"));
-			app.Screenshot($"Toggled {textBoxContentDescription}");
+			app.Query(x => x.Marked(checkBoxContentDescription).Invoke("performClick"));
+			app.Screenshot($"Toggled {checkBoxContentDescription}");
 		}
 
 		bool IsCheckBoxChecked(string textBoxContentDescription)
@@ -109,10 +135,23 @@ namespace CheckBoxSampleApp.UITest
 			return (bool)app.Query(x => x.Marked(textBoxContentDescription).Invoke("isChecked"))[0];
 		}
 
-		void SetCheckBox(string textBoxContentDescription, bool IsChecked)
+		void SetCheckBox(string checkBoxContentDescription, bool IsChecked)
 		{
-			app.Query(x => x.Marked(textBoxContentDescription).Invoke("setChecked", IsChecked));
-			app.Screenshot($"Set {textBoxContentDescription} to {IsChecked}");
+			app.Query(x => x.Marked(checkBoxContentDescription).Invoke("setChecked", IsChecked));
+			app.Screenshot($"Set {checkBoxContentDescription} to {IsChecked}");
+		}
+
+		int GetHexColorAsInt(string contentDescription)
+		{
+			return int.Parse(app.Query(x => x.Marked(contentDescription).Invoke("getCurrentTextColor"))[0]?.ToString());
+		}
+
+		int ConvertAndroidDrawingHexColorToInt(string colorStringAsHex)
+		{
+			if (!colorStringAsHex.Substring(0, 1).Equals("#") || colorStringAsHex.Length != 7)
+				throw new Exception("Invalid Hex String. Color string must start with \"#\" and be followed by 6 hexadecimal characters");
+
+			return int.Parse(app.Invoke("GetColorAsInt", colorStringAsHex).ToString());
 		}
 	}
 }

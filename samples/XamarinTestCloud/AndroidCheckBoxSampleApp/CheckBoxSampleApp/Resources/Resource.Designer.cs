@@ -60,6 +60,9 @@ namespace CheckBoxSampleApp
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050003
+			public const int Button1 = 2131034115;
+			
 			// aapt resource value: 0x7f050000
 			public const int CheckBox1 = 2131034112;
 			
@@ -68,6 +71,9 @@ namespace CheckBoxSampleApp
 			
 			// aapt resource value: 0x7f050002
 			public const int CheckBox3 = 2131034114;
+			
+			// aapt resource value: 0x7f050004
+			public const int TextView1 = 2131034116;
 			
 			static Id()
 			{

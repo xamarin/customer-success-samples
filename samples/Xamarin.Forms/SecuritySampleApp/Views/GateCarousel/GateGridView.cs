@@ -122,7 +122,7 @@ namespace SecuritySampleApp
 			#region Create Stack Layout to include the title
 			var pageStack = new StackLayout
 			{
-				VerticalOptions = LayoutOptions.CenterAndExpand,
+				VerticalOptions = LayoutOptions.Center,
 				Children = {
 					gateRelativeLayout,
 					switchStackHorizontal,
@@ -147,7 +147,6 @@ namespace SecuritySampleApp
 		{
 			AboutButton.IsEnabled = !AboutButton.IsEnabled;
 			LanesButton.IsEnabled = !LanesButton.IsEnabled;
-
 		}
 	}
 }

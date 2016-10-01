@@ -84,7 +84,7 @@ namespace SimpleUITestApp
 
 		void NavigateToListViewPage()
 		{
-			// Navigate to List View Page By recreating the Navigation Stack to mimic the user journey
+			// Navigate to List View Page by recreating the Navigation Stack to mimic the user journey
 			Device.BeginInvokeOnMainThread(async () =>
 			{
 				await Navigation.PopToRootAsync();

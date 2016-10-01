@@ -8,77 +8,77 @@ namespace InvestmentDataSampleApp
 {
 	public class AddOpportunityViewModel : BaseViewModel
 	{
-		public readonly OpportunityModel addOpportunityModel;
+		string _topic;
+		string _company;
+		string _dba;
+		long _leaseAmount;
+		SalesStages _salesStage;
+		string _owner;
+		DateTime _dateCreated;
+
 		public event EventHandler SaveError;
 		public event EventHandler SaveToDatabaseCompleted;
 
 		public string Topic
 		{
-			get { return addOpportunityModel?.Topic; }
+			get { return _topic; }
 			set
 			{
-				addOpportunityModel.Topic = value;
-				OnPropertyChanged("Topic");
+				SetProperty<string>(ref _topic, value);
 			}
 		}
 
 		public string Company
 		{
-			get { return addOpportunityModel?.Company; }
+			get { return _company; }
 			set
 			{
-				addOpportunityModel.Company = value;
-				OnPropertyChanged("Company");
+				SetProperty<string>(ref _company, value);
 			}
 		}
 
 		public string DBA
 		{
-			get { return addOpportunityModel?.DBA; }
+			get { return _dba; }
 			set
 			{
-				addOpportunityModel.DBA = value;
-				OnPropertyChanged("DBA");
+				SetProperty<string>(ref _dba, value);
 			}
 		}
 
 		public long LeaseAmount
 		{
-			get { return addOpportunityModel.LeaseAmount; }
+			get { return _leaseAmount; }
 			set
 			{
-				addOpportunityModel.LeaseAmount = value;
-				OnPropertyChanged("LeaseAmount");
+				SetProperty<long>(ref _leaseAmount, value);
 			}
 		}
 
 		public SalesStages SalesStage
 		{
-			get { return addOpportunityModel.SalesStage; }
+			get { return _salesStage; }
 			set
 			{
-				addOpportunityModel.SalesStage = value;
-				OnPropertyChanged("SalesStage");
+				SetProperty<SalesStages>(ref _salesStage, value);
 			}
 		}
 
 		public string Owner
 		{
-			get { return addOpportunityModel?.Owner; }
+			get { return _owner; }
 			set
 			{
-				addOpportunityModel.Owner = value;
-				OnPropertyChanged("Owner");
+				SetProperty<string>(ref _owner, value);
 			}
 		}
 
 		public DateTime DateCreated
 		{
-			get { return addOpportunityModel.DateCreated; }
+			get { return _dateCreated; }
 			set
 			{
-				addOpportunityModel.DateCreated = value;
-				OnPropertyChanged("DateCreated");
+				SetProperty<DateTime>(ref _dateCreated, value);
 			}
 		}
 
@@ -86,7 +86,6 @@ namespace InvestmentDataSampleApp
 
 		public AddOpportunityViewModel()
 		{
-			addOpportunityModel = new OpportunityModel();
 			SalesStage = SalesStages.New;
 
 			SaveButtonTapped = new Command(() =>
@@ -98,7 +97,16 @@ namespace InvestmentDataSampleApp
 				}
 
 				DateCreated = DateTime.Now;
-				Task.Run(() => App.Database.SaveOpportunity(addOpportunityModel));
+				Task.Run(() => App.Database.SaveOpportunityAsync(new OpportunityModel
+				{
+					Topic = Topic,
+					Company = Company,
+					DBA = DBA,
+					LeaseAmount = LeaseAmount,
+					SalesStage = SalesStage,
+					Owner = Owner,
+					DateCreated = DateCreated
+				}));
 				SaveToDatabaseCompleted(this, new EventArgs());
 			});
 		}
