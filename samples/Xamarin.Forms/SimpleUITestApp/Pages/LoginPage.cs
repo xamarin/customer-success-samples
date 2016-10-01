@@ -44,7 +44,7 @@ namespace SimpleUITestApp
 
 				if (saveUserName)
 				{
-					DependencyService.Get<ILogin>().SaveUsername(userName);
+					await DependencyService.Get<ILogin>().SaveUsername(userName);
 					insightsDict.Add("Saves username", "Yes");
 				}
 				else {
@@ -55,7 +55,7 @@ namespace SimpleUITestApp
 				App.IsLoggedIn = true;
 
 				if (Device.OS == TargetPlatform.iOS)
-					Navigation.PopAsync();
+					await Navigation.PopAsync();
 				else {
 					await Navigation.PushAsync(new FirstPage(), false);
 					Navigation.RemovePage(this);

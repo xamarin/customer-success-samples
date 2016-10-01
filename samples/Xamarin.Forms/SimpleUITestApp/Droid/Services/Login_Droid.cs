@@ -58,8 +58,7 @@ namespace SimpleUITestApp.Droid
 
             try
             {
-                IEnumerable<string> test = await BlobCache.UserAccount.GetAllKeys();
-                var test1 = test;
+				IEnumerable<string> test = await BlobCache.UserAccount.GetAllKeys();
             }
             catch (Exception e)
             {
