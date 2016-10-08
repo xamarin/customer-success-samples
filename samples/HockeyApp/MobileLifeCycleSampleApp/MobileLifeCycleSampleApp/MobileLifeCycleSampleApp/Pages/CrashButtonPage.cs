@@ -6,65 +6,66 @@ using MobileLifeCycleSampleApp.Services;
 
 namespace MobileLifeCycleSampleApp.Pages
 {
-    class CrashButtonPage : ContentPage
-    {
-        public CrashButtonPage(Color backgroundColor, Color labelTextColor)
-        {
-            BackgroundColor = backgroundColor;
+	class CrashButtonPage : ContentPage
+	{
+		public CrashButtonPage(Color backgroundColor, Color labelTextColor)
+		{
+			BackgroundColor = backgroundColor;
 
-            var mobileLifecycleSampleAppLabel = new Label
-            {
-                TextColor = labelTextColor,
-                HorizontalTextAlignment = TextAlignment.Center,
-                Text = "Mobile Life Cycle Sample App!",
-                AutomationId = "CrashButton"
-            };
+			var mobileLifecycleSampleAppLabel = new Label
+			{
+				TextColor = labelTextColor,
+				HorizontalTextAlignment = TextAlignment.Center,
+				Text = "Mobile Life Cycle Sample App!",
+				AutomationId = "CrashButton"
+			};
 
-            var crashButton = new Button
-            {
-                Text = "Induce Crash",
+			var crashButton = new Button
+			{
+				Text = "Induce Crash",
 				AutomationId = AutomationIdConstants.CrashButtonAutomationId
-            };
-            crashButton.Clicked += (s, e) =>
-            {
+			};
+			crashButton.Clicked += (s, e) =>
+			{
 				MetricsManager.TrackEvent(HockeyappConstants.CrashButtonClicked);
-                throw new System.Exception("Crash Button Clicked");
-            };
-			#if DEBUG
-            var feedbackButton = new Button
-            {
-                Text = "Give Feedback",
-				AutomationId = AutomationIdConstants.FeedbackButtonAutomationId
-            };
-            feedbackButton.Clicked += (s, e) =>
-            {
-				MetricsManager.TrackEvent(HockeyappConstants.FeedbackButtonClicked);
-                DependencyService.Get<IFeedbackManager>().DisplayFeedbackPage();
-            };
-			#endif
+				throw new System.Exception("Crash Button Clicked");
+			};
 
-            var stackLayout = new StackLayout
-            {
-                Spacing = 20,
-                VerticalOptions = LayoutOptions.Center,
-                Children = {
-                    mobileLifecycleSampleAppLabel,
-                    crashButton,
+#if DEBUG
+			var feedbackButton = new Button
+			{
+				Text = "Give Feedback",
+				AutomationId = AutomationIdConstants.FeedbackButtonAutomationId
+			};
+			feedbackButton.Clicked += (s, e) =>
+			{
+				MetricsManager.TrackEvent(HockeyappConstants.FeedbackButtonClicked);
+				DependencyService.Get<IFeedbackManager>().DisplayFeedbackPage();
+			};
+#endif
+
+			var stackLayout = new StackLayout
+			{
+				Spacing = 20,
+				VerticalOptions = LayoutOptions.Center,
+				Children = {
+					mobileLifecycleSampleAppLabel,
+					crashButton,
 					#if DEBUG
                     feedbackButton
 					#endif
                 }
-            };
+			};
 
-            Padding = new Thickness(25);
+			Padding = new Thickness(25);
 
-            Content = stackLayout;
-        }
+			Content = stackLayout;
+		}
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
 			MetricsManager.TrackEvent(HockeyappConstants.CrashPageLoaded);
-        }
-    }
+		}
+	}
 }
