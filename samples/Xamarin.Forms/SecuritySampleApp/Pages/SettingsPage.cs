@@ -4,8 +4,9 @@ namespace SecuritySampleApp
 {
 	public class SettingsPage : ContentPage
 	{
-		public SettingsPage(LanesViewModel viewModel)
+		public SettingsPage(LaneModel laneModelTapped)
 		{
+			var viewModel = new SettingsViewModel(laneModelTapped);
 			BindingContext = viewModel;
 
 			#region create the IsOpen Switch
@@ -13,7 +14,7 @@ namespace SecuritySampleApp
 			{
 				Text = "Is Open"
 			};
-			isOpenSwitch.SetBinding(SwitchCell.OnProperty,"LaneTappedIsOpen");
+			isOpenSwitch.SetBinding(SwitchCell.OnProperty,"IsOpen");
 			#endregion
 
 			#region Create the Needs Maintenance Switch
@@ -21,7 +22,7 @@ namespace SecuritySampleApp
 			{
 				Text = "Needs Maintenance"
 			};
-			needsMaintenanceSwitch.SetBinding(SwitchCell.OnProperty,"LaneTappedNeedsMaintenance");
+			needsMaintenanceSwitch.SetBinding(SwitchCell.OnProperty,"NeedsMaintenance");
 			#endregion
 
 			#region create the IP Address Entry
@@ -30,7 +31,7 @@ namespace SecuritySampleApp
 				Label = "IP Address",
 				HorizontalTextAlignment = TextAlignment.End
 			};
-			ipAddressText.SetBinding(EntryCell.TextProperty, "LaneTappedIPAddress");
+			ipAddressText.SetBinding(EntryCell.TextProperty, "IPAddress");
 			#endregion
 
 			#region Create Image Cell
@@ -40,7 +41,7 @@ namespace SecuritySampleApp
 
 			#region Create the Icon Toggle Button
 			var iconToggleButton = new Button();
-			iconToggleButton.SetBinding(Button.CommandProperty, "IconToggleButton");
+			iconToggleButton.SetBinding(Button.CommandProperty, "IconToggleButtonTapped");
 			iconToggleButton.SetBinding(Button.TextProperty, "ToggleButtonText");
 			#endregion
 
@@ -72,7 +73,7 @@ namespace SecuritySampleApp
 
 			NavigationPage.SetTitleIcon(this,"cogwheel_navigation");
 
-			Title = $"Lane {viewModel.LanesList.IndexOf(viewModel.LaneTapped)+1} Settings";
+			Title = $"Lane {laneModelTapped.ID + 1} Settings";
 			Content = settingsStack;
 		}
 	}

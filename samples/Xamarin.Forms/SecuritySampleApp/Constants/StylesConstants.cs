@@ -3,7 +3,7 @@
 namespace SecuritySampleApp
 {
 	//This class creates Styles Constants to be reused in the app
-	public static class Styles_Constants
+	public static class StylesConstants
 	{
 		public static Style LabelStyle = new Style(typeof(Label))
 		{

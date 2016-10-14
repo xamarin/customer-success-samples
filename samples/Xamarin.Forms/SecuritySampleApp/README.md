@@ -1,5 +1,7 @@
 ### Security Sample App
-This app is a Xamarin.Forms app that uses MVVM and the following Xamarin.Forms controls: Slider, TableView, ListView, Carousel Page, Navigation Page
+This app is a Xamarin.Forms app that uses MVVM and the following Xamarin.Forms controls: Slider, TableView, ListView, Carousel Page, Navigation Page.
+
+It also implements the [Xamarin Settings Plugin](https://github.com/jamesmontemagno/SettingsPlugin).
 
 ![Sample Gif](./Screenshots/iOS.gif)
 
