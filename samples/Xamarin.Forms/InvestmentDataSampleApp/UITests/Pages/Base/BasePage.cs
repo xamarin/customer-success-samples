@@ -1,10 +1,8 @@
-﻿using NUnit.Framework;
-using Xamarin.UITest;
-using Xamarin.UITest.Queries;
+﻿using Xamarin.UITest;
 
 namespace InvestmentDataSampleApp.UITests
 {
-	public class BasePage
+	public abstract class BasePage
 	{
 		protected readonly IApp app;
 		protected readonly bool OnAndroid;

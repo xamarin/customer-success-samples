@@ -6,7 +6,7 @@ using Xamarin.UITest;
 
 namespace InvestmentDataSampleApp.UITests
 {
-	public abstract class TestSetUp
+	public abstract class BaseTest
 	{
 		protected IApp App;
 		protected Platform Platform;
@@ -15,7 +15,7 @@ namespace InvestmentDataSampleApp.UITests
 		protected AddOpportunityPage AddOpportunityPage;
 		protected TermsPage TermsPage;
 
-		protected TestSetUp(Platform platform)
+		protected BaseTest(Platform platform)
 		{
 			Platform = platform;
 		}

@@ -111,15 +111,15 @@ namespace InvestmentDataSampleApp
 			var opportunityModel = sender as AddOpportunityViewModel;
 			var blankFieldsString = "\n";
 
-			if (opportunityModel.Topic == "")
+			if (opportunityModel.Topic == null || opportunityModel.Topic == "")
 				blankFieldsString += "Topic\n";
-			if (opportunityModel.Company == "")
+			if (opportunityModel.Company == null || opportunityModel.Company == "")
 				blankFieldsString += "Company\n";
 			if (opportunityModel.LeaseAmount == 0)
 				blankFieldsString += "Lease Amount\n";
-			if (opportunityModel.Owner == "")
+			if (opportunityModel.Owner == null || opportunityModel.Owner == "")
 				blankFieldsString += "Owner\n";
-			if (opportunityModel.DBA == "")
+			if (opportunityModel.DBA == null || opportunityModel.DBA == "")
 				blankFieldsString += "DBA";
 
 			DisplayAlert("Error: Missing Data", $"The following fields are empty: {blankFieldsString}", "OK");
