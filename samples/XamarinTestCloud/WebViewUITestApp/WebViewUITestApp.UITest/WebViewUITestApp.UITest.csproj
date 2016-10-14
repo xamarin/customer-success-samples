@@ -50,7 +50,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.2.0.0-beta05\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.2.0.0.1524-dev\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,10 +64,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebViewUITestApp\WebViewUITestApp.Droid\WebViewUITestApp.Droid.csproj">
-      <Project>{2c0b1c09-7e01-428f-a5d8-a046c2bf0f2a}</Project>
-      <Name>WebViewUITestApp.Droid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebViewUITestApp\WebViewUITestApp.iOS\WebViewUITestApp.iOS.csproj">
       <Project>{d193e90b-08a1-4de8-89c1-2d921a854636}</Project>
       <Name>WebViewUITestApp.iOS</Name>
