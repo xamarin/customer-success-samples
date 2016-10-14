@@ -32,6 +32,18 @@ namespace InvestmentDataSampleApp.UITests
 			app.Screenshot($"Tapped ${topic} View Cell");
 		}
 
+		public void DeleteViewCell(string topic)
+		{
+			app.ScrollDownTo(topic);
+
+			if (OniOS)
+				app.SwipeRightToLeft(topic);
+			else
+				app.TouchAndHold(topic);
+
+			app.Tap("Delete");
+		}
+
 		public void Search(string searchString)
 		{
 			app.Tap(OpportunitySearchBar);

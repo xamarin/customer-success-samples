@@ -7,15 +7,15 @@ namespace SecuritySampleApp
 		public App()
 		{
 			// Create 3 Pages to be included in the main carousel page
-			var carouselPage1 = new GateCarouselPage("Page 1")
+			var carouselPage1 = new GatePage("Page 1", 3)
 			{
 				BackgroundColor = Color.Maroon
 			};
-			var carouselPage2 = new GateCarouselPage("Page 2")
+			var carouselPage2 = new GatePage("Page 2", 3)
 			{
 				BackgroundColor = Color.Green
 			};
-			var carouselPage3 = new GateCarouselPage("Page 3")
+			var carouselPage3 = new GatePage("Page 3", 3)
 			{
 				BackgroundColor = Color.Fuchsia
 			};

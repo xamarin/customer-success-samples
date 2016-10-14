@@ -6,26 +6,17 @@ namespace InvestmentDataSampleApp.UITests
 {
 	[TestFixture(Platform.Android)]
 	[TestFixture(Platform.iOS)]
-	public class ReplTests
+	public class ReplTests : BaseTest
 	{
-		IApp app;
-		Platform platform;
 
-		public ReplTests(Platform platform)
+		public ReplTests(Platform platform) : base(platform)
 		{
-			this.platform = platform;
-		}
-
-		[SetUp]
-		public void BeforeEachTest()
-		{
-			app = AppInitializer.StartApp(platform);
 		}
 
 		[Test]
 		public void ReplTest()
 		{
-			app.Repl();
+			App.Repl();
 		}
 	}
 }

@@ -1,57 +1,77 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+
+using Plugin.Settings;
+using Plugin.Settings.Abstractions;
 
 namespace SecuritySampleApp
 {
 	//Establish the Model for the Lane
-	public class LaneModel : INotifyPropertyChanged
+	public class LaneModel
 	{
-		public bool IsOpen { get; set; } = true;
+		string _isOpenSettingsKey;
+		string _ipAddressSettingsKey;
+		string _needsMaintenanceSettingsKey;
 
-		public int Count { get; set; }
-
-		public bool NeedsMaintenance { get; set; } = false;
-
-		public string IPAddress { get; set; }
-
-		public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
-		void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+		public LaneModel(int id)
 		{
-			PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			ID = id;
+
+			_needsMaintenanceSettingsKey = $"{SettingsConstants.NeedsMaintenanceKey}{ID}";
+			_isOpenSettingsKey = $"{SettingsConstants.IsOpenKey}{ID}";
+			_ipAddressSettingsKey = $"{SettingsConstants.IPAddressKey}{ID}";
 		}
-	}
 
-	//Static class to instantiate Lane Models
-	public static class LaneModelFactory
-	{
-		public static ObservableCollection<LaneModel> CreateLanes()
+		protected static ISettings AppSettings
 		{
-			var rnd = new Random();
-			var IPAddress = "192.168.0.";
-
-			var laneList = new ObservableCollection<LaneModel>();
-
-			for (int i = 0; i < 10; i++)
+			get
 			{
-				var lane = new LaneModel();
-
-				if (rnd.Next(9) < 1)
-					lane.IsOpen = false;
-
-				lane.Count = rnd.Next(1, 100);
-
-				if (rnd.Next(5) == 1)
-					lane.NeedsMaintenance = true;
-
-				lane.IPAddress = $"{IPAddress}{i}";
-
-				laneList.Add(lane);
+				return CrossSettings.Current;
 			}
+		}
 
-			return laneList;
+		public int ID { get; set; }
+
+		public bool IsOpen
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault<bool>(_isOpenSettingsKey, SettingsConstants.DefaultBool);
+			}
+			set
+			{
+				SaveToSettings(_isOpenSettingsKey, value);
+			}
+		}
+
+
+		public bool NeedsMaintenance
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault<bool>(_needsMaintenanceSettingsKey, SettingsConstants.DefaultBool);
+			}
+			set
+			{
+				SaveToSettings(_needsMaintenanceSettingsKey, value);
+			}
+		}
+
+		public string IPAddress
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault<string>(_ipAddressSettingsKey, SettingsConstants.DefaultString);
+			}
+			set
+			{
+				SaveToSettings(_ipAddressSettingsKey, value);
+			}
+		}
+
+		void SaveToSettings<T>(string key, T value)
+		{
+			AppSettings.AddOrUpdateValue<T>(key, value);
 		}
 	}
 }

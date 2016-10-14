@@ -47,6 +47,7 @@ namespace Entry_UITest.UITests
 			//Act
 			app.Tap(MyEntry);
 			app.ClearText();
+			app.ClearText();
 			app.Screenshot("Entry Tapped");
 
 			app.EnterText(typedText);

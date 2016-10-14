@@ -90,9 +90,9 @@ namespace InvestmentDataSampleApp
 
 			SaveButtonTapped = new Command(() =>
 			{
-				if (Topic.Length == 0 || Company.Length == 0 || Owner.Length == 0 || DBA.Length == 0 || LeaseAmount == 0)
+				if (Topic?.Length == 0 || Company?.Length == 0 || Owner?.Length == 0 || DBA?.Length == 0 || LeaseAmount == 0)
 				{
-					SaveError(this, new EventArgs());
+					OnSaveError();
 					return;
 				}
 
@@ -107,8 +107,23 @@ namespace InvestmentDataSampleApp
 					Owner = Owner,
 					DateCreated = DateCreated
 				}));
-				SaveToDatabaseCompleted(this, new EventArgs());
+				OnSaveToDatabaseCompleted();
 			});
+		}
+
+		void OnSaveError()
+		{
+			var handle = SaveError;
+
+			handle?.Invoke(this, EventArgs.Empty);
+		}
+
+		void OnSaveToDatabaseCompleted()
+		{
+			var handle = SaveToDatabaseCompleted;
+
+			handle?.Invoke(this, EventArgs.Empty);
+			
 		}
 	}
 }

@@ -1,11 +1,13 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace SecuritySampleApp
 {
 	public class LanesPage : ContentPage
 	{
-		LanesViewModel viewModel;
-		ListView listView;
+		readonly LanesViewModel viewModel;
+		readonly ListView listView;
 
 		public LanesPage(string pageTitle)
 		{
@@ -19,7 +21,8 @@ namespace SecuritySampleApp
 				RowHeight = 200,
 				ItemTemplate = new DataTemplate(typeof(LanesViewCell))
 			};
-			listView.ItemTapped += OnListViewItemTapped;
+			listView.IsPullToRefreshEnabled = true;
+			listView.SetBinding(ListView.ItemsSourceProperty, "LanesList");
 
 			Title = $"Lanes {pageTitle}";
 
@@ -28,22 +31,39 @@ namespace SecuritySampleApp
 			Content = listView;
 		}
 
-		async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
-		{
-			//Handle the button click
-			viewModel.LaneTapped = (LaneModel)e.Item;
-			await Navigation.PushAsync(new SettingsPage(viewModel));
-		}
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-
+			
+			listView.ItemTapped += OnListViewItemTapped;
+			listView.Refreshing += HandleRefreshing;
+			
 			RefreshListView();
 		}
-
-		protected void RefreshListView()
+		
+		protected override void OnDisappearing()
 		{
-			//Refresh List View to display the updated data
+			base.OnDisappearing();
+			
+			listView.ItemTapped -= OnListViewItemTapped;
+			listView.Refreshing -= HandleRefreshing;
+		}
+
+		async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			//Handle the button click
+			var laneTapped = (LaneModel)e.Item;
+			await Navigation.PushAsync(new SettingsPage(laneTapped));
+		}
+
+		void HandleRefreshing(object sender, EventArgs e)
+		{
+			RefreshListView();
+			listView.EndRefresh();
+		}
+
+		void RefreshListView()
+		{
 			listView.ItemsSource = null;
 			listView.SetBinding(ListView.ItemsSourceProperty, "LanesList");
 		}
