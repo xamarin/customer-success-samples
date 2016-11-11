@@ -1,13 +1,8 @@
-﻿using System;
-using NUnit.Framework;
-using Xamarin.UITest;
-using Xamarin.UITest.Queries;
-using System.Linq;
-using Xamarin.UITest.iOS;
+﻿using Xamarin.UITest;
 
 namespace FormsKitchenSink.UITests.Pages
 {
-    public class PageBase
+    public abstract class PageBase
     {
         #region properties & fields
         protected readonly IApp app;
@@ -15,7 +10,7 @@ namespace FormsKitchenSink.UITests.Pages
         #endregion
 
         #region methods
-        public virtual void VerifyPresent() { }
+        public abstract PageBase VerifyPresent();
         #endregion
 
         #region constructors

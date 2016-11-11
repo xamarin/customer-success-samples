@@ -1,8 +1,7 @@
 ﻿using Xamarin.UITest;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System;
 using FormsKitchenSink.Util;
+using Xamarin.UITest.Android;
 
 namespace FormsKitchenSink.UITests.Pages
 {
@@ -18,7 +17,7 @@ namespace FormsKitchenSink.UITests.Pages
         private const int AndroidWhite = -1;
         #endregion
 
-        #region properties & fields
+        #region property overrides
         public string BackgroundColor
         {
             get
@@ -49,12 +48,13 @@ namespace FormsKitchenSink.UITests.Pages
                 }
             }
         }
+        #endregion
 
+        #region properties & fields
         public bool SwitchValue 
         {
             get
             {
-                VerifyPresent();
                 int value = app.Query(
                     x => x.Switch(IDs.SwitchScreen1.SwitchId)
                     .Invoke(app is AndroidApp ? "isChecked" : "isOn")
@@ -66,16 +66,16 @@ namespace FormsKitchenSink.UITests.Pages
         #endregion
 
         #region method overrides
-        public override void VerifyPresent()
+        public override PageBase VerifyPresent()
         {
             app.WaitForElement(IDs.SwitchScreen1.ScreenId);
+            return this;
         }
         #endregion
 
         #region public methods
         public SwitchPage1 ToggleSwitch()
         {
-            VerifyPresent();
             app.Tap(x => x.Switch(IDs.SwitchScreen1.SwitchId));
             return this;
         }

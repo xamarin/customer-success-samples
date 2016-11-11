@@ -35,3 +35,8 @@ curl \
   -H "X-HockeyAppToken: <HOCKEY_APP_TOKEN>" \
   https://rink.hockeyapp.net/api/2/apps/<HOCKEYAPP_APP_ID>/app_versions/upload
 ```
+
+# License
+
+[MIT license](LICENSE.md)
+

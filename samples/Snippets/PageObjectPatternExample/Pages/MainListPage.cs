@@ -1,11 +1,5 @@
-﻿using System;
-using NUnit.Framework;
-using Xamarin.UITest;
-using Xamarin.UITest.Queries;
-using System.Linq;
+﻿using Xamarin.UITest;
 using Xamarin.UITest.iOS;
-using Xamarin.UITest.Android;
-using System.Reflection;
 using FormsKitchenSink.Util;
 
 namespace FormsKitchenSink.UITests.Pages
@@ -13,9 +7,10 @@ namespace FormsKitchenSink.UITests.Pages
     public class MainListPage : PageBase
     {
         #region method overrides
-        public override void VerifyPresent()
+        public override PageBase VerifyPresent()
         {
             app.WaitForElement(IDs.MainListScreen.ScreenId);
+            return this;
         }
         #endregion
 
@@ -30,13 +25,9 @@ namespace FormsKitchenSink.UITests.Pages
         public void NavigateToOrangeScreenUsingBackdoor()
         {
             if (app is iOSApp)
-            {
-                ((iOSApp)app).Invoke("navigateToOrangeScreen:", "");
-            }
+                app.Invoke("navigateToOrangeScreen:", "");
             else
-            {
-                ((AndroidApp)app).Invoke("NavigateToOrangeScreen");
-            }
+                app.Invoke("NavigateToOrangeScreen");
         }
         #endregion
 
