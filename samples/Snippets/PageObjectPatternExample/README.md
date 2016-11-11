@@ -48,15 +48,15 @@ The advantages to this approach are many:
 
 To better understand the functionality being tested by the tests in `Tests.cs`, check out the screenshots below.
 
-### `TestSwitchScreen1`
+### [TestSwitchScreen1](Tests.cs#L72)
 
 ![TestSwitchScreen1](images/2-TestSwitchScreen1.png)
 
-### `TestOrangeScreenWithoutBackdoor`
+### [TestOrangeScreenWithoutBackdoor](Tests.cs#L104)
 
 ![TestOrangeScreenWithoutBackdoor](images/3-TestOrangeScreenWithoutBackdoor.png)
 
-### `TestOrangeScreenWithBackdoor`
+### [TestOrangeScreenWithBackdoor](Tests.cs#L132)
 
 ![TestOrangeScreenWithBackdoor](images/4-TestOrangeScreenWithBackdoor.png)
 
