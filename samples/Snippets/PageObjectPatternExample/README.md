@@ -8,7 +8,7 @@ Note that this code hasn't been tested in a production environment, may contain 
 
 Basic UI tests that haven't been architected according to the Page Object Pattern are simple enough: they query interface elements from the application's UI (for example, find a button), interact with those elements (tap the button), and then use assertions to verify that the app has responded as expected (the button tap caused navigation to occur).
 
-For a basic example of this a test written using this style, look at `[NonPageObjectPatternTest](Tests.cs#L54)`. This simple test:
+For a basic example of this a test written using this style, look at [NonPageObjectPatternTest](Tests.cs#L54). This simple test:
 
 - Starts up the app
 - Taps an item in the list, which navigates to a screen that contains a switch
