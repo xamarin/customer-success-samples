@@ -4,4 +4,4 @@ This sample app demonstrates how to create Xamarin.UITest for an iOS app built i
 
 This repo contains an [iOS app made using Xcode](https://github.com/brminnick/Xcode_XamarinUITest_SampleApp/tree/master/Xcode_XamarinUITest_SampleApp.xcodeproj), and a [Xamarin.UITest made using Xamarin Studio](https://github.com/brminnick/Xcode_XamarinUITest_SampleApp/tree/master/Xcode_XamarinUITest_SampleApp.UITests).
 
-To run a UITest against an iOS app, you will need to embed the Calabash Library. To add Calabash to an iOS app built in Xcode, follow [this tutorial](https://github.com/brminnick/Xcode_XamarinUITest_SampleApp/new/master?readme=1).
+To run a UITest against an iOS app, you will need to embed the Calabash Library by following [this tutorial](https://github.com/brminnick/Xcode_XamarinUITest_SampleApp/new/master?readme=1).
