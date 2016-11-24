@@ -34,6 +34,9 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## Pod Folder
+Pods/
+
 ## Other
 *.moved-aside
 *.xccheckout
