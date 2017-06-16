@@ -1,4 +1,4 @@
-##Forms Native Video Player
+## Forms Native Video Player
 ------
 
 This example shows how to play a video from a url link in a Xamarin.Forms application. Screen rotation is enabled to allow full screen, but no other controls were built in to keep this a more basic example. 
@@ -19,7 +19,7 @@ Things to note about this sample:
 
 If you have any questions about this sample, please feel free to open an issue and assign it to the author.
 
-###Author
+### Author
 ------
 
 Michael Watson  
