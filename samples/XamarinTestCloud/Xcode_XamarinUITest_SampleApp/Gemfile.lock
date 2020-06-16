@@ -73,7 +73,7 @@ GEM
     escape (0.0.4)
     fourflusher (2.0.1)
     fuzzy_match (2.0.4)
-    geocoder (1.4.0)
+    geocoder (1.6.3)
     gh_inspector (1.0.2)
     gherkin (4.0.0)
     httpclient (2.8.2.4)
